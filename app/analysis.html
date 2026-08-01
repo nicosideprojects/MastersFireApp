@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Mode - Concept Mockup</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: #f0f2f5;
+            color: #222;
+            font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        .topbar {
+            height: 54px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .topbar b {
+            font-size: 14px;
+        }
+
+        .topbar .back {
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .layout {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+        }
+
+        .panel {
+            background: #fff;
+            flex-shrink: 0;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .panel.left {
+            width: 250px;
+            border-right: 1px solid #ddd;
+        }
+
+        .panel.right {
+            width: 300px;
+            border-left: 1px solid #ddd;
+        }
+
+        h2 {
+            font-size: 12px;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 6px 0 10px;
+        }
+
+        h2:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        .box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .box.active {
+            border-color: #888;
+        }
+
+        .box .t {
+            font-weight: 600;
+        }
+
+        .box .s {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .map {
+            flex: 1;
+            position: relative;
+        }
+
+        #map {
+            position: absolute;
+            inset: 0;
+        }
+
+        .search {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 340px;
+            max-width: 70%;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 9px 12px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <b>Disaster &amp; Resource Monitoring System: Analysis Mode</b>
+        <a class="back" href="home.html">Back to home</a>
+    </div>
+
+    <div class="layout">
+
+        <div class="panel left">
+            <h2>Layers</h2>
+            <div class="box active">
+                <div class="t">💧 Hydrant coverage</div>
+                <div class="s">View circles around each hydrant</div>
+            </div>
+            <div class="box active">
+                <div class="t">🟥 Coverage gaps</div>
+                <div class="s">View gaps beyond the coverage</div>
+            </div>
+            <div class="box">
+                <div class="t">🔥 Density heatmap</div>
+                <div class="s">Hydrant density across the area</div>
+            </div>
+            <div class="box">
+                <div class="t">📍 Candidate sites</div>
+                <div class="s">Suggested new hydrants</div>
+            </div>
+
+            <h2>Settings</h2>
+            <div class="box">[ Select radius: 120m ]</div>
+            <div class="box">[ Button to run analysis ]</div>
+        </div>
+
+        <div class="map">
+            <div id="map"></div>
+            <div class="search"><input type="text" placeholder="🔍  Search for a location... [top N matches]"></div>
+        </div>
+
+        <div class="panel right">
+            <h2>Results</h2>
+            <div class="box">[ Coverage summary: percentage of built-up area within selected radius of a hydrant, and
+                total uncovered gap area ]</div>
+            <div class="box">[ If a gap is selected: its area and the distance to the nearest existing hydrant ]</div>
+            <div class="box">[ Candidate sites: list of suggested new-hydrant locations based on the chosen algorithm ]
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const map = L.map('map', { zoomControl: true }).setView([51.5074, -0.1278], 13);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        }).addTo(map);
+    </script>
+
+</body>
+
+</html>
