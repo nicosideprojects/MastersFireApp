@@ -90,10 +90,43 @@
             min-height: 100px;
         }
 
+        .info-row {
+            margin-bottom: 9px;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .info-value {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .info-sub {
+            color: #aaa;
+            font-size: 12px;
+        }
+
         .info-muted {
             color: #666;
             font-size: 13px;
             font-style: italic;
+        }
+
+        #status {
+            font-size: 12px;
+            color: #555;
+            padding-top: 10px;
+            border-top: 1px solid #2d2d44;
         }
 
         #map {
@@ -122,8 +155,10 @@
 
         <div>
             <div class="section-label">Details</div>
-            <div id="info"><span class="info-muted">Click the map to place a fire...</span></div>
+            <div id="info"><span class="info-muted">Click the map to place a fire pin...</span></div>
         </div>
+
+        <div id="status">Loading data...</div>
     </div>
 
     <div id="map"></div>
@@ -134,8 +169,15 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
 
+        let hydrants = [], waterBodies = [];
+        let pins = [];
+        let pinIdCounter = 0;
         let currentMode = 'fire';
+
         const info = document.getElementById('info');
+        const status = document.getElementById('status');
+
+        const PIN_EMOJIS = { fire: '🔥' };
 
         document.querySelectorAll('.pin-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -145,6 +187,81 @@
             });
         });
 
+        // load the two static datasets needed for the fire pin
+        function loadStaticData() {
+            status.textContent = 'Loading data...';
+            Promise.all([
+                fetch('data/london_hydrants.geojson').then(response => response.json()),
+                fetch('data/london_water.geojson').then(response => response.json())
+            ]).then(([hydrantData, waterData]) => {
+                hydrants = hydrantData.features;
+                waterBodies = waterData.features;
+                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources loaded`;
+            }).catch(() => {
+                status.textContent = 'Error loading data - open via Live Server';
+                status.style.color = '#ff6b6b';
+            });
+        }
+        loadStaticData();
+
+        // calculates distance between two points in km using the haversine formula
+        function haversine(lat1, lon1, lat2, lon2) {
+            const earthRadiusKm = 6371;
+            const deltaLat = (lat2 - lat1) * Math.PI / 180;
+            const deltaLon = (lon2 - lon1) * Math.PI / 180;
+            const haversineTerm = Math.sin(deltaLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(deltaLon / 2) ** 2;
+            return earthRadiusKm * 2 * Math.atan2(Math.sqrt(haversineTerm), Math.sqrt(1 - haversineTerm));
+        }
+
+        // finds the nearest feature to a given lat/lon from a list of features
+        function findNearest(lat, lon, features) {
+            let nearest = null, minDist = Infinity;
+            features.forEach(feature => {
+                const [featureLon, featureLat] = feature.geometry.coordinates;
+                const distance = haversine(lat, lon, featureLat, featureLon);
+                if (distance < minDist) { minDist = distance; nearest = { feature, dist: distance }; }
+            });
+            return nearest;
+        }
+
+        // finds the nearest N features to a given lat/lon from a list of features
+        function findNearestN(lat, lon, features, count) {
+            return features
+                .map(feature => { const [featureLon, featureLat] = feature.geometry.coordinates; return { feature, dist: haversine(lat, lon, featureLat, featureLon) }; })
+                .sort((entryA, entryB) => entryA.dist - entryB.dist)
+                .slice(0, count);
+        }
+
+        // calculates a destination point given a start point, bearing, and distance
+        function destinationPoint(lat, lon, bearing, distKm) {
+            const earthRadiusKm = 6371;
+            const angularDistance = distKm / earthRadiusKm;
+            const bearingRad = bearing * Math.PI / 180;
+            const startLatRad = lat * Math.PI / 180, startLonRad = lon * Math.PI / 180;
+            const destLatRad = Math.asin(Math.sin(startLatRad) * Math.cos(angularDistance) + Math.cos(startLatRad) * Math.sin(angularDistance) * Math.cos(bearingRad));
+            const destLonRad = startLonRad + Math.atan2(Math.sin(bearingRad) * Math.sin(angularDistance) * Math.cos(startLatRad), Math.cos(angularDistance) - Math.sin(startLatRad) * Math.sin(destLatRad));
+            return [destLatRad * 180 / Math.PI, destLonRad * 180 / Math.PI];
+        }
+
+        // converts a bearing in degrees to a compass direction (N, S, etc)
+        function bearingToCompass(bearingDegrees) {
+            return ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.round(bearingDegrees / 45) % 8];
+        }
+
+        // determines the type of water body based on its properties
+        function waterType(props) {
+            if (props.leisure === 'swimming_pool') return 'Swimming Pool';
+            if (props.landuse === 'reservoir') return 'Reservoir';
+            const waterSubtype = props.water;
+            if (waterSubtype === 'reservoir') return 'Reservoir';
+            if (waterSubtype === 'lake') return 'Lake';
+            if (waterSubtype === 'pond') return 'Pond';
+            if (waterSubtype === 'river') return 'River';
+            if (waterSubtype === 'canal') return 'Canal';
+            return 'Water Body';
+        }
+
+        // creates a custom Leaflet icon using an emoji
         function makeIcon(emoji) {
             return L.divIcon({
                 html: `<div style="font-size:26px;line-height:1;filter:drop-shadow(1px 1px 3px rgba(0,0,0,0.6))">${emoji}</div>`,
@@ -152,10 +269,94 @@
             });
         }
 
-        map.on('click', (e) => {
+        // creates a new pin on the map and adds it to the pins array
+        function createPin(type, lat, lng) {
+            const pin = { id: pinIdCounter++, type, lat, lng, layers: [] };
+            const marker = L.marker([lat, lng], { icon: makeIcon(PIN_EMOJIS[type]) }).addTo(map);
+            pin.marker = marker;
+            pins.push(pin);
+            return pin;
+        }
+
+        // fire pin: nearest hydrants/water within 500m, plus a wind-driven spread cone
+        async function calculatePin(pin) {
+            const { lat, lng } = pin;
+
+            if (!hydrants.length || !waterBodies.length) {
+                info.innerHTML = '<span class="info-muted">Data still loading, try again in a moment.</span>';
+                return;
+            }
+
+            const nearestHydrants = findNearestN(lat, lng, hydrants, 3).filter(hydrantMatch => hydrantMatch.dist <= 0.5);
+            const nearestHydrantFallback = nearestHydrants[0] || findNearest(lat, lng, hydrants);
+            nearestHydrants.forEach(hydrantMatch => {
+                const [hydrantLon, hydrantLat] = hydrantMatch.feature.geometry.coordinates;
+                pin.layers.push(L.circleMarker([hydrantLat, hydrantLon], { radius: 9, color: '#00e676', fillColor: '#00e676', fillOpacity: 0.9, weight: 2 }).addTo(map));
+                pin.layers.push(L.polyline([[lat, lng], [hydrantLat, hydrantLon]], { color: '#00e676', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
+            });
+
+            const nearestWaters = findNearestN(lat, lng, waterBodies, 3).filter(waterMatch => waterMatch.dist <= 0.5);
+            const nearestWaterFallback = nearestWaters[0] || findNearest(lat, lng, waterBodies);
+            nearestWaters.forEach(waterMatch => {
+                const [waterLon, waterLat] = waterMatch.feature.geometry.coordinates;
+                pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
+                pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
+            });
+
+            let windHtml = '';
+            try {
+                const windResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=wind_speed_10m,wind_direction_10m`).then(response => response.json());
+                const windSpeed = windResponse.current.wind_speed_10m;
+                const windDir = windResponse.current.wind_direction_10m;
+                const spreadBearing = (windDir + 180) % 360;
+                const spreadDist = Math.max(0.05, windSpeed * 0.02);
+
+                pin.layers.push(L.polygon(
+                    [[lat, lng],
+                    destinationPoint(lat, lng, (spreadBearing - 30 + 360) % 360, spreadDist),
+                    destinationPoint(lat, lng, spreadBearing, spreadDist),
+                    destinationPoint(lat, lng, (spreadBearing + 30) % 360, spreadDist)],
+                    { color: 'orange', fillColor: 'orange', fillOpacity: 0.25, weight: 2, dashArray: '5,4' }
+                ).addTo(map));
+
+                windHtml = `
+                <div class="info-row">
+                    <div class="info-label">Wind</div>
+                    <div class="info-value">${(windSpeed * 3.6).toFixed(1)} km/h from ${bearingToCompass(windDir)}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Fire spread direction</div>
+                    <div class="info-value">Towards ${bearingToCompass(spreadBearing)}</div>
+                </div>`;
+            } catch {
+                windHtml = '<div class="info-row"><span class="info-muted">Wind data unavailable</span></div>';
+            }
+
+            const hydrantSummary = nearestHydrants.length
+                ? nearestHydrants.map(hydrantMatch => `<div class="info-sub">Hydrant - ${(hydrantMatch.dist * 1000).toFixed(0)}m</div>`).join('')
+                : `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+
+            const waterSummary = nearestWaters.length
+                ? nearestWaters.map(waterMatch => `<div class="info-sub">${waterType(waterMatch.feature.properties)} - ${(waterMatch.dist * 1000).toFixed(0)}m</div>`).join('')
+                : `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+
+            info.innerHTML = `
+            <div class="info-row">
+                <div class="info-label">Hydrants within 500m</div>
+                ${nearestHydrants.length ? hydrantSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + hydrantSummary}
+            </div>
+            <div class="info-row">
+                <div class="info-label">Water sources within 500m</div>
+                ${nearestWaters.length ? waterSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + waterSummary}
+            </div>
+            ${windHtml}`;
+        }
+
+        map.on('click', async (e) => {
             const { lat, lng } = e.latlng;
-            L.marker([lat, lng], { icon: makeIcon('🔥') }).addTo(map);
-            info.innerHTML = '<span class="info-muted">Pin placed - calcs TODO</span>';
+            info.innerHTML = '<span class="info-muted">Working...</span>';
+            const pin = createPin(currentMode, lat, lng);
+            await calculatePin(pin);
         });
     </script>
 </body>
