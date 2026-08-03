@@ -1,0 +1,8731 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-07-05T15:07:28Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/25723087",
+        "emergency": "fire_hydrant",
+        "highway": "traffic_signals"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.465015,
+          -33.9794255
+        ]
+      },
+      "id": "node/25723087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2180606598",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4845039,
+          -33.797722
+        ]
+      },
+      "id": "node/2180606598"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2184664831",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4839423,
+          -33.7956556
+        ]
+      },
+      "id": "node/2184664831"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2184664889",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4842792,
+          -33.7962344
+        ]
+      },
+      "id": "node/2184664889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2184694968",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.481563,
+          -33.796402
+        ]
+      },
+      "id": "node/2184694968"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2184712380",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4802877,
+          -33.7963117
+        ]
+      },
+      "id": "node/2184712380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2184765103",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4816533,
+          -33.7981697
+        ]
+      },
+      "id": "node/2184765103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2186529445",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4835424,
+          -33.7952114
+        ]
+      },
+      "id": "node/2186529445"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2191667783",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.477272,
+          -33.7921553
+        ]
+      },
+      "id": "node/2191667783"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2191667785",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4817711,
+          -33.7924647
+        ]
+      },
+      "id": "node/2191667785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2191667787",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4786827,
+          -33.7926552
+        ]
+      },
+      "id": "node/2191667787"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2194221626",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4810853,
+          -33.7974902
+        ]
+      },
+      "id": "node/2194221626"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2194221632",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4810772,
+          -33.7979431
+        ]
+      },
+      "id": "node/2194221632"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2194221654",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4802354,
+          -33.7982632
+        ]
+      },
+      "id": "node/2194221654"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2194263106",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4798862,
+          -33.7969394
+        ]
+      },
+      "id": "node/2194263106"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2194263107",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4797412,
+          -33.7974227
+        ]
+      },
+      "id": "node/2194263107"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2196258367",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4879918,
+          -33.7954371
+        ]
+      },
+      "id": "node/2196258367"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2196307031",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4863536,
+          -33.7939764
+        ]
+      },
+      "id": "node/2196307031"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2291484602",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4901276,
+          -33.8544362
+        ]
+      },
+      "id": "node/2291484602"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2291484603",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4910496,
+          -33.8544558
+        ]
+      },
+      "id": "node/2291484603"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2291484607",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4939998,
+          -33.85502
+        ]
+      },
+      "id": "node/2291484607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2291484762",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5064103,
+          -33.8766373
+        ]
+      },
+      "id": "node/2291484762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2291484993",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5220997,
+          -33.888077
+        ]
+      },
+      "id": "node/2291484993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2292002672",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8224471,
+          -34.113712
+        ]
+      },
+      "id": "node/2292002672"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2688093458",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3853311,
+          -33.9196771
+        ]
+      },
+      "id": "node/2688093458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2692329594",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3884413,
+          -33.9174466
+        ]
+      },
+      "id": "node/2692329594"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2692329756",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3878796,
+          -33.9181998
+        ]
+      },
+      "id": "node/2692329756"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2778904224",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4830949,
+          -33.7979917
+        ]
+      },
+      "id": "node/2778904224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2778904246",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4810562,
+          -33.7987948
+        ]
+      },
+      "id": "node/2778904246"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2778904254",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4808513,
+          -33.7993014
+        ]
+      },
+      "id": "node/2778904254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238277460",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4871883,
+          -33.7957624
+        ]
+      },
+      "id": "node/4238277460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238277463",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4864343,
+          -33.7960589
+        ]
+      },
+      "id": "node/4238277463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238277466",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4856711,
+          -33.7963713
+        ]
+      },
+      "id": "node/4238277466"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238277468",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "parking_lot",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.484866,
+          -33.7964721
+        ]
+      },
+      "id": "node/4238277468"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238277470",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4849675,
+          -33.7968152
+        ]
+      },
+      "id": "node/4238277470"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537939",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4841905,
+          -33.7888228
+        ]
+      },
+      "id": "node/4238537939"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537940",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4833389,
+          -33.7889134
+        ]
+      },
+      "id": "node/4238537940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537979",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4856521,
+          -33.7914868
+        ]
+      },
+      "id": "node/4238537979"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537980",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4861531,
+          -33.7915146
+        ]
+      },
+      "id": "node/4238537980"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537993",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4861038,
+          -33.7922984
+        ]
+      },
+      "id": "node/4238537993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238537996",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4866135,
+          -33.7923473
+        ]
+      },
+      "id": "node/4238537996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238538047",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4831494,
+          -33.7945344
+        ]
+      },
+      "id": "node/4238538047"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238538406",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4801922,
+          -33.7988129
+        ]
+      },
+      "id": "node/4238538406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238538459",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.481923,
+          -33.799369
+        ]
+      },
+      "id": "node/4238538459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589083",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4825821,
+          -33.7964223
+        ]
+      },
+      "id": "node/4238589083"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589086",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4819223,
+          -33.7968369
+        ]
+      },
+      "id": "node/4238589086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589088",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4805523,
+          -33.797116
+        ]
+      },
+      "id": "node/4238589088"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589197",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4803641,
+          -33.7977707
+        ]
+      },
+      "id": "node/4238589197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589214",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4809938,
+          -33.7997343
+        ]
+      },
+      "id": "node/4238589214"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589228",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.487891,
+          -33.8006244
+        ]
+      },
+      "id": "node/4238589228"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589234",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4886267,
+          -33.8010171
+        ]
+      },
+      "id": "node/4238589234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589407",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4867632,
+          -33.8054067
+        ]
+      },
+      "id": "node/4238589407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589417",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4893942,
+          -33.8056727
+        ]
+      },
+      "id": "node/4238589417"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589423",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.487777,
+          -33.8057799
+        ]
+      },
+      "id": "node/4238589423"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589431",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4863909,
+          -33.8060166
+        ]
+      },
+      "id": "node/4238589431"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589438",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4871291,
+          -33.8061171
+        ]
+      },
+      "id": "node/4238589438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589467",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4894719,
+          -33.8065425
+        ]
+      },
+      "id": "node/4238589467"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589475",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4862104,
+          -33.8066451
+        ]
+      },
+      "id": "node/4238589475"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589483",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4878687,
+          -33.8067881
+        ]
+      },
+      "id": "node/4238589483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589593",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4882913,
+          -33.8069962
+        ]
+      },
+      "id": "node/4238589593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589643",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4871781,
+          -33.8076753
+        ]
+      },
+      "id": "node/4238589643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589668",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4876658,
+          -33.8081532
+        ]
+      },
+      "id": "node/4238589668"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589679",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4865288,
+          -33.8082881
+        ]
+      },
+      "id": "node/4238589679"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589686",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4871375,
+          -33.8084241
+        ]
+      },
+      "id": "node/4238589686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589689",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4893358,
+          -33.8086234
+        ]
+      },
+      "id": "node/4238589689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589692",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4882546,
+          -33.8087424
+        ]
+      },
+      "id": "node/4238589692"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589706",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.48719,
+          -33.8090758
+        ]
+      },
+      "id": "node/4238589706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589712",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4898422,
+          -33.8092707
+        ]
+      },
+      "id": "node/4238589712"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589718",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4885186,
+          -33.8093078
+        ]
+      },
+      "id": "node/4238589718"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589730",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4863965,
+          -33.8094171
+        ]
+      },
+      "id": "node/4238589730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589735",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4893647,
+          -33.8096458
+        ]
+      },
+      "id": "node/4238589735"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589739",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4872733,
+          -33.8097409
+        ]
+      },
+      "id": "node/4238589739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589740",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.488017,
+          -33.809802
+        ]
+      },
+      "id": "node/4238589740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589747",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4885475,
+          -33.8099961
+        ]
+      },
+      "id": "node/4238589747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589750",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.490032,
+          -33.8101462
+        ]
+      },
+      "id": "node/4238589750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589761",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4891807,
+          -33.8103418
+        ]
+      },
+      "id": "node/4238589761"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238589909",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4888621,
+          -33.8115977
+        ]
+      },
+      "id": "node/4238589909"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238590104",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4893066,
+          -33.8135582
+        ]
+      },
+      "id": "node/4238590104"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4238590136",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4890323,
+          -33.8143087
+        ]
+      },
+      "id": "node/4238590136"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4240257089",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5377536,
+          -33.9422612
+        ]
+      },
+      "id": "node/4240257089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4240545133",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.424612,
+          -33.9408696
+        ]
+      },
+      "id": "node/4240545133"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4240545151",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4086849,
+          -33.9411523
+        ]
+      },
+      "id": "node/4240545151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392524",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6926945,
+          -33.8664932
+        ]
+      },
+      "id": "node/4253392524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392582",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6979014,
+          -33.8679203
+        ]
+      },
+      "id": "node/4253392582"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392890",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6966256,
+          -33.8681009
+        ]
+      },
+      "id": "node/4253392890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392894",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6946048,
+          -33.8681819
+        ]
+      },
+      "id": "node/4253392894"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392908",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6974296,
+          -33.8685299
+        ]
+      },
+      "id": "node/4253392908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392921",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.694925,
+          -33.8686664
+        ]
+      },
+      "id": "node/4253392921"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392955",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6946756,
+          -33.8696035
+        ]
+      },
+      "id": "node/4253392955"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392967",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6940001,
+          -33.8702034
+        ]
+      },
+      "id": "node/4253392967"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392976",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6948612,
+          -33.8703525
+        ]
+      },
+      "id": "node/4253392976"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253392988",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6950405,
+          -33.8710528
+        ]
+      },
+      "id": "node/4253392988"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253451750",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7106927,
+          -33.8380593
+        ]
+      },
+      "id": "node/4253451750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253451778",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7223869,
+          -33.8390437
+        ]
+      },
+      "id": "node/4253451778"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253451971",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7187225,
+          -33.8414141
+        ]
+      },
+      "id": "node/4253451971"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562451",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7040412,
+          -33.8308554
+        ]
+      },
+      "id": "node/4253562451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562461",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7041569,
+          -33.831333
+        ]
+      },
+      "id": "node/4253562461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562524",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.703053,
+          -33.8337574
+        ]
+      },
+      "id": "node/4253562524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562539",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7042599,
+          -33.8343269
+        ]
+      },
+      "id": "node/4253562539"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562544",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7034975,
+          -33.8347958
+        ]
+      },
+      "id": "node/4253562544"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562682",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6981082,
+          -33.8397392
+        ]
+      },
+      "id": "node/4253562682"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253562991",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.699128,
+          -33.8402905
+        ]
+      },
+      "id": "node/4253562991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253563447",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5255462,
+          -33.8733244
+        ]
+      },
+      "id": "node/4253563447"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253563449",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5263537,
+          -33.8733905
+        ]
+      },
+      "id": "node/4253563449"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253563453",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5261502,
+          -33.8742431
+        ]
+      },
+      "id": "node/4253563453"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4253564470",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.527113,
+          -33.8706885
+        ]
+      },
+      "id": "node/4253564470"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4264342897",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4881104,
+          -33.8929104
+        ]
+      },
+      "id": "node/4264342897"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4264342904",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4881627,
+          -33.8930295
+        ]
+      },
+      "id": "node/4264342904"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4264342933",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4879716,
+          -33.8935811
+        ]
+      },
+      "id": "node/4264342933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4264343146",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4887537,
+          -33.8973687
+        ]
+      },
+      "id": "node/4264343146"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266915976",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4567483,
+          -33.9289173
+        ]
+      },
+      "id": "node/4266915976"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266916072",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4480673,
+          -33.9296567
+        ]
+      },
+      "id": "node/4266916072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266916126",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4512035,
+          -33.9311906
+        ]
+      },
+      "id": "node/4266916126"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266916147",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4506979,
+          -33.9319222
+        ]
+      },
+      "id": "node/4266916147"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266916163",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4502225,
+          -33.9323428
+        ]
+      },
+      "id": "node/4266916163"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4267252623",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4325891,
+          -34.1444644
+        ]
+      },
+      "id": "node/4267252623"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4278970608",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4680465,
+          -34.1012237
+        ]
+      },
+      "id": "node/4278970608"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4278970618",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4698154,
+          -34.1016313
+        ]
+      },
+      "id": "node/4278970618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103048",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4708102,
+          -34.0430479
+        ]
+      },
+      "id": "node/4279103048"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103055",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4709027,
+          -34.0433868
+        ]
+      },
+      "id": "node/4279103055"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103065",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4708015,
+          -34.0441147
+        ]
+      },
+      "id": "node/4279103065"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103069",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4715485,
+          -34.0442975
+        ]
+      },
+      "id": "node/4279103069"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103166",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4625512,
+          -34.0478238
+        ]
+      },
+      "id": "node/4279103166"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103167",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4622682,
+          -34.0478488
+        ]
+      },
+      "id": "node/4279103167"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103298",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4623024,
+          -34.0490266
+        ]
+      },
+      "id": "node/4279103298"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103335",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4587485,
+          -34.0503995
+        ]
+      },
+      "id": "node/4279103335"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103340",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4590086,
+          -34.0507406
+        ]
+      },
+      "id": "node/4279103340"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103368",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4613073,
+          -34.0518856
+        ]
+      },
+      "id": "node/4279103368"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103380",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4603055,
+          -34.0522562
+        ]
+      },
+      "id": "node/4279103380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103490",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4608969,
+          -34.0525234
+        ]
+      },
+      "id": "node/4279103490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103492",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4622436,
+          -34.0525557
+        ]
+      },
+      "id": "node/4279103492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103494",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4588853,
+          -34.0526746
+        ]
+      },
+      "id": "node/4279103494"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103505",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4632648,
+          -34.0536463
+        ]
+      },
+      "id": "node/4279103505"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103506",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.463002,
+          -34.0537352
+        ]
+      },
+      "id": "node/4279103506"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103508",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.463181,
+          -34.0539268
+        ]
+      },
+      "id": "node/4279103508"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103512",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4629832,
+          -34.0546507
+        ]
+      },
+      "id": "node/4279103512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103536",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4620277,
+          -34.0651734
+        ]
+      },
+      "id": "node/4279103536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103587",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4549405,
+          -34.0832192
+        ]
+      },
+      "id": "node/4279103587"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279103823",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.458186,
+          -34.0868448
+        ]
+      },
+      "id": "node/4279103823"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104252",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.464657,
+          -34.0921781
+        ]
+      },
+      "id": "node/4279104252"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104291",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4597066,
+          -34.0929617
+        ]
+      },
+      "id": "node/4279104291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104314",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4645996,
+          -34.0934215
+        ]
+      },
+      "id": "node/4279104314"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104343",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4649094,
+          -34.0939429
+        ]
+      },
+      "id": "node/4279104343"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104352",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4652306,
+          -34.0940706
+        ]
+      },
+      "id": "node/4279104352"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104397",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4647096,
+          -34.0948997
+        ]
+      },
+      "id": "node/4279104397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279104451",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4668091,
+          -34.0961396
+        ]
+      },
+      "id": "node/4279104451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4279112859",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4927476,
+          -34.0296008
+        ]
+      },
+      "id": "node/4279112859"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280290070",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4699609,
+          -33.9487543
+        ]
+      },
+      "id": "node/4280290070"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280290073",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4702043,
+          -33.9491804
+        ]
+      },
+      "id": "node/4280290073"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549339",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5020077,
+          -33.9700867
+        ]
+      },
+      "id": "node/4280549339"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549359",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5025442,
+          -33.9713857
+        ]
+      },
+      "id": "node/4280549359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549560",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5018166,
+          -33.9812634
+        ]
+      },
+      "id": "node/4280549560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549568",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.502117,
+          -33.9820947
+        ]
+      },
+      "id": "node/4280549568"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549575",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5023497,
+          -33.9827186
+        ]
+      },
+      "id": "node/4280549575"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549580",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5020728,
+          -33.982966
+        ]
+      },
+      "id": "node/4280549580"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549639",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5031376,
+          -33.9866384
+        ]
+      },
+      "id": "node/4280549639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4280549641",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5039765,
+          -33.9868642
+        ]
+      },
+      "id": "node/4280549641"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193437",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4882438,
+          -33.9039136
+        ]
+      },
+      "id": "node/4285193437"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193621",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.47701,
+          -33.9103044
+        ]
+      },
+      "id": "node/4285193621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193643",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4804317,
+          -33.9118817
+        ]
+      },
+      "id": "node/4285193643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193658",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4847006,
+          -33.9128192
+        ]
+      },
+      "id": "node/4285193658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193666",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4810709,
+          -33.913265
+        ]
+      },
+      "id": "node/4285193666"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285193669",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4820626,
+          -33.9135916
+        ]
+      },
+      "id": "node/4285193669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285237762",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4942571,
+          -33.894882
+        ]
+      },
+      "id": "node/4285237762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4285238089",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4792027,
+          -33.9079781
+        ]
+      },
+      "id": "node/4285238089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4286872466",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4833497,
+          -33.9043781
+        ]
+      },
+      "id": "node/4286872466"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4293191123",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6406304,
+          -34.0551893
+        ]
+      },
+      "id": "node/4293191123"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4293788755",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6976587,
+          -33.9591401
+        ]
+      },
+      "id": "node/4293788755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4382436362",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.485941,
+          -33.7943051
+        ]
+      },
+      "id": "node/4382436362"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4382726156",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "uu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5163287,
+          -33.8376548
+        ]
+      },
+      "id": "node/4382726156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4394847745",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4006148,
+          -34.1721578
+        ]
+      },
+      "id": "node/4394847745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406712973",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4587961,
+          -33.7878751
+        ]
+      },
+      "id": "node/4406712973"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816713",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4650421,
+          -33.8030177
+        ]
+      },
+      "id": "node/4406816713"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816739",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4668295,
+          -33.8049835
+        ]
+      },
+      "id": "node/4406816739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816752",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4739695,
+          -33.8063277
+        ]
+      },
+      "id": "node/4406816752"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816798",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4739588,
+          -33.8072376
+        ]
+      },
+      "id": "node/4406816798"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816873",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4737174,
+          -33.8099685
+        ]
+      },
+      "id": "node/4406816873"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816874",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4689826,
+          -33.8099971
+        ]
+      },
+      "id": "node/4406816874"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816879",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4749184,
+          -33.8103725
+        ]
+      },
+      "id": "node/4406816879"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816882",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4728792,
+          -33.8105842
+        ]
+      },
+      "id": "node/4406816882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816890",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4700683,
+          -33.810737
+        ]
+      },
+      "id": "node/4406816890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816891",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4739937,
+          -33.8107474
+        ]
+      },
+      "id": "node/4406816891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816897",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4729878,
+          -33.8112082
+        ]
+      },
+      "id": "node/4406816897"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816902",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4731139,
+          -33.812016
+        ]
+      },
+      "id": "node/4406816902"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816903",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4717446,
+          -33.8120751
+        ]
+      },
+      "id": "node/4406816903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816912",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4725681,
+          -33.8133353
+        ]
+      },
+      "id": "node/4406816912"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816936",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4753073,
+          -33.8155579
+        ]
+      },
+      "id": "node/4406816936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816941",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.476922,
+          -33.8158292
+        ]
+      },
+      "id": "node/4406816941"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816945",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4757914,
+          -33.8163011
+        ]
+      },
+      "id": "node/4406816945"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816951",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4771862,
+          -33.8166755
+        ]
+      },
+      "id": "node/4406816951"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406816954",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4762816,
+          -33.8170432
+        ]
+      },
+      "id": "node/4406816954"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870980",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4801956,
+          -33.8179087
+        ]
+      },
+      "id": "node/4406870980"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870982",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4859043,
+          -33.8180226
+        ]
+      },
+      "id": "node/4406870982"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870986",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.484083,
+          -33.8182599
+        ]
+      },
+      "id": "node/4406870986"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870987",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4868108,
+          -33.8182644
+        ]
+      },
+      "id": "node/4406870987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870989",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4879307,
+          -33.8185596
+        ]
+      },
+      "id": "node/4406870989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870991",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4846007,
+          -33.8186254
+        ]
+      },
+      "id": "node/4406870991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870993",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4807226,
+          -33.8187621
+        ]
+      },
+      "id": "node/4406870993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406870995",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4830079,
+          -33.819068
+        ]
+      },
+      "id": "node/4406870995"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871001",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4880634,
+          -33.8195356
+        ]
+      },
+      "id": "node/4406871001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871007",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4828805,
+          -33.8201265
+        ]
+      },
+      "id": "node/4406871007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871008",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4803424,
+          -33.8202602
+        ]
+      },
+      "id": "node/4406871008"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871009",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4872668,
+          -33.82031
+        ]
+      },
+      "id": "node/4406871009"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871013",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.48084,
+          -33.8205593
+        ]
+      },
+      "id": "node/4406871013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871015",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4795814,
+          -33.8206769
+        ]
+      },
+      "id": "node/4406871015"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871017",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4818747,
+          -33.8208451
+        ]
+      },
+      "id": "node/4406871017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871018",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4856669,
+          -33.8208582
+        ]
+      },
+      "id": "node/4406871018"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871020",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4828939,
+          -33.8211114
+        ]
+      },
+      "id": "node/4406871020"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871021",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.479289,
+          -33.8211392
+        ]
+      },
+      "id": "node/4406871021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871023",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4868806,
+          -33.821188
+        ]
+      },
+      "id": "node/4406871023"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871029",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4848166,
+          -33.8216186
+        ]
+      },
+      "id": "node/4406871029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871032",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4816923,
+          -33.8217743
+        ]
+      },
+      "id": "node/4406871032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871036",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4807857,
+          -33.8223659
+        ]
+      },
+      "id": "node/4406871036"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871040",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4848475,
+          -33.8225979
+        ]
+      },
+      "id": "node/4406871040"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871043",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4810387,
+          -33.8229478
+        ]
+      },
+      "id": "node/4406871043"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406871044",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4864447,
+          -33.8230258
+        ]
+      },
+      "id": "node/4406871044"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406879785",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4851888,
+          -33.7986692
+        ]
+      },
+      "id": "node/4406879785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406879788",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4835828,
+          -33.7995925
+        ]
+      },
+      "id": "node/4406879788"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406881403",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4797425,
+          -33.8009842
+        ]
+      },
+      "id": "node/4406881403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419562438",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.512109,
+          -33.8298085
+        ]
+      },
+      "id": "node/4419562438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419562482",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4946561,
+          -33.8309781
+        ]
+      },
+      "id": "node/4419562482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419562941",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4946346,
+          -33.8317813
+        ]
+      },
+      "id": "node/4419562941"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563148",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4954674,
+          -33.8340464
+        ]
+      },
+      "id": "node/4419563148"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563292",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5056443,
+          -33.8351987
+        ]
+      },
+      "id": "node/4419563292"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563331",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4990569,
+          -33.835431
+        ]
+      },
+      "id": "node/4419563331"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563383",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5056571,
+          -33.8357501
+        ]
+      },
+      "id": "node/4419563383"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563544",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4989925,
+          -33.8362214
+        ]
+      },
+      "id": "node/4419563544"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563692",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5026416,
+          -33.8366833
+        ]
+      },
+      "id": "node/4419563692"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563717",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5084452,
+          -33.8369638
+        ]
+      },
+      "id": "node/4419563717"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419563770",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5043549,
+          -33.8378279
+        ]
+      },
+      "id": "node/4419563770"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419564016",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5037641,
+          -33.8383732
+        ]
+      },
+      "id": "node/4419564016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419564024",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5094477,
+          -33.8384693
+        ]
+      },
+      "id": "node/4419564024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419575071",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5162614,
+          -33.8340641
+        ]
+      },
+      "id": "node/4419575071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4419575219",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5170037,
+          -33.836521
+        ]
+      },
+      "id": "node/4419575219"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4427609041",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7163592,
+          -33.8350415
+        ]
+      },
+      "id": "node/4427609041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4427678572",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6821722,
+          -33.8353899
+        ]
+      },
+      "id": "node/4427678572"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4427783966",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.702967,
+          -33.8382265
+        ]
+      },
+      "id": "node/4427783966"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349430",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7075369,
+          -33.8308524
+        ]
+      },
+      "id": "node/4428349430"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349437",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7133221,
+          -33.831753
+        ]
+      },
+      "id": "node/4428349437"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349443",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7078225,
+          -33.8321396
+        ]
+      },
+      "id": "node/4428349443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349454",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7127541,
+          -33.8326671
+        ]
+      },
+      "id": "node/4428349454"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349481",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7125731,
+          -33.833538
+        ]
+      },
+      "id": "node/4428349481"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349829",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7107294,
+          -33.834745
+        ]
+      },
+      "id": "node/4428349829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349838",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7100518,
+          -33.8349683
+        ]
+      },
+      "id": "node/4428349838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349852",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7103163,
+          -33.8353905
+        ]
+      },
+      "id": "node/4428349852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428349863",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7110901,
+          -33.8360322
+        ]
+      },
+      "id": "node/4428349863"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050521",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4558343,
+          -33.7854654
+        ]
+      },
+      "id": "node/4437050521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050651",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4562571,
+          -33.7873418
+        ]
+      },
+      "id": "node/4437050651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050684",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4590309,
+          -33.7888635
+        ]
+      },
+      "id": "node/4437050684"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050861",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5474705,
+          -33.8307372
+        ]
+      },
+      "id": "node/4437050861"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050869",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6362969,
+          -33.8318111
+        ]
+      },
+      "id": "node/4437050869"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050874",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6365819,
+          -33.8320468
+        ]
+      },
+      "id": "node/4437050874"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050881",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6420844,
+          -33.8327319
+        ]
+      },
+      "id": "node/4437050881"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050893",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6293818,
+          -33.8337665
+        ]
+      },
+      "id": "node/4437050893"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050897",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6325965,
+          -33.8340425
+        ]
+      },
+      "id": "node/4437050897"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050901",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6308282,
+          -33.8340695
+        ]
+      },
+      "id": "node/4437050901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437050912",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6289078,
+          -33.8352375
+        ]
+      },
+      "id": "node/4437050912"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437051076",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6305647,
+          -33.8398462
+        ]
+      },
+      "id": "node/4437051076"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437051081",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6334191,
+          -33.8399264
+        ]
+      },
+      "id": "node/4437051081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437051109",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6326877,
+          -33.8402467
+        ]
+      },
+      "id": "node/4437051109"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437051135",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6480832,
+          -33.8407908
+        ]
+      },
+      "id": "node/4437051135"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437090803",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6657085,
+          -33.8188136
+        ]
+      },
+      "id": "node/4437090803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437152884",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4842836,
+          -33.8011067
+        ]
+      },
+      "id": "node/4437152884"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437152947",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6777108,
+          -33.8143173
+        ]
+      },
+      "id": "node/4437152947"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437152968",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6777564,
+          -33.8153842
+        ]
+      },
+      "id": "node/4437152968"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683177",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4800062,
+          -33.7914524
+        ]
+      },
+      "id": "node/4437683177"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683178",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4805782,
+          -33.7921061
+        ]
+      },
+      "id": "node/4437683178"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683179",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4799036,
+          -33.7922331
+        ]
+      },
+      "id": "node/4437683179"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683181",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4806398,
+          -33.7927675
+        ]
+      },
+      "id": "node/4437683181"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683182",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4856184,
+          -33.7929837
+        ]
+      },
+      "id": "node/4437683182"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683183",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4848405,
+          -33.793278
+        ]
+      },
+      "id": "node/4437683183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437683187",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4806412,
+          -33.793487
+        ]
+      },
+      "id": "node/4437683187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685691",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4841371,
+          -33.793731
+        ]
+      },
+      "id": "node/4437685691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685692",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4805621,
+          -33.7942588
+        ]
+      },
+      "id": "node/4437685692"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685693",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4803931,
+          -33.7949587
+        ]
+      },
+      "id": "node/4437685693"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685694",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4799867,
+          -33.7953075
+        ]
+      },
+      "id": "node/4437685694"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685695",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.480434,
+          -33.7957048
+        ]
+      },
+      "id": "node/4437685695"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685697",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4818696,
+          -33.7959383
+        ]
+      },
+      "id": "node/4437685697"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685764",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.49045,
+          -33.8000077
+        ]
+      },
+      "id": "node/4437685764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437685914",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4900624,
+          -33.8021405
+        ]
+      },
+      "id": "node/4437685914"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437686043",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4945731,
+          -33.8142629
+        ]
+      },
+      "id": "node/4437686043"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437686046",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4960691,
+          -33.8143749
+        ]
+      },
+      "id": "node/4437686046"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437780896",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5041629,
+          -33.8105527
+        ]
+      },
+      "id": "node/4437780896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437780912",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5031684,
+          -33.8109009
+        ]
+      },
+      "id": "node/4437780912"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437780934",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5021961,
+          -33.8113756
+        ]
+      },
+      "id": "node/4437780934"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781027",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5017429,
+          -33.8134507
+        ]
+      },
+      "id": "node/4437781027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781034",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5028467,
+          -33.8135584
+        ]
+      },
+      "id": "node/4437781034"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781066",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5065844,
+          -33.814759
+        ]
+      },
+      "id": "node/4437781066"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781139",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.501589,
+          -33.8163468
+        ]
+      },
+      "id": "node/4437781139"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781142",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5062596,
+          -33.8163705
+        ]
+      },
+      "id": "node/4437781142"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781173",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5025982,
+          -33.8166632
+        ]
+      },
+      "id": "node/4437781173"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781175",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5044838,
+          -33.8166682
+        ]
+      },
+      "id": "node/4437781175"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781238",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5051564,
+          -33.817178
+        ]
+      },
+      "id": "node/4437781238"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781703",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5113062,
+          -33.8187326
+        ]
+      },
+      "id": "node/4437781703"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437781745",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5119848,
+          -33.8191694
+        ]
+      },
+      "id": "node/4437781745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437782333",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5110293,
+          -33.8202981
+        ]
+      },
+      "id": "node/4437782333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437782370",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5121223,
+          -33.8209237
+        ]
+      },
+      "id": "node/4437782370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437782613",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5109649,
+          -33.8214379
+        ]
+      },
+      "id": "node/4437782613"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437782651",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5100147,
+          -33.8220679
+        ]
+      },
+      "id": "node/4437782651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437782956",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5153834,
+          -33.8264124
+        ]
+      },
+      "id": "node/4437782956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437790717",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4994388,
+          -33.8138094
+        ]
+      },
+      "id": "node/4437790717"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437790728",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4995052,
+          -33.8143058
+        ]
+      },
+      "id": "node/4437790728"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437790753",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4991072,
+          -33.8149783
+        ]
+      },
+      "id": "node/4437790753"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437790757",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.49803,
+          -33.8150825
+        ]
+      },
+      "id": "node/4437790757"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437841965",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3836197,
+          -34.1250815
+        ]
+      },
+      "id": "node/4437841965"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437842017",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.391042,
+          -34.1260124
+        ]
+      },
+      "id": "node/4437842017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437842025",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3883839,
+          -34.1261629
+        ]
+      },
+      "id": "node/4437842025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437842084",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3914893,
+          -34.1279025
+        ]
+      },
+      "id": "node/4437842084"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437907620",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7633022,
+          -34.0545373
+        ]
+      },
+      "id": "node/4437907620"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437907636",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7681536,
+          -34.0561673
+        ]
+      },
+      "id": "node/4437907636"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437907660",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7695826,
+          -34.0575662
+        ]
+      },
+      "id": "node/4437907660"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437907663",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7553474,
+          -34.0577381
+        ]
+      },
+      "id": "node/4437907663"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437907684",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7591863,
+          -34.0585386
+        ]
+      },
+      "id": "node/4437907684"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4437908096",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7680701,
+          -34.0594297
+        ]
+      },
+      "id": "node/4437908096"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438124921",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9111907,
+          -34.117756
+        ]
+      },
+      "id": "node/4438124921"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438214349",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8498081,
+          -34.0970498
+        ]
+      },
+      "id": "node/4438214349"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438214362",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.849051,
+          -34.0973985
+        ]
+      },
+      "id": "node/4438214362"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438214530",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8481676,
+          -34.100647
+        ]
+      },
+      "id": "node/4438214530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438374779",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8777669,
+          -34.0757383
+        ]
+      },
+      "id": "node/4438374779"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438395948",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8624774,
+          -34.079179
+        ]
+      },
+      "id": "node/4438395948"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438395954",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8640806,
+          -34.0801515
+        ]
+      },
+      "id": "node/4438395954"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4438395957",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8645125,
+          -34.0808019
+        ]
+      },
+      "id": "node/4438395957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4439053421",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8752886,
+          -34.118771
+        ]
+      },
+      "id": "node/4439053421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4462484599",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.540067,
+          -33.8294178
+        ]
+      },
+      "id": "node/4462484599"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4462484616",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5411548,
+          -33.8365591
+        ]
+      },
+      "id": "node/4462484616"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4462484617",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5420722,
+          -33.8368298
+        ]
+      },
+      "id": "node/4462484617"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470115248",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5058534,
+          -34.0304281
+        ]
+      },
+      "id": "node/4470115248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470115255",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5051433,
+          -34.0305382
+        ]
+      },
+      "id": "node/4470115255"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470115258",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5067419,
+          -34.0310044
+        ]
+      },
+      "id": "node/4470115258"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470176771",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5036913,
+          -34.026793
+        ]
+      },
+      "id": "node/4470176771"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470176782",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5118218,
+          -34.03153
+        ]
+      },
+      "id": "node/4470176782"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470176844",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5051424,
+          -34.0238525
+        ]
+      },
+      "id": "node/4470176844"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470176845",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5043961,
+          -34.0224148
+        ]
+      },
+      "id": "node/4470176845"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470176993",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5042632,
+          -34.0147906
+        ]
+      },
+      "id": "node/4470176993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470258398",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4918527,
+          -34.0263078
+        ]
+      },
+      "id": "node/4470258398"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4470258399",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4912821,
+          -34.0265596
+        ]
+      },
+      "id": "node/4470258399"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4471323298",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8636829,
+          -34.0899729
+        ]
+      },
+      "id": "node/4471323298"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4471389930",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8552822,
+          -34.0854785
+        ]
+      },
+      "id": "node/4471389930"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484465234",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4655094,
+          -33.9364891
+        ]
+      },
+      "id": "node/4484465234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484612010",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4653244,
+          -33.9376906
+        ]
+      },
+      "id": "node/4484612010"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484612015",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4619116,
+          -33.9318844
+        ]
+      },
+      "id": "node/4484612015"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484612017",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4611127,
+          -33.9320227
+        ]
+      },
+      "id": "node/4484612017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484612032",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4639756,
+          -33.9361443
+        ]
+      },
+      "id": "node/4484612032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484653869",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4541801,
+          -33.9298196
+        ]
+      },
+      "id": "node/4484653869"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484660212",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4670141,
+          -33.9304029
+        ]
+      },
+      "id": "node/4484660212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4484787537",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4629013,
+          -33.9361339
+        ]
+      },
+      "id": "node/4484787537"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485498920",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4750384,
+          -33.9988925
+        ]
+      },
+      "id": "node/4485498920"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485498921",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4750324,
+          -33.9995012
+        ]
+      },
+      "id": "node/4485498921"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485498924",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4766209,
+          -33.9995501
+        ]
+      },
+      "id": "node/4485498924"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485498981",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4759138,
+          -34.0015753
+        ]
+      },
+      "id": "node/4485498981"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499064",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4749898,
+          -34.0001138
+        ]
+      },
+      "id": "node/4485499064"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499066",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4751561,
+          -34.0007737
+        ]
+      },
+      "id": "node/4485499066"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499067",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4740457,
+          -34.000772
+        ]
+      },
+      "id": "node/4485499067"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499068",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4733194,
+          -34.0007737
+        ]
+      },
+      "id": "node/4485499068"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499073",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4769773,
+          -34.0008309
+        ]
+      },
+      "id": "node/4485499073"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499074",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4774916,
+          -34.0009905
+        ]
+      },
+      "id": "node/4485499074"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4485499075",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4774273,
+          -34.0024331
+        ]
+      },
+      "id": "node/4485499075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580171",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5400821,
+          -33.9211038
+        ]
+      },
+      "id": "node/4497580171"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580172",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5396462,
+          -33.921244
+        ]
+      },
+      "id": "node/4497580172"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580173",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5379785,
+          -33.9192692
+        ]
+      },
+      "id": "node/4497580173"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580183",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5393639,
+          -33.9195402
+        ]
+      },
+      "id": "node/4497580183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580184",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5407238,
+          -33.920554
+        ]
+      },
+      "id": "node/4497580184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580185",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5406286,
+          -33.9197784
+        ]
+      },
+      "id": "node/4497580185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580233",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5226893,
+          -33.9095467
+        ]
+      },
+      "id": "node/4497580233"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580307",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5212899,
+          -33.9126141
+        ]
+      },
+      "id": "node/4497580307"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497580312",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5194499,
+          -33.912894
+        ]
+      },
+      "id": "node/4497580312"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4498631461",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5373427,
+          -33.8950798
+        ]
+      },
+      "id": "node/4498631461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4505354943",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5463809,
+          -33.899192
+        ]
+      },
+      "id": "node/4505354943"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4505354984",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.54698,
+          -33.9013047
+        ]
+      },
+      "id": "node/4505354984"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4505355051",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5527862,
+          -33.9052843
+        ]
+      },
+      "id": "node/4505355051"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4505355052",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5520185,
+          -33.9055225
+        ]
+      },
+      "id": "node/4505355052"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4505397112",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5143503,
+          -33.8499953
+        ]
+      },
+      "id": "node/4505397112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4523339143",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5066851,
+          -33.8539276
+        ]
+      },
+      "id": "node/4523339143"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4525034525",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4776844,
+          -34.0189162
+        ]
+      },
+      "id": "node/4525034525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4525034526",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4770735,
+          -34.0190635
+        ]
+      },
+      "id": "node/4525034526"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152568",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4715224,
+          -34.02847
+        ]
+      },
+      "id": "node/4527152568"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152569",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4712247,
+          -34.0277726
+        ]
+      },
+      "id": "node/4527152569"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152570",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4709464,
+          -34.0269156
+        ]
+      },
+      "id": "node/4527152570"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152571",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4701665,
+          -34.024816
+        ]
+      },
+      "id": "node/4527152571"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152572",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4706819,
+          -34.0244001
+        ]
+      },
+      "id": "node/4527152572"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152573",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4745915,
+          -34.0222851
+        ]
+      },
+      "id": "node/4527152573"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152892",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4725446,
+          -34.007946
+        ]
+      },
+      "id": "node/4527152892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4527152896",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4724494,
+          -34.0069732
+        ]
+      },
+      "id": "node/4527152896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4573823890",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5151303,
+          -33.9832092
+        ]
+      },
+      "id": "node/4573823890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4689425524",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "source": "bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3625919,
+          -34.0497734
+        ]
+      },
+      "id": "node/4689425524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4689425525",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "source": "bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3615385,
+          -34.0482744
+        ]
+      },
+      "id": "node/4689425525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4690864081",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "source": "bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3631835,
+          -34.0476905
+        ]
+      },
+      "id": "node/4690864081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4827947334",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5892467,
+          -33.9183881
+        ]
+      },
+      "id": "node/4827947334"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4882163773",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4601265,
+          -34.0448687
+        ]
+      },
+      "id": "node/4882163773"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4882163774",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4584213,
+          -34.0450091
+        ]
+      },
+      "id": "node/4882163774"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4882163775",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4580337,
+          -34.0469737
+        ]
+      },
+      "id": "node/4882163775"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4882163776",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4592387,
+          -34.0447499
+        ]
+      },
+      "id": "node/4882163776"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882100",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4585049,
+          -34.0384128
+        ]
+      },
+      "id": "node/4895882100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882101",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4585364,
+          -34.038739
+        ]
+      },
+      "id": "node/4895882101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882150",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4579062,
+          -34.0381059
+        ]
+      },
+      "id": "node/4895882150"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882151",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4568507,
+          -34.0381315
+        ]
+      },
+      "id": "node/4895882151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882152",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4591172,
+          -34.0393222
+        ]
+      },
+      "id": "node/4895882152"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895882154",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.456675,
+          -34.0370101
+        ]
+      },
+      "id": "node/4895882154"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895964001",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.454937,
+          -34.0388552
+        ]
+      },
+      "id": "node/4895964001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895964056",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4596782,
+          -34.0419648
+        ]
+      },
+      "id": "node/4895964056"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895964093",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4585486,
+          -34.0410992
+        ]
+      },
+      "id": "node/4895964093"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4895964094",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4572645,
+          -34.0405341
+        ]
+      },
+      "id": "node/4895964094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016926",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4577718,
+          -34.0464538
+        ]
+      },
+      "id": "node/4896016926"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016927",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4582184,
+          -34.0460099
+        ]
+      },
+      "id": "node/4896016927"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016928",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4567975,
+          -34.0499996
+        ]
+      },
+      "id": "node/4896016928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016929",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4561497,
+          -34.0494613
+        ]
+      },
+      "id": "node/4896016929"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016930",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4554732,
+          -34.0488846
+        ]
+      },
+      "id": "node/4896016930"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016931",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4547959,
+          -34.0483168
+        ]
+      },
+      "id": "node/4896016931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016932",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4543963,
+          -34.0477467
+        ]
+      },
+      "id": "node/4896016932"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016933",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4540898,
+          -34.0477217
+        ]
+      },
+      "id": "node/4896016933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896016934",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4565755,
+          -34.0487829
+        ]
+      },
+      "id": "node/4896016934"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050296",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4596359,
+          -34.0441106
+        ]
+      },
+      "id": "node/4896050296"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050297",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4574606,
+          -34.044344
+        ]
+      },
+      "id": "node/4896050297"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050298",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4575599,
+          -34.0438072
+        ]
+      },
+      "id": "node/4896050298"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050310",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4559866,
+          -34.0462599
+        ]
+      },
+      "id": "node/4896050310"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050437",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4557935,
+          -34.0479944
+        ]
+      },
+      "id": "node/4896050437"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050440",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4559977,
+          -34.0469591
+        ]
+      },
+      "id": "node/4896050440"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050443",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4569317,
+          -34.0469954
+        ]
+      },
+      "id": "node/4896050443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050444",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4571261,
+          -34.0460231
+        ]
+      },
+      "id": "node/4896050444"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896050445",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4562906,
+          -34.0454695
+        ]
+      },
+      "id": "node/4896050445"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896055871",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4559265,
+          -34.0447952
+        ]
+      },
+      "id": "node/4896055871"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896072686",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4549097,
+          -34.0450762
+        ]
+      },
+      "id": "node/4896072686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896072687",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4562419,
+          -34.0429411
+        ]
+      },
+      "id": "node/4896072687"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896072688",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4567904,
+          -34.0421321
+        ]
+      },
+      "id": "node/4896072688"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896072689",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4578991,
+          -34.0420977
+        ]
+      },
+      "id": "node/4896072689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896072690",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4577442,
+          -34.0428739
+        ]
+      },
+      "id": "node/4896072690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4896085797",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4555382,
+          -34.0418727
+        ]
+      },
+      "id": "node/4896085797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5001321287",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4622402,
+          -33.9696234
+        ]
+      },
+      "id": "node/5001321287"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5001321290",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4628937,
+          -33.9707262
+        ]
+      },
+      "id": "node/5001321290"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879881",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.475641,
+          -34.0737
+        ]
+      },
+      "id": "node/5065879881"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879882",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4756651,
+          -34.0745448
+        ]
+      },
+      "id": "node/5065879882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879883",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4767427,
+          -34.0736089
+        ]
+      },
+      "id": "node/5065879883"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879884",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4766461,
+          -34.0741254
+        ]
+      },
+      "id": "node/5065879884"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879885",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4767809,
+          -34.0745598
+        ]
+      },
+      "id": "node/5065879885"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879886",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4775259,
+          -34.0735844
+        ]
+      },
+      "id": "node/5065879886"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879887",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4775829,
+          -34.0745248
+        ]
+      },
+      "id": "node/5065879887"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879888",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.478228,
+          -34.074051
+        ]
+      },
+      "id": "node/5065879888"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879889",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4786497,
+          -34.074477
+        ]
+      },
+      "id": "node/5065879889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879890",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4784412,
+          -34.0730462
+        ]
+      },
+      "id": "node/5065879890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879891",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4770679,
+          -34.0730884
+        ]
+      },
+      "id": "node/5065879891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879893",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4757878,
+          -34.0731556
+        ]
+      },
+      "id": "node/5065879893"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879894",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4758929,
+          -34.0750604
+        ]
+      },
+      "id": "node/5065879894"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879897",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4760485,
+          -34.0740906
+        ]
+      },
+      "id": "node/5065879897"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5065879899",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.47861,
+          -34.0735735
+        ]
+      },
+      "id": "node/5065879899"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5066806707",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4652502,
+          -33.981835
+        ]
+      },
+      "id": "node/5066806707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5066807134",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4663458,
+          -33.9780309
+        ]
+      },
+      "id": "node/5066807134"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5066807135",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4667266,
+          -33.978964
+        ]
+      },
+      "id": "node/5066807135"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5066807136",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4665919,
+          -33.9800844
+        ]
+      },
+      "id": "node/5066807136"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643785",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4662775,
+          -33.9821563
+        ]
+      },
+      "id": "node/5068643785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643786",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4670869,
+          -33.9825916
+        ]
+      },
+      "id": "node/5068643786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643795",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4685929,
+          -33.9811254
+        ]
+      },
+      "id": "node/5068643795"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643796",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4693533,
+          -33.9811893
+        ]
+      },
+      "id": "node/5068643796"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643797",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.467911,
+          -33.9810664
+        ]
+      },
+      "id": "node/5068643797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5068643798",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4676783,
+          -33.981762
+        ]
+      },
+      "id": "node/5068643798"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5433531232",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7870194,
+          -34.0582094
+        ]
+      },
+      "id": "node/5433531232"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5454934940",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7046441,
+          -33.9462092
+        ]
+      },
+      "id": "node/5454934940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5537753013",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3783902,
+          -33.9564511
+        ]
+      },
+      "id": "node/5537753013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5537771852",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3808203,
+          -33.9584912
+        ]
+      },
+      "id": "node/5537771852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5537771853",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3812723,
+          -33.9585034
+        ]
+      },
+      "id": "node/5537771853"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5537771865",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3794175,
+          -33.9585852
+        ]
+      },
+      "id": "node/5537771865"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5537771868",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3792291,
+          -33.9582359
+        ]
+      },
+      "id": "node/5537771868"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5538863308",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3880757,
+          -33.9549638
+        ]
+      },
+      "id": "node/5538863308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5538863310",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3881032,
+          -33.9557961
+        ]
+      },
+      "id": "node/5538863310"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5539546148",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3863363,
+          -33.9583571
+        ]
+      },
+      "id": "node/5539546148"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5539546149",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3863128,
+          -33.9581786
+        ]
+      },
+      "id": "node/5539546149"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5539546150",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.386001,
+          -33.9582609
+        ]
+      },
+      "id": "node/5539546150"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965383",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5193685,
+          -33.9666962
+        ]
+      },
+      "id": "node/5600965383"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965384",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5192987,
+          -33.9658275
+        ]
+      },
+      "id": "node/5600965384"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965385",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5184632,
+          -33.9662301
+        ]
+      },
+      "id": "node/5600965385"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965386",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.517735,
+          -33.965922
+        ]
+      },
+      "id": "node/5600965386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965387",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5169344,
+          -33.965684
+        ]
+      },
+      "id": "node/5600965387"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965388",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5162987,
+          -33.9677751
+        ]
+      },
+      "id": "node/5600965388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965389",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5162437,
+          -33.9669954
+        ]
+      },
+      "id": "node/5600965389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965390",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5168405,
+          -33.9670654
+        ]
+      },
+      "id": "node/5600965390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965391",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5186563,
+          -33.9687872
+        ]
+      },
+      "id": "node/5600965391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965392",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5180046,
+          -33.9695457
+        ]
+      },
+      "id": "node/5600965392"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965393",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5172106,
+          -33.9694134
+        ]
+      },
+      "id": "node/5600965393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965394",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5168686,
+          -33.970153
+        ]
+      },
+      "id": "node/5600965394"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965395",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.517275,
+          -33.9702843
+        ]
+      },
+      "id": "node/5600965395"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600965396",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5176666,
+          -33.9701163
+        ]
+      },
+      "id": "node/5600965396"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600966631",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5182755,
+          -33.9700668
+        ]
+      },
+      "id": "node/5600966631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600966632",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5180663,
+          -33.9703627
+        ]
+      },
+      "id": "node/5600966632"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5996179712",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7011198,
+          -33.8309817
+        ]
+      },
+      "id": "node/5996179712"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6859166844",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4399395,
+          -33.9281315
+        ]
+      },
+      "id": "node/6859166844"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6859166845",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4388496,
+          -33.9286187
+        ]
+      },
+      "id": "node/6859166845"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6859166846",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4390641,
+          -33.9286412
+        ]
+      },
+      "id": "node/6859166846"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6859166847",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4390446,
+          -33.9289956
+        ]
+      },
+      "id": "node/6859166847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802673",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5294203,
+          -33.9268691
+        ]
+      },
+      "id": "node/6913802673"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802674",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5291458,
+          -33.9268007
+        ]
+      },
+      "id": "node/6913802674"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802743",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5033276,
+          -33.9165236
+        ]
+      },
+      "id": "node/6913802743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802748",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5015557,
+          -33.9169551
+        ]
+      },
+      "id": "node/6913802748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802749",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5017212,
+          -33.9176399
+        ]
+      },
+      "id": "node/6913802749"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6913802750",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5019799,
+          -33.9180341
+        ]
+      },
+      "id": "node/6913802750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373463575",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5343201,
+          -33.9227613
+        ]
+      },
+      "id": "node/7373463575"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373463576",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5347493,
+          -33.9224134
+        ]
+      },
+      "id": "node/7373463576"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373463577",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5350887,
+          -33.9230519
+        ]
+      },
+      "id": "node/7373463577"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373463579",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5356236,
+          -33.9228462
+        ]
+      },
+      "id": "node/7373463579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474500",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5351112,
+          -33.9203749
+        ]
+      },
+      "id": "node/7373474500"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474501",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5336254,
+          -33.9201609
+        ]
+      },
+      "id": "node/7373474501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474502",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5315932,
+          -33.9200636
+        ]
+      },
+      "id": "node/7373474502"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474503",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5310666,
+          -33.9207139
+        ]
+      },
+      "id": "node/7373474503"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474504",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5304194,
+          -33.9213407
+        ]
+      },
+      "id": "node/7373474504"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474530",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5306348,
+          -33.9201195
+        ]
+      },
+      "id": "node/7373474530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7373474631",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.529709,
+          -33.9201658
+        ]
+      },
+      "id": "node/7373474631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7528590180",
+        "colour": "yellow",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5546903,
+          -34.0722902
+        ]
+      },
+      "id": "node/7528590180"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7528665070",
+        "colour": "yellow",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5553158,
+          -34.0726378
+        ]
+      },
+      "id": "node/7528665070"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7528665075",
+        "colour": "yellow",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5558411,
+          -34.0726202
+        ]
+      },
+      "id": "node/7528665075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7626161220",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4394525,
+          -34.0580361
+        ]
+      },
+      "id": "node/7626161220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9180678399",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5277973,
+          -34.0520032
+        ]
+      },
+      "id": "node/9180678399"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9180678400",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5230098,
+          -34.051671
+        ]
+      },
+      "id": "node/9180678400"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9180678402",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5225282,
+          -34.0522582
+        ]
+      },
+      "id": "node/9180678402"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10083860216",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4708966,
+          -34.0080753
+        ]
+      },
+      "id": "node/10083860216"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10083871417",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4717589,
+          -34.0080222
+        ]
+      },
+      "id": "node/10083871417"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10083871418",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4717318,
+          -34.0070786
+        ]
+      },
+      "id": "node/10083871418"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657416844",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8369868,
+          -34.0621242
+        ]
+      },
+      "id": "node/10657416844"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657416845",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8370879,
+          -34.0632648
+        ]
+      },
+      "id": "node/10657416845"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657416846",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.83751,
+          -34.0641387
+        ]
+      },
+      "id": "node/10657416846"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657416847",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8384191,
+          -34.0622976
+        ]
+      },
+      "id": "node/10657416847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657416848",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.840086,
+          -34.0617741
+        ]
+      },
+      "id": "node/10657416848"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657472876",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "water_source": "piped"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8358052,
+          -34.0636454
+        ]
+      },
+      "id": "node/10657472876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10673692865",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.839963,
+          -34.0611318
+        ]
+      },
+      "id": "node/10673692865"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10673692866",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8388943,
+          -34.0604319
+        ]
+      },
+      "id": "node/10673692866"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10673692867",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8413981,
+          -34.0600514
+        ]
+      },
+      "id": "node/10673692867"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10673692868",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8431016,
+          -34.0604543
+        ]
+      },
+      "id": "node/10673692868"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10682518254",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8384452,
+          -34.0615704
+        ]
+      },
+      "id": "node/10682518254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10729798057",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8431876,
+          -34.0624637
+        ]
+      },
+      "id": "node/10729798057"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10729798058",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8414472,
+          -34.0624084
+        ]
+      },
+      "id": "node/10729798058"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570410",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5067162,
+          -33.7905011
+        ]
+      },
+      "id": "node/10845570410"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570411",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5055703,
+          -33.791067
+        ]
+      },
+      "id": "node/10845570411"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570412",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5043951,
+          -33.7915488
+        ]
+      },
+      "id": "node/10845570412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570413",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5031239,
+          -33.7917273
+        ]
+      },
+      "id": "node/10845570413"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570414",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5018006,
+          -33.7917254
+        ]
+      },
+      "id": "node/10845570414"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570415",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5010529,
+          -33.7918689
+        ]
+      },
+      "id": "node/10845570415"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10845570416",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5005786,
+          -33.7920115
+        ]
+      },
+      "id": "node/10845570416"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11267625599",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5288254,
+          -34.0537094
+        ]
+      },
+      "id": "node/11267625599"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11267625600",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.528816,
+          -34.0537133
+        ]
+      },
+      "id": "node/11267625600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773323999",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3936607,
+          -33.9124668
+        ]
+      },
+      "id": "node/11773323999"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324000",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3942372,
+          -33.9128064
+        ]
+      },
+      "id": "node/11773324000"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324001",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.394792,
+          -33.9131326
+        ]
+      },
+      "id": "node/11773324001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324002",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3950899,
+          -33.9133065
+        ]
+      },
+      "id": "node/11773324002"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324003",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3953971,
+          -33.912941
+        ]
+      },
+      "id": "node/11773324003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324004",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3952328,
+          -33.9127342
+        ]
+      },
+      "id": "node/11773324004"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324005",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3948475,
+          -33.9126176
+        ]
+      },
+      "id": "node/11773324005"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324006",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3943657,
+          -33.9122716
+        ]
+      },
+      "id": "node/11773324006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324007",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3942735,
+          -33.9119639
+        ]
+      },
+      "id": "node/11773324007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324008",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3929476,
+          -33.9117943
+        ]
+      },
+      "id": "node/11773324008"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324009",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3920562,
+          -33.9112544
+        ]
+      },
+      "id": "node/11773324009"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324010",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3932867,
+          -33.9113693
+        ]
+      },
+      "id": "node/11773324010"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324011",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3951387,
+          -33.914096
+        ]
+      },
+      "id": "node/11773324011"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324012",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.395856,
+          -33.9123964
+        ]
+      },
+      "id": "node/11773324012"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324013",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3959038,
+          -33.9123235
+        ]
+      },
+      "id": "node/11773324013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324014",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3954425,
+          -33.9120844
+        ]
+      },
+      "id": "node/11773324014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324015",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3950512,
+          -33.9119329
+        ]
+      },
+      "id": "node/11773324015"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324016",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.39597,
+          -33.9108368
+        ]
+      },
+      "id": "node/11773324016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11773324017",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3954434,
+          -33.9103342
+        ]
+      },
+      "id": "node/11773324017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12501098852",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3944232,
+          -33.9170437
+        ]
+      },
+      "id": "node/12501098852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12501098853",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3935064,
+          -33.9165199
+        ]
+      },
+      "id": "node/12501098853"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12816485364",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5290032,
+          -34.0570105
+        ]
+      },
+      "id": "node/12816485364"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12821560650",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5285863,
+          -34.0562916
+        ]
+      },
+      "id": "node/12821560650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12833225210",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5284042,
+          -34.0548714
+        ]
+      },
+      "id": "node/12833225210"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12833225211",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5286801,
+          -34.0546029
+        ]
+      },
+      "id": "node/12833225211"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12833225212",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.529334,
+          -34.0545578
+        ]
+      },
+      "id": "node/12833225212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13154105308",
+        "emergency": "fire_hydrant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.528609,
+          -34.053746
+        ]
+      },
+      "id": "node/13154105308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13375865341",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3931647,
+          -33.9159423
+        ]
+      },
+      "id": "node/13375865341"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13413148560",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4009264,
+          -33.9090956
+        ]
+      },
+      "id": "node/13413148560"
+    }
+  ]
+}
