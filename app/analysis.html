@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis Mode - Concept Mockup</title>
+    <title>Analysis Mode - Coverage Planning</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -15,183 +16,215 @@
         }
 
         body {
+            display: flex;
             height: 100vh;
+            font-family: sans-serif;
+        }
+
+        #panel {
+            width: 300px;
+            min-width: 300px;
+            background: #1a1a2e;
+            color: #eee;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            background: #f0f2f5;
-            color: #222;
-            font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-        }
-
-        .topbar {
-            height: 54px;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-
-        .topbar b {
-            font-size: 14px;
-        }
-
-        .topbar .back {
-            font-size: 13px;
-            color: #666;
-            text-decoration: none;
-        }
-
-        .layout {
-            flex: 1;
-            display: flex;
-            min-height: 0;
-        }
-
-        .panel {
-            background: #fff;
-            flex-shrink: 0;
-            padding: 16px;
+            gap: 14px;
+            z-index: 1000;
             overflow-y: auto;
         }
 
-        .panel.left {
-            width: 250px;
-            border-right: 1px solid #ddd;
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: #555;
+            text-decoration: none;
+            margin-bottom: -6px;
         }
 
-        .panel.right {
-            width: 300px;
-            border-left: 1px solid #ddd;
+        .nav-link:hover {
+            color: #aaa;
         }
 
         h2 {
-            font-size: 12px;
+            font-size: 15px;
+            color: #4fc3f7;
+        }
+
+        .section-label {
+            font-size: 11px;
             color: #888;
-            font-weight: 600;
             text-transform: uppercase;
-            margin: 6px 0 10px;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
 
-        h2:not(:first-child) {
-            margin-top: 20px;
-        }
-
-        .box {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 10px;
+            background: #2d2d44;
+            border-radius: 6px;
             font-size: 13px;
-            line-height: 1.5;
+            color: #ccc;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .box.active {
-            border-color: #888;
+        .toggle-row:hover {
+            background: #363650;
         }
 
-        .box .t {
+        .toggle-row .toggle-icon {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .toggle-row.active .toggle-icon {
+            color: #4fc3f7;
+        }
+
+        .toggle-row .layer-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .toggle-row-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .run-btn {
+            width: 100%;
+            padding: 11px;
+            border-radius: 8px;
+            border: 2px solid #4fc3f7;
+            background: transparent;
+            color: #4fc3f7;
+            font-size: 14px;
             font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s;
         }
 
-        .box .s {
-            color: #888;
+        .run-btn:hover {
+            background: #1a2a3d;
+        }
+
+        #status {
             font-size: 12px;
-        }
-
-        .map {
-            flex: 1;
-            position: relative;
+            color: #555;
+            padding-top: 10px;
+            border-top: 1px solid #2d2d44;
+            margin-top: auto;
         }
 
         #map {
-            position: absolute;
-            inset: 0;
+            flex: 1;
+            height: 100vh;
         }
 
-        .search {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            width: 340px;
-            max-width: 70%;
-        }
-
-        .search input {
-            width: 100%;
-            padding: 9px 12px;
-            font-size: 13px;
-            border: 1px solid #ccc;
+        .legend {
+            background: #1a1a2ecc;
             border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-            outline: none;
+            padding: 10px 12px;
+            font-size: 11px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .legend-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="topbar">
-        <b>Disaster &amp; Resource Monitoring System: Analysis Mode</b>
-        <a class="back" href="home.html">Back to home</a>
+    <div id="panel">
+        <a class="nav-link" href="home.html">
+            <i class="ph ph-bold ph-arrow-left" style="font-size:12px;"></i> Home
+        </a>
+        <h2>Analysis Mode</h2>
+        <p style="font-size:12px;color:#666;margin-top:-6px;">Hydrant coverage visualisation</p>
+
+        <div>
+            <div class="section-label">Layers</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+                <div class="toggle-row active" id="toggle-hydrants">
+                    <div class="toggle-row-left">
+                        <span class="layer-dot" style="background:#4caf50;"></span>Hydrant locations
+                    </div>
+                    <i class="ph ph-bold ph-eye toggle-icon"></i>
+                </div>
+                <div class="toggle-row" id="toggle-coverage">
+                    <div class="toggle-row-left">
+                        <span class="layer-dot" style="background:#4caf5066;border:1.5px solid #4caf50;"></span>Coverage
+                        circles (120m)
+                    </div>
+                    <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
+                </div>
+                <div class="toggle-row" id="toggle-heatmap">
+                    <div class="toggle-row-left">
+                        <span class="layer-dot"
+                            style="background:linear-gradient(135deg,#ff6b6b,#ff8c00);"></span>Density heatmap
+                    </div>
+                    <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <button class="run-btn" id="run-btn">
+            <i class="ph ph-bold ph-play"></i> Run Analysis
+        </button>
+
+        <div id="status">Loading hydrant data...</div>
     </div>
 
-    <div class="layout">
-
-        <div class="panel left">
-            <h2>Layers</h2>
-            <div class="box active">
-                <div class="t">💧 Hydrant coverage</div>
-                <div class="s">View circles around each hydrant</div>
-            </div>
-            <div class="box active">
-                <div class="t">🟥 Coverage gaps</div>
-                <div class="s">View gaps beyond the coverage</div>
-            </div>
-            <div class="box">
-                <div class="t">🔥 Density heatmap</div>
-                <div class="s">Hydrant density across the area</div>
-            </div>
-            <div class="box">
-                <div class="t">📍 Candidate sites</div>
-                <div class="s">Suggested new hydrants</div>
-            </div>
-
-            <h2>Settings</h2>
-            <div class="box">[ Select radius: 120m ]</div>
-            <div class="box">[ Button to run analysis ]</div>
-        </div>
-
-        <div class="map">
-            <div id="map"></div>
-            <div class="search"><input type="text" placeholder="🔍  Search for a location... [top N matches]"></div>
-        </div>
-
-        <div class="panel right">
-            <h2>Results</h2>
-            <div class="box">[ Coverage summary: percentage of built-up area within selected radius of a hydrant, and
-                total uncovered gap area ]</div>
-            <div class="box">[ If a gap is selected: its area and the distance to the nearest existing hydrant ]</div>
-            <div class="box">[ Candidate sites: list of suggested new-hydrant locations based on the chosen algorithm ]
-            </div>
-        </div>
-
-    </div>
+    <div id="map"></div>
 
     <script>
-        const map = L.map('map', { zoomControl: true }).setView([51.5074, -0.1278], 13);
+        const map = L.map('map').setView([51.5, -0.1], 13);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
-    </script>
 
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = () => {
+            const legendDiv = L.DomUtil.create('div', 'legend');
+            legendDiv.innerHTML = `
+            <b style="color:#4fc3f7;font-size:12px;">Analysis Mode</b><br>
+            <span class="legend-dot" style="background:#4caf50"></span>Hydrant<br>
+            <span class="legend-dot" style="background:#4caf5055;border:1px solid #4caf50"></span>120m coverage
+        `;
+            return legendDiv;
+        };
+        legend.addTo(map);
+
+        document.querySelectorAll('.toggle-row').forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.toggle('active');
+                const icon = row.querySelector('.toggle-icon');
+                icon.classList.toggle('ph-eye');
+                icon.classList.toggle('ph-eye-slash');
+            });
+        });
+
+        document.getElementById('run-btn').addEventListener('click', () => {
+            document.getElementById('status').textContent = 'Analysis coming soon.';
+        });
+    </script>
 </body>
 
 </html>
