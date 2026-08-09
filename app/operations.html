@@ -83,6 +83,63 @@
             margin-bottom: 3px;
         }
 
+        #pin-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-height: 36px;
+        }
+
+        .pin-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #2d2d44;
+            border-radius: 6px;
+            padding: 7px 10px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .pin-item:hover {
+            background: #363650;
+        }
+
+        .pin-item.selected {
+            outline: 1px solid #ff6b6b;
+        }
+
+        .pin-item-emoji {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .pin-item-label {
+            flex: 1;
+            color: #ddd;
+        }
+
+        .pin-delete {
+            background: none;
+            border: none;
+            color: #555;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 2px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .pin-delete:hover {
+            color: #ff6b6b;
+        }
+
+        .pin-list-empty {
+            color: #555;
+            font-size: 12px;
+            font-style: italic;
+        }
+
         #info {
             background: #2d2d44;
             border-radius: 8px;
@@ -123,6 +180,21 @@
             font-style: italic;
         }
 
+        #clear-btn {
+            padding: 9px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: transparent;
+            color: #aaa;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        #clear-btn:hover {
+            background: #2d2d44;
+            color: #fff;
+        }
+
         #status {
             font-size: 12px;
             color: #555;
@@ -158,9 +230,18 @@
         </div>
 
         <div>
+            <div class="section-label">Placed pins</div>
+            <div id="pin-list-container">
+                <div class="pin-list-empty">No pins placed yet</div>
+            </div>
+        </div>
+
+        <div>
             <div class="section-label">Details</div>
             <div id="info"><span class="info-muted">Select a pin type and click the map...</span></div>
         </div>
+
+        <button id="clear-btn">Clear all pins</button>
 
         <div id="status">Loading data...</div>
     </div>
@@ -177,11 +258,14 @@
         let pins = [];
         let pinIdCounter = 0;
         let currentMode = 'fire';
+        let selectedPinId = null;
 
         const info = document.getElementById('info');
         const status = document.getElementById('status');
+        const pinListContainer = document.getElementById('pin-list-container');
 
         const PIN_EMOJIS = { fire: '🔥', truck: '🚒', person: '🧑', plane: '✈️' };
+        const PIN_LABELS = { fire: 'Fire', truck: 'Truck', person: 'Person', plane: 'Aerial' };
 
         document.querySelectorAll('.pin-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -189,6 +273,11 @@
                 btn.classList.add('active');
                 currentMode = btn.dataset.mode;
             });
+        });
+
+        document.getElementById('clear-btn').addEventListener('click', () => {
+            [...pins].forEach(pin => removePin(pin.id));
+            info.innerHTML = '<span class="info-muted">Cleared. Click the map to place a pin.</span>';
         });
 
         // load the static datasets needed for the fire, person, and aerial pins
@@ -285,22 +374,85 @@
             return response.json();
         }
 
-        // creates a new pin on the map and adds it to the pins array
+        // removes a pin's marker and layers from the map and the pins array
+        function removePin(id) {
+            const pin = pins.find(existingPin => existingPin.id === id);
+            if (!pin) return;
+            if (pin.marker) map.removeLayer(pin.marker);
+            pin.layers.forEach(layer => map.removeLayer(layer));
+            pins = pins.filter(existingPin => existingPin.id !== id);
+            if (selectedPinId === id) {
+                selectedPinId = null;
+                info.innerHTML = '<span class="info-muted">Pin removed.</span>';
+            }
+            updatePinList();
+        }
+
+        // marks a pin as selected and shows its last calculated info
+        function selectPin(id) {
+            selectedPinId = id;
+            const pin = pins.find(existingPin => existingPin.id === id);
+            if (pin && pin.lastInfo) info.innerHTML = pin.lastInfo;
+            updatePinList();
+        }
+
+        // recreates the placed-pins panel from the current pins array
+        function updatePinList() {
+            if (pins.length === 0) {
+                pinListContainer.innerHTML = '<div class="pin-list-empty">No pins placed yet</div>';
+                return;
+            }
+            pinListContainer.innerHTML = pins.map(pin => `
+                <div class="pin-item ${pin.id === selectedPinId ? 'selected' : ''}" data-id="${pin.id}">
+                    <span class="pin-item-emoji">${PIN_EMOJIS[pin.type]}</span>
+                    <span class="pin-item-label">${pin.label}</span>
+                    <button class="pin-delete" data-id="${pin.id}">×</button>
+                </div>
+            `).join('');
+
+            pinListContainer.querySelectorAll('.pin-item').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('pin-delete')) {
+                        selectPin(parseInt(el.dataset.id));
+                    }
+                });
+            });
+            pinListContainer.querySelectorAll('.pin-delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    removePin(parseInt(btn.dataset.id));
+                });
+            });
+        }
+
+        // creates a new pin on the map, adds it to the pins array, and makes it draggable
         // person pins are single-instance: placing a new one replaces the last
         function createPin(type, lat, lng) {
             if (type === 'person') {
                 const existingPersonPin = pins.find(existingPin => existingPin.type === 'person');
-                if (existingPersonPin) {
-                    if (existingPersonPin.marker) map.removeLayer(existingPersonPin.marker);
-                    existingPersonPin.layers.forEach(layer => map.removeLayer(layer));
-                    pins = pins.filter(existingPin => existingPin.id !== existingPersonPin.id);
-                }
+                if (existingPersonPin) removePin(existingPersonPin.id);
             }
 
-            const pin = { id: pinIdCounter++, type, lat, lng, layers: [] };
-            const marker = L.marker([lat, lng], { icon: makeIcon(PIN_EMOJIS[type]) }).addTo(map);
+            const sameTypeCount = pins.filter(existingPin => existingPin.type === type).length + 1;
+            const label = sameTypeCount > 1 ? `${PIN_LABELS[type]} ${sameTypeCount}` : PIN_LABELS[type];
+
+            const pin = { id: pinIdCounter++, type, lat, lng, label, marker: null, layers: [], lastInfo: '' };
+
+            const marker = L.marker([lat, lng], { icon: makeIcon(PIN_EMOJIS[type]), draggable: true }).addTo(map);
+
+            marker.on('dragend', async (e) => {
+                const { lat: newLat, lng: newLng } = e.target.getLatLng();
+                pin.lat = newLat;
+                pin.lng = newLng;
+                pin.layers.forEach(layer => map.removeLayer(layer));
+                pin.layers = [];
+                info.innerHTML = '<span class="info-muted">Recalculating...</span>';
+                await calculatePin(pin);
+            });
+
             pin.marker = marker;
             pins.push(pin);
+            selectedPinId = pin.id;
             return pin;
         }
 
@@ -311,12 +463,20 @@
         async function calculatePin(pin) {
             const { type, lat, lng } = pin;
 
-            if (type === 'fire') {
-                if (!hydrants.length || !waterBodies.length) {
-                    info.innerHTML = '<span class="info-muted">Data still loading, try again in a moment.</span>';
-                    return;
-                }
+            const dataMissing = {
+                fire: !hydrants.length || !waterBodies.length,
+                truck: false,
+                person: !hospitals.length,
+                plane: !waterBodies.length
+            };
+            if (dataMissing[type]) {
+                pin.lastInfo = '<span class="info-muted">No area data loaded - try again in a moment.</span>';
+                info.innerHTML = pin.lastInfo;
+                updatePinList();
+                return;
+            }
 
+            if (type === 'fire') {
                 const nearestHydrants = findNearestN(lat, lng, hydrants, 3).filter(hydrantMatch => hydrantMatch.dist <= 0.5);
                 const nearestHydrantFallback = nearestHydrants[0] || findNearest(lat, lng, hydrants);
                 nearestHydrants.forEach(hydrantMatch => {
@@ -386,6 +546,7 @@
                 if (!firePins.length) {
                     pin.lastInfo = '<span class="info-muted">Place a fire pin first, then place the truck.</span>';
                     info.innerHTML = pin.lastInfo;
+                    updatePinList();
                     return;
                 }
 
@@ -416,12 +577,6 @@
                 }
 
             } else if (type === 'person') {
-                if (!hospitals.length) {
-                    pin.lastInfo = '<span class="info-muted">Data still loading, try again in a moment.</span>';
-                    info.innerHTML = pin.lastInfo;
-                    return;
-                }
-
                 const nearestHospital = findNearest(lat, lng, hospitals);
                 const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
                 const hospitalName = nearestHospital.feature.properties.name || 'Unnamed hospital';
@@ -449,12 +604,6 @@
                 }
 
             } else if (type === 'plane') {
-                if (!waterBodies.length) {
-                    pin.lastInfo = '<span class="info-muted">Data still loading, try again in a moment.</span>';
-                    info.innerHTML = pin.lastInfo;
-                    return;
-                }
-
                 const nearestWater = findNearest(lat, lng, waterBodies);
                 const [waterLon, waterLat] = nearestWater.feature.geometry.coordinates;
                 pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
@@ -475,6 +624,7 @@
             }
 
             info.innerHTML = pin.lastInfo;
+            updatePinList();
         }
 
         map.on('click', async (e) => {
