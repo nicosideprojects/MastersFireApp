@@ -152,6 +152,8 @@
             <div class="pin-grid">
                 <button class="pin-btn active" data-mode="fire"><span class="emoji">🔥</span>Fire</button>
                 <button class="pin-btn" data-mode="truck"><span class="emoji">🚒</span>Fire Truck</button>
+                <button class="pin-btn" data-mode="person"><span class="emoji">🧑</span>Person</button>
+                <button class="pin-btn" data-mode="plane"><span class="emoji">✈️</span>Aerial</button>
             </div>
         </div>
 
@@ -171,7 +173,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
 
-        let hydrants = [], waterBodies = [];
+        let hydrants = [], waterBodies = [], hospitals = [];
         let pins = [];
         let pinIdCounter = 0;
         let currentMode = 'fire';
@@ -179,7 +181,7 @@
         const info = document.getElementById('info');
         const status = document.getElementById('status');
 
-        const PIN_EMOJIS = { fire: '🔥', truck: '🚒' };
+        const PIN_EMOJIS = { fire: '🔥', truck: '🚒', person: '🧑', plane: '✈️' };
 
         document.querySelectorAll('.pin-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -189,16 +191,18 @@
             });
         });
 
-        // load the two static datasets needed for the fire pin
+        // load the static datasets needed for the fire, person, and aerial pins
         function loadStaticData() {
             status.textContent = 'Loading data...';
             Promise.all([
                 fetch('data/london_hydrants.geojson').then(response => response.json()),
-                fetch('data/london_water.geojson').then(response => response.json())
-            ]).then(([hydrantData, waterData]) => {
+                fetch('data/london_water.geojson').then(response => response.json()),
+                fetch('data/london_hospitals.geojson').then(response => response.json())
+            ]).then(([hydrantData, waterData, hospitalData]) => {
                 hydrants = hydrantData.features;
                 waterBodies = waterData.features;
-                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources loaded`;
+                hospitals = hospitalData.features;
+                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals loaded`;
             }).catch(() => {
                 status.textContent = 'Error loading data - open via Live Server';
                 status.style.color = '#ff6b6b';
@@ -282,7 +286,17 @@
         }
 
         // creates a new pin on the map and adds it to the pins array
+        // person pins are single-instance: placing a new one replaces the last
         function createPin(type, lat, lng) {
+            if (type === 'person') {
+                const existingPersonPin = pins.find(existingPin => existingPin.type === 'person');
+                if (existingPersonPin) {
+                    if (existingPersonPin.marker) map.removeLayer(existingPersonPin.marker);
+                    existingPersonPin.layers.forEach(layer => map.removeLayer(layer));
+                    pins = pins.filter(existingPin => existingPin.id !== existingPersonPin.id);
+                }
+            }
+
             const pin = { id: pinIdCounter++, type, lat, lng, layers: [] };
             const marker = L.marker([lat, lng], { icon: makeIcon(PIN_EMOJIS[type]) }).addTo(map);
             pin.marker = marker;
@@ -292,6 +306,8 @@
 
         // fire pin: nearest hydrants/water within 500m and a wind-driven spread cone
         // truck pin: road-network route to the nearest fire pin
+        // person pin: road-network route to the nearest hospital
+        // plane pin: nearest water body, straight-line bearing
         async function calculatePin(pin) {
             const { type, lat, lng } = pin;
 
@@ -398,6 +414,64 @@
                 } catch {
                     pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
                 }
+
+            } else if (type === 'person') {
+                if (!hospitals.length) {
+                    pin.lastInfo = '<span class="info-muted">Data still loading, try again in a moment.</span>';
+                    info.innerHTML = pin.lastInfo;
+                    return;
+                }
+
+                const nearestHospital = findNearest(lat, lng, hospitals);
+                const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
+                const hospitalName = nearestHospital.feature.properties.name || 'Unnamed hospital';
+                pin.layers.push(L.marker([hospitalLat, hospitalLon], { icon: makeIcon('🏥') }).addTo(map));
+
+                try {
+                    const route = await orsRoute(lat, lng, hospitalLat, hospitalLon);
+                    const routeSummary = route.features[0].properties.summary;
+                    pin.layers.push(L.geoJSON(route, { style: { color: '#ff6b6b', weight: 4, opacity: 0.85 } }).addTo(map));
+                    pin.lastInfo = `
+                    <div class="info-row">
+                        <div class="info-label">Nearest hospital</div>
+                        <div class="info-value">${hospitalName}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Route distance</div>
+                        <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Estimated travel time</div>
+                        <div class="info-value">${Math.round(routeSummary.duration / 60)} min</div>
+                    </div>`;
+                } catch {
+                    pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
+                }
+
+            } else if (type === 'plane') {
+                if (!waterBodies.length) {
+                    pin.lastInfo = '<span class="info-muted">Data still loading, try again in a moment.</span>';
+                    info.innerHTML = pin.lastInfo;
+                    return;
+                }
+
+                const nearestWater = findNearest(lat, lng, waterBodies);
+                const [waterLon, waterLat] = nearestWater.feature.geometry.coordinates;
+                pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
+                pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 3, dashArray: '10,8', opacity: 0.9 }).addTo(map));
+                pin.lastInfo = `
+                <div class="info-row">
+                    <div class="info-label">Nearest water source</div>
+                    <div class="info-value">${waterType(nearestWater.feature.properties)}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Direct distance</div>
+                    <div class="info-value">${nearestWater.dist.toFixed(2)} km</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Route type</div>
+                    <div class="info-value">Aerial - straight line</div>
+                </div>`;
             }
 
             info.innerHTML = pin.lastInfo;
