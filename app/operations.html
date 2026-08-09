@@ -7,6 +7,7 @@
     <title>Emergency Response Tool</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="config.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         * {
@@ -150,12 +151,13 @@
             <div class="section-label">Select pin type</div>
             <div class="pin-grid">
                 <button class="pin-btn active" data-mode="fire"><span class="emoji">🔥</span>Fire</button>
+                <button class="pin-btn" data-mode="truck"><span class="emoji">🚒</span>Fire Truck</button>
             </div>
         </div>
 
         <div>
             <div class="section-label">Details</div>
-            <div id="info"><span class="info-muted">Click the map to place a fire pin...</span></div>
+            <div id="info"><span class="info-muted">Select a pin type and click the map...</span></div>
         </div>
 
         <div id="status">Loading data...</div>
@@ -177,7 +179,7 @@
         const info = document.getElementById('info');
         const status = document.getElementById('status');
 
-        const PIN_EMOJIS = { fire: '🔥' };
+        const PIN_EMOJIS = { fire: '🔥', truck: '🚒' };
 
         document.querySelectorAll('.pin-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -269,6 +271,16 @@
             });
         }
 
+        // requests a road-network route between two points via OpenRouteService
+        async function orsRoute(fromLat, fromLon, toLat, toLon) {
+            const response = await fetch('https://api.openrouteservice.org/v2/directions/driving-car/geojson', {
+                method: 'POST',
+                headers: { 'Authorization': ORS_KEY, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ coordinates: [[fromLon, fromLat], [toLon, toLat]] })
+            });
+            return response.json();
+        }
+
         // creates a new pin on the map and adds it to the pins array
         function createPin(type, lat, lng) {
             const pin = { id: pinIdCounter++, type, lat, lng, layers: [] };
@@ -278,78 +290,117 @@
             return pin;
         }
 
-        // fire pin: nearest hydrants/water within 500m, plus a wind-driven spread cone
+        // fire pin: nearest hydrants/water within 500m and a wind-driven spread cone
+        // truck pin: road-network route to the nearest fire pin
         async function calculatePin(pin) {
-            const { lat, lng } = pin;
+            const { type, lat, lng } = pin;
 
-            if (!hydrants.length || !waterBodies.length) {
-                info.innerHTML = '<span class="info-muted">Data still loading, try again in a moment.</span>';
-                return;
-            }
+            if (type === 'fire') {
+                if (!hydrants.length || !waterBodies.length) {
+                    info.innerHTML = '<span class="info-muted">Data still loading, try again in a moment.</span>';
+                    return;
+                }
 
-            const nearestHydrants = findNearestN(lat, lng, hydrants, 3).filter(hydrantMatch => hydrantMatch.dist <= 0.5);
-            const nearestHydrantFallback = nearestHydrants[0] || findNearest(lat, lng, hydrants);
-            nearestHydrants.forEach(hydrantMatch => {
-                const [hydrantLon, hydrantLat] = hydrantMatch.feature.geometry.coordinates;
-                pin.layers.push(L.circleMarker([hydrantLat, hydrantLon], { radius: 9, color: '#00e676', fillColor: '#00e676', fillOpacity: 0.9, weight: 2 }).addTo(map));
-                pin.layers.push(L.polyline([[lat, lng], [hydrantLat, hydrantLon]], { color: '#00e676', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
-            });
+                const nearestHydrants = findNearestN(lat, lng, hydrants, 3).filter(hydrantMatch => hydrantMatch.dist <= 0.5);
+                const nearestHydrantFallback = nearestHydrants[0] || findNearest(lat, lng, hydrants);
+                nearestHydrants.forEach(hydrantMatch => {
+                    const [hydrantLon, hydrantLat] = hydrantMatch.feature.geometry.coordinates;
+                    pin.layers.push(L.circleMarker([hydrantLat, hydrantLon], { radius: 9, color: '#00e676', fillColor: '#00e676', fillOpacity: 0.9, weight: 2 }).addTo(map));
+                    pin.layers.push(L.polyline([[lat, lng], [hydrantLat, hydrantLon]], { color: '#00e676', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
+                });
 
-            const nearestWaters = findNearestN(lat, lng, waterBodies, 3).filter(waterMatch => waterMatch.dist <= 0.5);
-            const nearestWaterFallback = nearestWaters[0] || findNearest(lat, lng, waterBodies);
-            nearestWaters.forEach(waterMatch => {
-                const [waterLon, waterLat] = waterMatch.feature.geometry.coordinates;
-                pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
-                pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
-            });
+                const nearestWaters = findNearestN(lat, lng, waterBodies, 3).filter(waterMatch => waterMatch.dist <= 0.5);
+                const nearestWaterFallback = nearestWaters[0] || findNearest(lat, lng, waterBodies);
+                nearestWaters.forEach(waterMatch => {
+                    const [waterLon, waterLat] = waterMatch.feature.geometry.coordinates;
+                    pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
+                    pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 2, opacity: 0.7, dashArray: '6,5' }).addTo(map));
+                });
 
-            let windHtml = '';
-            try {
-                const windResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=wind_speed_10m,wind_direction_10m`).then(response => response.json());
-                const windSpeed = windResponse.current.wind_speed_10m;
-                const windDir = windResponse.current.wind_direction_10m;
-                const spreadBearing = (windDir + 180) % 360;
-                const spreadDist = Math.max(0.05, windSpeed * 0.02);
+                let windHtml = '';
+                try {
+                    const windResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=wind_speed_10m,wind_direction_10m`).then(response => response.json());
+                    const windSpeed = windResponse.current.wind_speed_10m;
+                    const windDir = windResponse.current.wind_direction_10m;
+                    const spreadBearing = (windDir + 180) % 360;
+                    const spreadDist = Math.max(0.05, windSpeed * 0.02);
 
-                pin.layers.push(L.polygon(
-                    [[lat, lng],
-                    destinationPoint(lat, lng, (spreadBearing - 30 + 360) % 360, spreadDist),
-                    destinationPoint(lat, lng, spreadBearing, spreadDist),
-                    destinationPoint(lat, lng, (spreadBearing + 30) % 360, spreadDist)],
-                    { color: 'orange', fillColor: 'orange', fillOpacity: 0.25, weight: 2, dashArray: '5,4' }
-                ).addTo(map));
+                    pin.layers.push(L.polygon(
+                        [[lat, lng],
+                        destinationPoint(lat, lng, (spreadBearing - 30 + 360) % 360, spreadDist),
+                        destinationPoint(lat, lng, spreadBearing, spreadDist),
+                        destinationPoint(lat, lng, (spreadBearing + 30) % 360, spreadDist)],
+                        { color: 'orange', fillColor: 'orange', fillOpacity: 0.25, weight: 2, dashArray: '5,4' }
+                    ).addTo(map));
 
-                windHtml = `
+                    windHtml = `
+                    <div class="info-row">
+                        <div class="info-label">Wind</div>
+                        <div class="info-value">${(windSpeed * 3.6).toFixed(1)} km/h from ${bearingToCompass(windDir)}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Fire spread direction</div>
+                        <div class="info-value">Towards ${bearingToCompass(spreadBearing)}</div>
+                    </div>`;
+                } catch {
+                    windHtml = '<div class="info-row"><span class="info-muted">Wind data unavailable</span></div>';
+                }
+
+                const hydrantSummary = nearestHydrants.length
+                    ? nearestHydrants.map(hydrantMatch => `<div class="info-sub">Hydrant - ${(hydrantMatch.dist * 1000).toFixed(0)}m</div>`).join('')
+                    : `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+
+                const waterSummary = nearestWaters.length
+                    ? nearestWaters.map(waterMatch => `<div class="info-sub">${waterType(waterMatch.feature.properties)} - ${(waterMatch.dist * 1000).toFixed(0)}m</div>`).join('')
+                    : `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+
+                pin.lastInfo = `
                 <div class="info-row">
-                    <div class="info-label">Wind</div>
-                    <div class="info-value">${(windSpeed * 3.6).toFixed(1)} km/h from ${bearingToCompass(windDir)}</div>
+                    <div class="info-label">Hydrants within 500m</div>
+                    ${nearestHydrants.length ? hydrantSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + hydrantSummary}
                 </div>
                 <div class="info-row">
-                    <div class="info-label">Fire spread direction</div>
-                    <div class="info-value">Towards ${bearingToCompass(spreadBearing)}</div>
-                </div>`;
-            } catch {
-                windHtml = '<div class="info-row"><span class="info-muted">Wind data unavailable</span></div>';
+                    <div class="info-label">Water sources within 500m</div>
+                    ${nearestWaters.length ? waterSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + waterSummary}
+                </div>
+                ${windHtml}`;
+
+            } else if (type === 'truck') {
+                const firePins = pins.filter(existingPin => existingPin.type === 'fire');
+                if (!firePins.length) {
+                    pin.lastInfo = '<span class="info-muted">Place a fire pin first, then place the truck.</span>';
+                    info.innerHTML = pin.lastInfo;
+                    return;
+                }
+
+                let nearestFire = firePins[0];
+                let nearestFireDistance = haversine(lat, lng, firePins[0].lat, firePins[0].lng);
+                firePins.forEach(firePin => {
+                    const distanceToFire = haversine(lat, lng, firePin.lat, firePin.lng);
+                    if (distanceToFire < nearestFireDistance) { nearestFireDistance = distanceToFire; nearestFire = firePin; }
+                });
+
+                try {
+                    const route = await orsRoute(lat, lng, nearestFire.lat, nearestFire.lng);
+                    const routeSummary = route.features[0].properties.summary;
+                    const routeMinutes = Math.round(routeSummary.duration / 60);
+                    const routeSeconds = Math.round(routeSummary.duration % 60);
+                    pin.layers.push(L.geoJSON(route, { style: { color: 'orange', weight: 5, opacity: 0.85 } }).addTo(map));
+                    pin.lastInfo = `
+                    <div class="info-row">
+                        <div class="info-label">Routing to nearest fire</div>
+                        <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km via road</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Estimated travel time</div>
+                        <div class="info-value">${routeMinutes}m ${routeSeconds}s</div>
+                    </div>`;
+                } catch {
+                    pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
+                }
             }
 
-            const hydrantSummary = nearestHydrants.length
-                ? nearestHydrants.map(hydrantMatch => `<div class="info-sub">Hydrant - ${(hydrantMatch.dist * 1000).toFixed(0)}m</div>`).join('')
-                : `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
-
-            const waterSummary = nearestWaters.length
-                ? nearestWaters.map(waterMatch => `<div class="info-sub">${waterType(waterMatch.feature.properties)} - ${(waterMatch.dist * 1000).toFixed(0)}m</div>`).join('')
-                : `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
-
-            info.innerHTML = `
-            <div class="info-row">
-                <div class="info-label">Hydrants within 500m</div>
-                ${nearestHydrants.length ? hydrantSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + hydrantSummary}
-            </div>
-            <div class="info-row">
-                <div class="info-label">Water sources within 500m</div>
-                ${nearestWaters.length ? waterSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + waterSummary}
-            </div>
-            ${windHtml}`;
+            info.innerHTML = pin.lastInfo;
         }
 
         map.on('click', async (e) => {
