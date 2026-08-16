@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
     <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="geo-utils.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         * {
@@ -478,37 +479,6 @@
             }
         }
 
-        // calculates distance between two points in km using the haversine formula
-        function haversine(lat1, lon1, lat2, lon2) {
-            const earthRadiusKm = 6371;
-            // lat/lon differences, converted to radians
-            const deltaLat = (lat2 - lat1) * Math.PI / 180;
-            const deltaLon = (lon2 - lon1) * Math.PI / 180;
-            // core haversine formula term
-            const haversineTerm = Math.sin(deltaLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(deltaLon / 2) ** 2;
-            return earthRadiusKm * 2 * Math.atan2(Math.sqrt(haversineTerm), Math.sqrt(1 - haversineTerm));
-        }
-
-        // standard geodetic approximation: how many km one degree of latitude covers
-        // TODO: remember to add the reference for this
-        const KM_PER_DEGREE_LATITUDE = 111.0;
-        // extra padding on the bounding box so it doesnt cut off a point the haversine check would include
-        const BBOX_SAFETY_MARGIN = 1.1;
-
-        // bounding-box pre-filter keeps this fast before falling back to haversine
-        function isCovered(lat, lon, radiusKm) {
-            // radius in degrees, padded by the safety margin
-            const latDelta = radiusKm / KM_PER_DEGREE_LATITUDE * BBOX_SAFETY_MARGIN;
-            // same idea, but degrees of longitude shrink the further from the equator you are
-            const lonDelta = radiusKm / (KM_PER_DEGREE_LATITUDE * Math.cos(lat * Math.PI / 180)) * BBOX_SAFETY_MARGIN;
-            // true if any hydrant passes both the cheap box check and the distance check
-            return hydrants.some(hydrant => {
-                const [hydrantLon, hydrantLat] = hydrant.geometry.coordinates;
-                if (Math.abs(hydrantLat - lat) > latDelta) return false;
-                if (Math.abs(hydrantLon - lon) > lonDelta) return false;
-                return haversine(lat, lon, hydrantLat, hydrantLon) <= radiusKm;
-            });
-        }
 
         // fetches park/wood/water polygons from Overpass to exclude from demand
         async function fetchDemandMask(bounds) {
@@ -551,43 +521,16 @@
             }
         }
 
-        // simple greedy MCLP: repeatedly pick the point that covers the most remaining demand, 
-        // then remove what it covers, until we have enough sites
-        function greedyMCLP(uncoveredCentroids, radiusKm, numCandidates = 5) {
-            const remaining = uncoveredCentroids.map(([lat, lon]) => ({ lat, lon }));
-            const candidates = [];
-
-            for (let i = 0; i < numCandidates && remaining.length > 0; i++) {
-                // find the point that covers the most remaining demand
-                let bestIdx = 0, bestCount = 0;
-                remaining.forEach((point, idx) => {
-                    const count = remaining.filter(demandPoint =>
-                        haversine(point.lat, point.lon, demandPoint.lat, demandPoint.lon) <= radiusKm
-                    ).length;
-                    if (count > bestCount) { bestCount = count; bestIdx = idx; }
-                });
-
-                const best = remaining[bestIdx];
-                candidates.push({ lat: best.lat, lon: best.lon, covering: bestCount });
-
-                // remove demand points this candidate now covers
-                const stillUncovered = remaining.filter(demandPoint =>
-                    haversine(best.lat, best.lon, demandPoint.lat, demandPoint.lon) > radiusKm
-                );
-                remaining.splice(0, remaining.length, ...stillUncovered);
-            }
-            return candidates;
-        }
-
-        // same reliability fix as the road-snapping fetch below - not yet reused by fetchDemandMask, 
-        // see its TODO above
+        // same reliability fix as the road-snapping fetch below - not yet reused by
+        // fetchDemandMask, see its TODO above
         const OVERPASS_MIRRORS = [
             'https://overpass-api.de/api/interpreter',
             'https://lz4.overpass-api.de/api/interpreter',
             'https://overpass.kumi.systems/api/interpreter'
         ];
 
-        // padding (degrees) around the candidates bounding box, so nearby roads just outside the exact cluster are still considered for snapping
+        // padding (degrees) around the candidates bounding box, so nearby roads
+        // just outside the exact cluster are still considered for snapping
         const ROAD_SNAP_BBOX_PADDING_DEG = 0.012;
 
         // one batched Overpass request covering all candidates, rather than one per candidate
@@ -696,7 +639,7 @@
                     try { return turf.booleanPointInPolygon(centroid, polygon); } catch { return false; }
                 })) return;
 
-                if (isCovered(lat, lon, radiusKm)) {
+                if (isCovered(lat, lon, radiusKm, hydrants)) {
                     coveredHexes.push({ hex, lat, lon });
                 } else {
                     uncoveredHexes.push({ hex, lat, lon });
