@@ -42,6 +42,7 @@
             font-size: 14px;
             color: #666;
             max-width: 420px;
+            margin: 0 auto;
             line-height: 1.6;
         }
 
@@ -68,13 +69,8 @@
             position: relative;
         }
 
-        .card:hover:not(.disabled) {
+        .card:hover {
             transform: translateY(-3px);
-        }
-
-        .card.disabled {
-            cursor: default;
-            opacity: 0.55;
         }
 
         .card.operations {
@@ -87,6 +83,10 @@
 
         .card.planning {
             border-color: #2d2d44;
+        }
+
+        .card.planning:hover {
+            border-color: #4fc3f7;
         }
 
         .card-icon {
@@ -137,28 +137,6 @@
         .card.planning .card-footer {
             color: #4fc3f7;
         }
-
-        .badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            padding: 3px 8px;
-            border-radius: 20px;
-            background: #1a2a3d;
-            color: #4fc3f7;
-            border: 1px solid #2a3d55;
-        }
-
-        .footer-note {
-            margin-top: 60px;
-            font-size: 12px;
-            color: #444;
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -183,8 +161,7 @@
             </div>
         </a>
 
-        <a class="card planning disabled" href="analysis.html">
-            <div class="badge">In development</div>
+        <a class="card planning" href="analysis.html">
             <div class="card-icon">
                 <i class="ph ph-bold ph-chart-bar"></i>
             </div>
@@ -192,7 +169,7 @@
             <div class="card-desc">Coverage gap planning. Visualise hydrant service-area buffers, identify
                 infrastructure gaps, and get candidate sites for new hydrant placement via MCLP analysis.</div>
             <div class="card-footer">
-                <i class="ph ph-bold ph-clock"></i> TODO
+                <i class="ph ph-bold ph-arrow-right"></i> Launch
             </div>
         </a>
 
