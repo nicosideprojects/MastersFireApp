@@ -710,6 +710,23 @@
             ${windHtml}`;
         }
 
+        // draws the truck pin route line and builds the info HTML
+        function renderTruckPinResult(pin, route) {
+            const routeSummary = route.features[0].properties.summary;
+            const routeMinutes = Math.round(routeSummary.duration / 60);
+            const routeSeconds = Math.round(routeSummary.duration % 60);
+            pin.layers.push(L.geoJSON(route, { style: { color: 'orange', weight: 5, opacity: 0.85 } }).addTo(map));
+            pin.lastInfo = `
+            <div class="info-row">
+                <div class="info-label">Routing to nearest fire</div>
+                <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km via road</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Estimated travel time</div>
+                <div class="info-value">${routeMinutes}m ${routeSeconds}s</div>
+            </div>`;
+        }
+
         // fire pin: nearest hydrants/water within 500m and a wind-driven spread cone
         // truck pin: road-network route to the nearest fire pin
         // person pin: road-network route to the nearest hospital
@@ -764,19 +781,7 @@
 
                 try {
                     const route = await orsRoute(lat, lng, nearestFire.lat, nearestFire.lng);
-                    const routeSummary = route.features[0].properties.summary;
-                    const routeMinutes = Math.round(routeSummary.duration / 60);
-                    const routeSeconds = Math.round(routeSummary.duration % 60);
-                    pin.layers.push(L.geoJSON(route, { style: { color: 'orange', weight: 5, opacity: 0.85 } }).addTo(map));
-                    pin.lastInfo = `
-                    <div class="info-row">
-                        <div class="info-label">Routing to nearest fire</div>
-                        <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km via road</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Estimated travel time</div>
-                        <div class="info-value">${routeMinutes}m ${routeSeconds}s</div>
-                    </div>`;
+                    renderTruckPinResult(pin, route);
                 } catch {
                     pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
                 }
