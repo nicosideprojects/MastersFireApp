@@ -4,17 +4,20 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
-    bearingToCompass, waterType, isCovered, greedyMCLP
+    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP
 } = require('../app/geo-utils.js');
 
-// 51.5074, -0.1278 is central London
+const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
+const PARIS_LAT = 48.8566, PARIS_LON = 2.3522;
+// 120m is the default hydrant coverage radius
+const HYDRANT_RADIUS_KM = 0.12;
+
 test('haversine: same point is zero distance', () => {
-    assert.equal(haversine(51.5074, -0.1278, 51.5074, -0.1278), 0);
+    assert.equal(haversine(LONDON_LAT, LONDON_LON, LONDON_LAT, LONDON_LON), 0);
 });
 
-// 48.8566, 2.3522 is central Paris
 test('haversine: London to Paris is about 344km', () => {
-    const d = haversine(51.5074, -0.1278, 48.8566, 2.3522);
+    const d = haversine(LONDON_LAT, LONDON_LON, PARIS_LAT, PARIS_LON);
     assert.ok(Math.abs(d - 344) < 5, `expected ~344km, got ${d}`);
 });
 
@@ -62,11 +65,60 @@ test('findNearestN: sorts ascending and slices to n', () => {
     assert.ok(result[0].dist <= result[1].dist);
 });
 
-// 120m is the default hydrant coverage radius, the second point is 10+km away, well outside the radius
+// the second point is 10+km away, well outside the radius
 test('isCovered: true within radius, false outside it', () => {
-    const points = [featureAt(-0.1278, 51.5074)];
-    assert.equal(isCovered(51.5074, -0.1278, 0.12, points), true);
-    assert.equal(isCovered(51.6, -0.5, 0.12, points), false);
+    const points = [featureAt(LONDON_LON, LONDON_LAT)];
+    assert.equal(isCovered(LONDON_LAT, LONDON_LON, HYDRANT_RADIUS_KM, points), true);
+    assert.equal(isCovered(51.6, -0.5, HYDRANT_RADIUS_KM, points), false);
+});
+
+// a fake version of the turf map library to give enough for computeCoverage to run tests
+const fakeTurf = {
+    centroid: hex => ({ geometry: { coordinates: hex.centroid } }),
+    booleanPointInPolygon: (point, polygon) => polygon.contains(point.geometry.coordinates)
+};
+
+// one hydrant at central London - same point as the isCovered test above
+const oneHydrant = [featureAt(LONDON_LON, LONDON_LAT)];
+
+test('computeCoverage: sorts cells into covered vs uncovered', () => {
+    const hexGrid = {
+        features: [
+            { id: 'covered', centroid: [LONDON_LON, LONDON_LAT] },
+            { id: 'uncovered', centroid: [-0.5, 51.6] }
+        ]
+    };
+    const result = computeCoverage(oneHydrant, [], HYDRANT_RADIUS_KM, hexGrid, fakeTurf);
+
+    assert.equal(result.coveredHexes.length, 1);
+    assert.equal(result.coveredHexes[0].hex.id, 'covered');
+    assert.equal(result.uncoveredHexes.length, 1);
+    assert.equal(result.uncoveredHexes[0].hex.id, 'uncovered');
+    assert.equal(result.totalCells, 2);
+});
+
+test('computeCoverage: demand mask excludes a cell from both covered and uncovered', () => {
+    const MASKED_LAT = 51.55, MASKED_LON = -0.2;
+    const hexGrid = {
+        features: [
+            { id: 'covered', centroid: [LONDON_LON, LONDON_LAT] },
+            { id: 'uncovered', centroid: [-0.5, 51.6] },
+            { id: 'masked', centroid: [MASKED_LON, MASKED_LAT] }
+        ]
+    };
+    // matches only the masked cells centroid
+    const demandMask = [{ contains: ([lon, lat]) => lon === MASKED_LON && lat === MASKED_LAT }];
+    const result = computeCoverage(oneHydrant, demandMask, HYDRANT_RADIUS_KM, hexGrid, fakeTurf);
+
+    assert.equal(result.totalCells, 2);
+    assert.ok(!result.coveredHexes.some(({ hex }) => hex.id === 'masked'));
+    assert.ok(!result.uncoveredHexes.some(({ hex }) => hex.id === 'masked'));
+});
+
+test('computeCoverage: an empty demand mask never excludes any cell', () => {
+    const hexGrid = { features: [{ id: 'a', centroid: [LONDON_LON, LONDON_LAT] }] };
+    const result = computeCoverage(oneHydrant, [], HYDRANT_RADIUS_KM, hexGrid, fakeTurf);
+    assert.equal(result.totalCells, 1);
 });
 
 test('greedyMCLP: picks the point that covers the most demand first', () => {

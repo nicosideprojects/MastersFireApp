@@ -624,27 +624,8 @@
             await pauseForRepaint();
 
             // cells with a hydrant within radiusKm, vs cells with none - rendered as gaps
-            const coveredHexes = [];
-            const uncoveredHexes = [];
-
-            // sort every grid cell into covered, uncovered, or skipped (masked out)
-            hexGrid.features.forEach(hex => {
-                // center point of this cell - what actually gets checked against hydrants/mask
-                const centroid = turf.centroid(hex);
-                const [lon, lat] = centroid.geometry.coordinates;
-
-                // skip this cell entirely if its center falls inside any masked-out area
-                // TODO: display the masked out area, right now it just skips them so they look like gaps in the result
-                if (useMask && demandMask.some(polygon => {
-                    try { return turf.booleanPointInPolygon(centroid, polygon); } catch { return false; }
-                })) return;
-
-                if (isCovered(lat, lon, radiusKm, hydrants)) {
-                    coveredHexes.push({ hex, lat, lon });
-                } else {
-                    uncoveredHexes.push({ hex, lat, lon });
-                }
-            });
+            // TODO: display the masked out area, right now it just skips them so they look like gaps in the result
+            const { coveredHexes, uncoveredHexes } = computeCoverage(hydrants, demandMask, radiusKm, hexGrid, turf);
 
             // draw every uncovered cell as a red polygon on the gap layer
             uncoveredHexes.forEach(({ hex }) => {

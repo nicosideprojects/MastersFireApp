@@ -86,6 +86,29 @@ function isCovered(lat, lon, radiusKm, points) {
     });
 }
 
+// Sorts each grid cell into covered or uncovered, ignoring any cell inside a masked-out area
+function computeCoverage(hydrants, demandMask, radiusKm, hexGrid, turfLib) {
+    const coveredHexes = [];
+    const uncoveredHexes = [];
+
+    hexGrid.features.forEach(hex => {
+        const centroid = turfLib.centroid(hex);
+        const [lon, lat] = centroid.geometry.coordinates;
+
+        if (demandMask.some(polygon => {
+            try { return turfLib.booleanPointInPolygon(centroid, polygon); } catch { return false; }
+        })) return;
+
+        if (isCovered(lat, lon, radiusKm, hydrants)) {
+            coveredHexes.push({ hex, lat, lon });
+        } else {
+            uncoveredHexes.push({ hex, lat, lon });
+        }
+    });
+
+    return { coveredHexes, uncoveredHexes, totalCells: coveredHexes.length + uncoveredHexes.length };
+}
+
 // simple greedy MCLP: repeatedly pick the point that covers the most
 // remaining demand, then remove what it covers, until we have enough sites
 function greedyMCLP(uncoveredCentroids, radiusKm, numCandidates = 5) {
@@ -117,5 +140,5 @@ function greedyMCLP(uncoveredCentroids, radiusKm, numCandidates = 5) {
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, greedyMCLP };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP };
 }
