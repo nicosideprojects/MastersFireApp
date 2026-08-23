@@ -579,6 +579,27 @@
             });
         }
 
+        // draws the gap layer and updates the hydrant/cell/coverage/gap stat panel, from computeCoverage
+        function renderCoverageResult({ coveredHexes, uncoveredHexes, totalCells }, hydrantCount) {
+            uncoveredHexes.forEach(({ hex }) => {
+                L.geoJSON(hex, {
+                    style: { color: '#ff6b6b', fillColor: '#ff6b6b', fillOpacity: 0.35, weight: 0.5, opacity: 0.6 }
+                }).addTo(gapLayer);
+            });
+
+            document.getElementById('stat-hydrants').textContent = hydrantCount;
+            document.getElementById('stat-cells').textContent = totalCells.toLocaleString();
+
+            const coveragePct = totalCells > 0 ? ((coveredHexes.length / totalCells) * 100).toFixed(1) : '0';
+            const coverageEl = document.getElementById('stat-coverage');
+            coverageEl.textContent = `${coveragePct}%`;
+            coverageEl.className = 'stat-value ' + (coveragePct >= 70 ? 'good' : coveragePct >= 40 ? 'warn' : 'bad');
+
+            const gapsEl = document.getElementById('stat-gaps');
+            gapsEl.textContent = uncoveredHexes.length.toLocaleString();
+            gapsEl.className = 'stat-value ' + (uncoveredHexes.length < 100 ? 'good' : uncoveredHexes.length < 500 ? 'warn' : 'bad');
+        }
+
         async function runAnalysis() {
             if (!hydrants.length) { status.textContent = 'Hydrant data not loaded yet.'; return; }
 
@@ -625,14 +646,9 @@
 
             // cells with a hydrant within radiusKm, vs cells with none - rendered as gaps
             // TODO: display the masked out area, right now it just skips them so they look like gaps in the result
-            const { coveredHexes, uncoveredHexes } = computeCoverage(hydrants, demandMask, radiusKm, hexGrid, turf);
-
-            // draw every uncovered cell as a red polygon on the gap layer
-            uncoveredHexes.forEach(({ hex }) => {
-                L.geoJSON(hex, {
-                    style: { color: '#ff6b6b', fillColor: '#ff6b6b', fillOpacity: 0.35, weight: 0.5, opacity: 0.6 }
-                }).addTo(gapLayer);
-            });
+            const coverageResult = computeCoverage(hydrants, demandMask, radiusKm, hexGrid, turf);
+            const { uncoveredHexes } = coverageResult;
+            renderCoverageResult(coverageResult, hydrants.length);
 
             if (!document.getElementById('toggle-coverage').classList.contains('active')) {
                 renderCoverageCircles(radiusM);
@@ -682,21 +698,6 @@
                     .addTo(candidateLayer);
             });
             setLayerVisible('toggle-candidates', true);
-
-            // cells actually analysed (excludes masked-out ones), and what % of those are covered
-            const totalCells = coveredHexes.length + uncoveredHexes.length;
-            const coveragePct = totalCells > 0 ? ((coveredHexes.length / totalCells) * 100).toFixed(1) : '0';
-
-            document.getElementById('stat-hydrants').textContent = hydrants.length;
-            document.getElementById('stat-cells').textContent = totalCells.toLocaleString();
-
-            const coverageEl = document.getElementById('stat-coverage');
-            coverageEl.textContent = `${coveragePct}%`;
-            coverageEl.className = 'stat-value ' + (coveragePct >= 70 ? 'good' : coveragePct >= 40 ? 'warn' : 'bad');
-
-            const gapsEl = document.getElementById('stat-gaps');
-            gapsEl.textContent = uncoveredHexes.length.toLocaleString();
-            gapsEl.className = 'stat-value ' + (uncoveredHexes.length < 100 ? 'good' : uncoveredHexes.length < 500 ? 'warn' : 'bad');
 
             const candidateListEl = document.getElementById('candidate-list');
             candidateListEl.innerHTML = finalCandidates.map(candidate => `
