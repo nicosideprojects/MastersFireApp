@@ -710,6 +710,29 @@
             ${windHtml}`;
         }
 
+        // draws the person pin hospital marker + route line, builds info HTML, from calculatePin data
+        function renderPersonPinResult(pin, nearestHospital, route) {
+            const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
+            const hospitalName = nearestHospital.feature.properties.name || 'Unnamed hospital';
+            pin.layers.push(L.marker([hospitalLat, hospitalLon], { icon: makeIcon('🏥') }).addTo(map));
+
+            const routeSummary = route.features[0].properties.summary;
+            pin.layers.push(L.geoJSON(route, { style: { color: '#ff6b6b', weight: 4, opacity: 0.85 } }).addTo(map));
+            pin.lastInfo = `
+            <div class="info-row">
+                <div class="info-label">Nearest hospital</div>
+                <div class="info-value">${hospitalName}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Route distance</div>
+                <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Estimated travel time</div>
+                <div class="info-value">${Math.round(routeSummary.duration / 60)} min</div>
+            </div>`;
+        }
+
         // draws the truck pin route line and builds the info HTML
         function renderTruckPinResult(pin, route) {
             const routeSummary = route.features[0].properties.summary;
@@ -789,26 +812,10 @@
             } else if (type === 'person') {
                 const nearestHospital = findNearest(lat, lng, hospitals);
                 const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
-                const hospitalName = nearestHospital.feature.properties.name || 'Unnamed hospital';
-                pin.layers.push(L.marker([hospitalLat, hospitalLon], { icon: makeIcon('🏥') }).addTo(map));
 
                 try {
                     const route = await orsRoute(lat, lng, hospitalLat, hospitalLon);
-                    const routeSummary = route.features[0].properties.summary;
-                    pin.layers.push(L.geoJSON(route, { style: { color: '#ff6b6b', weight: 4, opacity: 0.85 } }).addTo(map));
-                    pin.lastInfo = `
-                    <div class="info-row">
-                        <div class="info-label">Nearest hospital</div>
-                        <div class="info-value">${hospitalName}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Route distance</div>
-                        <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Estimated travel time</div>
-                        <div class="info-value">${Math.round(routeSummary.duration / 60)} min</div>
-                    </div>`;
+                    renderPersonPinResult(pin, nearestHospital, route);
                 } catch {
                     pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
                 }
