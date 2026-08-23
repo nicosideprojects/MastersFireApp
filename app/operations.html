@@ -750,6 +750,26 @@
             </div>`;
         }
 
+        // draws the plane pins nearest water source marker + line, builds info HTML
+        function renderPlanePinResult(pin, lat, lng, nearestWater) {
+            const [waterLon, waterLat] = nearestWater.feature.geometry.coordinates;
+            pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
+            pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 3, dashArray: '10,8', opacity: 0.9 }).addTo(map));
+            pin.lastInfo = `
+            <div class="info-row">
+                <div class="info-label">Nearest water source</div>
+                <div class="info-value">${waterType(nearestWater.feature.properties)}</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Direct distance</div>
+                <div class="info-value">${nearestWater.dist.toFixed(2)} km</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Route type</div>
+                <div class="info-value">Aerial - straight line</div>
+            </div>`;
+        }
+
         // fire pin: nearest hydrants/water within 500m and a wind-driven spread cone
         // truck pin: road-network route to the nearest fire pin
         // person pin: road-network route to the nearest hospital
@@ -822,22 +842,7 @@
 
             } else if (type === 'plane') {
                 const nearestWater = findNearest(lat, lng, waterBodies);
-                const [waterLon, waterLat] = nearestWater.feature.geometry.coordinates;
-                pin.layers.push(L.circleMarker([waterLat, waterLon], { radius: 9, color: '#00bcd4', fillColor: '#00bcd4', fillOpacity: 0.9, weight: 2 }).addTo(map));
-                pin.layers.push(L.polyline([[lat, lng], [waterLat, waterLon]], { color: '#00bcd4', weight: 3, dashArray: '10,8', opacity: 0.9 }).addTo(map));
-                pin.lastInfo = `
-                <div class="info-row">
-                    <div class="info-label">Nearest water source</div>
-                    <div class="info-value">${waterType(nearestWater.feature.properties)}</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Direct distance</div>
-                    <div class="info-value">${nearestWater.dist.toFixed(2)} km</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Route type</div>
-                    <div class="info-value">Aerial - straight line</div>
-                </div>`;
+                renderPlanePinResult(pin, lat, lng, nearestWater);
             }
 
             info.innerHTML = pin.lastInfo;
