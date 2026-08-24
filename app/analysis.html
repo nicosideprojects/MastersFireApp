@@ -600,6 +600,37 @@
             gapsEl.className = 'stat-value ' + (uncoveredHexes.length < 100 ? 'good' : uncoveredHexes.length < 500 ? 'warn' : 'bad');
         }
 
+        // draws the numbered candidate markers and the candidate list panel from the finished candidate list
+        function renderCandidatesResult(finalCandidates, doSnap, radiusM) {
+            finalCandidates.forEach(candidate => {
+                const borderColor = (doSnap && candidate.snapped === false) ? '#ff8c00' : '#fff';
+                const failedSnapNote = (doSnap && candidate.snapped === false) ? ' (road snap failed - raw centroid)' : '';
+                const icon = L.divIcon({
+                    className: '',
+                    html: `<div style="
+                    width:24px;height:24px;border-radius:50%;
+                    background:#4fc3f7;color:#0f0f1a;
+                    display:flex;align-items:center;justify-content:center;
+                    font-size:11px;font-weight:700;font-family:sans-serif;
+                    border:2px solid ${borderColor};box-shadow:0 1px 4px #000a;
+                ">${candidate.num}</div>`,
+                    iconSize: [24, 24], iconAnchor: [12, 12]
+                });
+                L.marker([candidate.lat, candidate.lon], { icon })
+                    .bindPopup(`<b>Candidate ${candidate.num}</b>${failedSnapNote}<br>Would cover ~${candidate.covering} gap cells within ${radiusM}m`)
+                    .addTo(candidateLayer);
+            });
+            setLayerVisible('toggle-candidates', true);
+
+            const candidateListEl = document.getElementById('candidate-list');
+            candidateListEl.innerHTML = finalCandidates.map(candidate => `
+            <div class="candidate-item">
+                <div class="candidate-num">${candidate.num}</div>
+                <span>${candidate.lat.toFixed(4)}, ${candidate.lon.toFixed(4)}</span>
+            </div>
+        `).join('');
+        }
+
         async function runAnalysis() {
             if (!hydrants.length) { status.textContent = 'Hydrant data not loaded yet.'; return; }
 
@@ -678,34 +709,7 @@
             // numbered 1-5 to match the markers/list shown in the panel
             const finalCandidates = snappedCandidates.map((c, i) => ({ ...c, num: i + 1 }));
 
-            // draw a numbered marker for each candidate site
-            finalCandidates.forEach(candidate => {
-                const borderColor = (doSnap && candidate.snapped === false) ? '#ff8c00' : '#fff';
-                const failedSnapNote = (doSnap && candidate.snapped === false) ? ' (road snap failed - raw centroid)' : '';
-                const icon = L.divIcon({
-                    className: '',
-                    html: `<div style="
-                    width:24px;height:24px;border-radius:50%;
-                    background:#4fc3f7;color:#0f0f1a;
-                    display:flex;align-items:center;justify-content:center;
-                    font-size:11px;font-weight:700;font-family:sans-serif;
-                    border:2px solid ${borderColor};box-shadow:0 1px 4px #000a;
-                ">${candidate.num}</div>`,
-                    iconSize: [24, 24], iconAnchor: [12, 12]
-                });
-                L.marker([candidate.lat, candidate.lon], { icon })
-                    .bindPopup(`<b>Candidate ${candidate.num}</b>${failedSnapNote}<br>Would cover ~${candidate.covering} gap cells within ${radiusM}m`)
-                    .addTo(candidateLayer);
-            });
-            setLayerVisible('toggle-candidates', true);
-
-            const candidateListEl = document.getElementById('candidate-list');
-            candidateListEl.innerHTML = finalCandidates.map(candidate => `
-            <div class="candidate-item">
-                <div class="candidate-num">${candidate.num}</div>
-                <span>${candidate.lat.toFixed(4)}, ${candidate.lon.toFixed(4)}</span>
-            </div>
-        `).join('');
+            renderCandidatesResult(finalCandidates, doSnap, radiusM);
 
             document.getElementById('stats').style.display = 'block';
             status.textContent = `Analysis complete - ${uncoveredHexes.length} gap cells, ${finalCandidates.length} candidates`;
