@@ -64,6 +64,29 @@
             margin-bottom: 6px;
         }
 
+        .source-toggle {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .source-btn {
+            flex: 1;
+            padding: 7px 6px;
+            border-radius: 6px;
+            border: 2px solid #2d2d44;
+            background: #2d2d44;
+            color: #888;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .source-btn.active {
+            border-color: #ff6b6b;
+            color: #fff;
+            background: #3d2232;
+        }
+
         .toggle-row {
             display: flex;
             align-items: center;
@@ -279,6 +302,14 @@
         <p style="font-size:12px;color:#666;margin-top:-6px;">Hydrant coverage gap analysis &amp; hydrant candidate
             placement</p>
 
+        <div>
+            <div class="section-label">Hydrant dataset</div>
+            <div class="source-toggle">
+                <button class="source-btn active" data-city="london">London</button>
+                <button class="source-btn" data-city="berlin">Berlin</button>
+            </div>
+        </div>
+
         <div style="position:relative;">
             <div class="section-label">Search location</div>
             <div style="display:flex;gap:6px;">
@@ -391,7 +422,10 @@
     <div id="map"></div>
 
     <script>
-        const map = L.map('map').setView([51.5, -0.1], 13);
+        const LONDON_LAT_LON = [51.5, -0.1];
+        const BERLIN_LAT_LON = [52.52, 13.405];
+
+        const map = L.map('map').setView(LONDON_LAT_LON, 13);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
@@ -429,17 +463,39 @@
         };
 
         // load the hydrant dataset the coverage and gap layers are built from
-        fetch('data/london_hydrants.geojson')
-            .then(response => response.json())
-            .then(data => {
-                hydrants = data.features;
-                renderHydrantDots();
-                status.textContent = `${hydrants.length} hydrants loaded - ready to run analysis`;
-            })
-            .catch(() => {
-                status.textContent = 'Error loading hydrant data - open via Live Server';
-                status.style.color = '#ff6b6b';
+        function loadHydrantDataset(city) {
+            status.style.color = '';
+            status.textContent = `Loading ${city} hydrant data...`;
+            fetch(`data/${city}_hydrants.geojson`)
+                .then(response => response.json())
+                .then(data => {
+                    hydrants = data.features;
+                    renderHydrantDots();
+                    status.textContent = `${hydrants.length} hydrants loaded (${city}) - ready to run analysis`;
+                })
+                .catch(() => {
+                    status.textContent = 'Error loading hydrant data - open via Live Server';
+                    status.style.color = '#ff6b6b';
+                });
+        }
+
+        // default map view for each dataset, so switching city also brings its hydrants into view
+        const cityView = {
+            london: { center: LONDON_LAT_LON, zoom: 13 },
+            berlin: { center: BERLIN_LAT_LON, zoom: 13 }
+        };
+
+        document.querySelectorAll('.source-btn[data-city]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.source-btn[data-city]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const view = cityView[btn.dataset.city];
+                map.setView(view.center, view.zoom);
+                loadHydrantDataset(btn.dataset.city);
             });
+        });
+
+        loadHydrantDataset('london');
 
         // draws a small dot for every hydrant
         function renderHydrantDots() {
