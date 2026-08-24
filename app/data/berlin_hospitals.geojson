@@ -1,0 +1,3366 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-08-24T12:44:31.339Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/669088712",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "152",
+        "addr:postcode": "12487",
+        "addr:street": "Sterndamm",
+        "addr:suburb": "Johannisthal",
+        "amenity": "clinic",
+        "check_date": "2023-08-13",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Johannisthal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5001666,
+          52.4396916
+        ]
+      },
+      "id": "node/669088712"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/694302689",
+        "addr:city": "Berlin",
+        "addr:housenumber": "4",
+        "addr:postcode": "10365",
+        "addr:street": "Schottstraße",
+        "amenity": "clinic",
+        "check_date": "2026-06-24",
+        "healthcare": "clinic",
+        "name": "Ärztehaus am Roedeliusplatz",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4909414,
+          52.5151416
+        ]
+      },
+      "id": "node/694302689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/872223518",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "opening_hours": "Mo,Tu,Th 08:30-13:00,14:00-18:00; We,Fr 08:30-14:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4198597,
+          52.4988453
+        ]
+      },
+      "id": "node/872223518"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/874357625",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "158",
+        "addr:postcode": "10969",
+        "addr:street": "Oranienstraße",
+        "addr:suburb": "Kreuzberg",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "surgery;general",
+        "name": "MVZ am Moritzplatz",
+        "opening_hours": "Mo,Tu,Th 08:00-18:00; We,Fr 08:00-12:00",
+        "phone": "+49 30 6146017",
+        "website": "https://medizin-kreuzberg.de/",
+        "wheelchair": "yes",
+        "wheelchair:description": "es gibt leider keine Rollitoiletten, sonst alles ok."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4132967,
+          52.5027923
+        ]
+      },
+      "id": "node/874357625"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/911925361",
+        "addr:city": "Berlin",
+        "addr:housenumber": "7",
+        "addr:postcode": "13187",
+        "addr:street": "Damerowstraße",
+        "addr:suburb": "Pankow",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Damerowstraße",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4169764,
+          52.5721447
+        ]
+      },
+      "id": "node/911925361"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/933513566",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "1-3",
+        "addr:postcode": "14129",
+        "addr:street": "Breisgauer Straße",
+        "addr:suburb": "Schlachtensee",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;gastroenterology;optometry;gynaecology;cardiology;internal;dentist",
+        "name": "Ärztehaus am Schlachtensee",
+        "website": "https://www.aerztehaus-am-schlachtensee.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2152923,
+          52.4393545
+        ]
+      },
+      "id": "node/933513566"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1038248666",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "1",
+        "addr:postcode": "10245",
+        "addr:street": "Sonntagstraße",
+        "addr:suburb": "Friedrichshain",
+        "amenity": "clinic",
+        "check_date": "2025-11-12",
+        "check_date:opening_hours": "2025-11-12",
+        "contact:phone": "+49302910094",
+        "contact:website": "http://www.chirurgie-ostkreuz.de/",
+        "email": "info@chirurgie-ostkreuz.de",
+        "healthcare": "clinic",
+        "healthcare:speciality": "surgery;general;orthopaedics;trauma;proctology",
+        "name": "Chirurgie & Orthopädie am Ostkreuz",
+        "opening_hours": "Mo-Th 08:00-12:00,14:00-17:00; Fr 08:00-12:00",
+        "operator": "Dr. med. Christoph Graf von Matuschka  Dr. med. Christoph Lemke",
+        "operator:type": "private",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4680671,
+          52.5044921
+        ]
+      },
+      "id": "node/1038248666"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1168212013",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "9-11",
+        "addr:postcode": "12349",
+        "addr:street": "Alt-Buckow",
+        "addr:suburb": "Buckow",
+        "amenity": "clinic",
+        "contact:email": "praxis@mvz-vitalis.de",
+        "fax": "+49 30 6706569111",
+        "healthcare": "clinic",
+        "name": "MVZ-Vitalis",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-18:00; Sa 09:00-12:00",
+        "phone": "+49 30 67065690",
+        "website": "https://www.mvz-vitalis.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4352588,
+          52.4227868
+        ]
+      },
+      "id": "node/1168212013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1217659471",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "111",
+        "addr:postcode": "14163",
+        "addr:street": "Fischerhüttenstraße",
+        "addr:suburb": "Zehlendorf",
+        "amenity": "clinic",
+        "healthcare": "dialysis",
+        "healthcare:speciality": "nephrology",
+        "name": "Nierenzentrum Zehlendorf",
+        "opening_hours": "Mo-Sa 07:30-15:00; Sa 07:30-19:30",
+        "operator": "Dr. med. Sylvia Petersen",
+        "operator:type": "public",
+        "phone": "+49308139121",
+        "source": "Geoportal Berlin / k5_2012_sw_sued.zip",
+        "website": "https://nierenzentrum-zehlendorf.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2385855,
+          52.4441303
+        ]
+      },
+      "id": "node/1217659471"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1272472319",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "23",
+        "addr:postcode": "10243",
+        "addr:street": "Kadiner Straße",
+        "addr:suburb": "Friedrichshain",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2024-08-19",
+        "healthcare": "clinic",
+        "name": "DTZ Berlin - Ärztehaus Kadiner Straße",
+        "opening_hours": "Mo-Fr 08:00-18:00",
+        "phone": "+49 30 293697300",
+        "website": "https://www.berlin-dtz.de/",
+        "wheelchair": "yes",
+        "wheelchair:description": "Stufenloser Eingang über Nebeneingang Hildegard-Jadarnowitz-Straße"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4511418,
+          52.5151646
+        ]
+      },
+      "id": "node/1272472319"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1336685638",
+        "amenity": "clinic",
+        "check_date": "2023-05-27",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;neurosurgery",
+        "name": "Ärztehaus",
+        "wheelchair": "yes",
+        "wheelchair:description": "Diverse Ärzte u.a. Allgemeinmedizin, Augenarzt, Neurochirurg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2044575,
+          52.5369549
+        ]
+      },
+      "id": "node/1336685638"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1618861746",
+        "amenity": "clinic",
+        "health_facility:type": "health_centre",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;gynaecology;ophthalmology;orthopaedics;otolaryngology;psychiatry;speech_therapy;stomatology",
+        "medical_system:western": "yes",
+        "name": "Ärzte Zentrum Köpenick",
+        "website": "http://praxis-freiheit1.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5758681,
+          52.4472814
+        ]
+      },
+      "id": "node/1618861746"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1724523076",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "93",
+        "addr:postcode": "12205",
+        "addr:street": "Unter den Eichen",
+        "addr:suburb": "Lichterfelde",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2026-07-05",
+        "contact:phone": "+49 30 8315504",
+        "contact:website": "https://www.tagesklinik-unter-den-eichen.de/",
+        "health_facility:type": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "gynaecology",
+        "medical_system:western": "yes",
+        "name": "Tagesklinik unter den Eichen",
+        "opening_hours": "Mo-Th 08:00-15:00; Fr 08:00-13:00",
+        "source": "93 Unter Den Eichen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2912619,
+          52.4444506
+        ]
+      },
+      "id": "node/1724523076"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1732901969",
+        "addr:city": "Berlin",
+        "addr:housenumber": "151",
+        "addr:postcode": "13353",
+        "addr:street": "Müllerstraße",
+        "amenity": "clinic",
+        "email": "info@medico-leopoldplatz.de",
+        "fax": "+4930457979449",
+        "healthcare": "clinic",
+        "name": "Medico Leopoldplatz",
+        "opening_hours": "Mo-Fr 07:30-20:00,08:00-16:30",
+        "operator": "MEDICO LEOPOLDPLATZ Service GmbH",
+        "operator:type": "private",
+        "phone": "+49304579790",
+        "website": "https://medico-leopoldplatz.de/",
+        "wheelchair": "limited",
+        "wheelchair:description": "Aufzug vorhanden, weitegehend schwellenfrei, WC im Keller nicht komplett barrierefrei, Untersuchungskabinen zu schmal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3581741,
+          52.5466232
+        ]
+      },
+      "id": "node/1732901969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1734428743",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "4",
+        "addr:postcode": "13156",
+        "addr:street": "Hermann-Hesse-Straße",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2022-11-05",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "opening_hours:signed": "no",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes",
+        "wheelchair:description": "keine selbstöffnende Tür deswegen schwer reinzukommen, sonst Rollsttuhlgerecht"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.402647,
+          52.5809237
+        ]
+      },
+      "id": "node/1734428743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1974936511",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "radiology;oncology",
+        "name": "Praxis für Radioonkologie und Strahlentherapie",
+        "website": "https://www.praxis-strahlentherapie-berlin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2929804,
+          52.4910643
+        ]
+      },
+      "id": "node/1974936511"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2021436781",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "10",
+        "addr:postcode": "12681",
+        "addr:street": "Helene-Weigel-Platz",
+        "addr:suburb": "Marzahn",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Sana Gesundheitszentrum Marzahn \"Ernst Ludwig Heim\"",
+        "operator": "Sana Gesundheitszentren Berlin-Brandenburg",
+        "operator:type": "private",
+        "website": "https://www.sana.de/gesundheitszentren-berlin/standorte-fachbereiche/marzahn/helene-weigel-platz",
+        "wheelchair": "yes",
+        "wheelchair:description": "Rollstuhlparkplätze vorhanden, Eingang Süd und West für Rollstuhlfahrer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5419927,
+          52.527514
+        ]
+      },
+      "id": "node/2021436781"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2105895889",
+        "addr:city": "Berlin",
+        "addr:housenumber": "227",
+        "addr:postcode": "12099",
+        "addr:street": "Tempelhofer Damm",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2024-05-22",
+        "description": "stufenlose Zugänge",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;dermatology;neurology;cardiology;surgery;gynaecology;urology;podologist",
+        "level": "1;2;3",
+        "name": "Ärztehaus am Tempelhofer Hafen",
+        "note": "Allgemeinmedizin, Diab Point, Dermatologie, Diabetolog., Gynäkologie,Kardiologie; Logopädie, Neurologie, Orthopäd. Unfallchirurg, Orthopädie Schuhtechnik & Sanitätshaus, Physiotherapie, Podologie, SC Dental Labor, Schmerzpraxis,Urologie, Zahnarz",
+        "opening_hours": "Mo-Su 10:00-20:00",
+        "website": "https://www.tempelhofer-hafen.com/",
+        "wheelchair": "yes",
+        "wheelchair:description": "Vom Parkhaus zu den Praxen alles ohne Stufen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3860897,
+          52.4555574
+        ]
+      },
+      "id": "node/2105895889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2126141390",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "5",
+        "addr:postcode": "13507",
+        "addr:street": "Schloßstraße",
+        "addr:suburb": "Tegel",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "wheelchair": "yes",
+        "wheelchair:description": "Rollstuhl-WC im Erdgeschoß"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2837171,
+          52.5913935
+        ]
+      },
+      "id": "node/2126141390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2335086445",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "43-45",
+        "addr:postcode": "10245",
+        "addr:street": "Grünberger Straße",
+        "addr:suburb": "Friedrichshain",
+        "amenity": "clinic",
+        "contact:website": "https://www.sana.de/gesundheitszentren-berlin/standorte-fachbereiche/friedrichshain",
+        "healthcare": "clinic",
+        "healthcare:speciality": "gynaecology;internal;paediatrics;neurosurgery;physiatry;pulmonology;depth;humanistic",
+        "name": "Sana Gesundheitszentrum Friedrichshain \"Frédéric Joliot-Curie\"",
+        "operator": "Sana",
+        "operator:type": "private",
+        "wheelchair": "yes",
+        "wheelchair:description": "kurze steile Rampe vorm Eingang, Automatik-Türen am Eingang, Fahrstuhl wird für jedes Stockwerk freigeschaltet wo Büros offen sind, für die Rolli-Toilette muss Schlüssel dort erfragt werden."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4551298,
+          52.5122055
+        ]
+      },
+      "id": "node/2335086445"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2435045640",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "19",
+        "addr:postcode": "10969",
+        "addr:street": "Markgrafenstraße",
+        "addr:suburb": "Kreuzberg",
+        "amenity": "clinic",
+        "contact:phone": "+49 30 259 23 860",
+        "contact:website": "https://ruecken-zentrum.de/berlin-rueckenzentrum-am-markgrafenpark/rueckenzentrum-am-markgrafenpark/",
+        "healthcare": "clinic",
+        "name": "Rückenzentrum am Markgrafenpark",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3946085,
+          52.506748
+        ]
+      },
+      "id": "node/2435045640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2495554370",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "MVZ Diagnostisches Zentrum Kreuzberg",
+        "website": "https://www.diagnostikum-berlin.de/bergmannstrasse-5-7/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3887577,
+          52.4896553
+        ]
+      },
+      "id": "node/2495554370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2509419045",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "147",
+        "addr:postcode": "12051",
+        "addr:street": "Hermannstraße",
+        "addr:suburb": "Neukölln",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Neubritzer Tor",
+        "website": "http://www.neubritzer-tor.de/",
+        "wheelchair": "no",
+        "wheelchair:description": "Stufe vor Eingangsportal, sehr kleiner Fahrstuhl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4332296,
+          52.4644914
+        ]
+      },
+      "id": "node/2509419045"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2557712726",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "90",
+        "addr:postcode": "10559",
+        "addr:street": "Alt-Moabit",
+        "addr:suburb": "Moabit",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2025-07-22",
+        "healthcare": "doctor",
+        "healthcare:speciality": "radiology",
+        "name": "Magnet MVZ Berlin",
+        "opening_hours": "Mo-Fr 07:30-18:30",
+        "website": "https://www.berlin-mrt.de",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3441342,
+          52.5250616
+        ]
+      },
+      "id": "node/2557712726"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2821025302",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "57",
+        "addr:postcode": "10627",
+        "addr:street": "Wilmersdorfer Straße",
+        "addr:suburb": "Charlottenburg",
+        "amenity": "clinic",
+        "contact:phone": "+49 30 31007866",
+        "contact:website": "http://www.nierenzentrum-charlottenburg.de",
+        "healthcare": "dialysis",
+        "healthcare:speciality": "nephrology",
+        "name": "Nierenzentrum Charlottenburg",
+        "opening_hours": "Mo,Tu,Th,Fr 08:00-12:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3060017,
+          52.5076863
+        ]
+      },
+      "id": "node/2821025302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2851155103",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "4-6",
+        "addr:postcode": "14197",
+        "addr:street": "Aßmannshauser Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "emergency": "yes",
+        "healthcare": "dentist",
+        "name": "Zahnklinik/Zahnärztlicher Notfalldienst",
+        "opening_hours": "Mo-Fr 17:00-21:00, Sa 17:00-01:00, Su,PH 13:30-21:30",
+        "source": "Geoportal Berlin / Hauskoordinaten",
+        "website": "https://zahnmedizin.charite.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3133427,
+          52.4766498
+        ]
+      },
+      "id": "node/2851155103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2935287105",
+        "addr:city": "Berlin",
+        "addr:housenumber": "25",
+        "addr:postcode": "13507",
+        "addr:street": "Berliner Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Gesundheitszentrum",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.288331,
+          52.583891
+        ]
+      },
+      "id": "node/2935287105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3052717234",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "6",
+        "addr:postcode": "13053",
+        "addr:street": "Rotkamp",
+        "addr:suburb": "Neu-Hohenschönhausen",
+        "amenity": "clinic",
+        "email": "sgz-mgr-paediatrie@sana.de",
+        "healthcare": "clinic",
+        "healthcare:speciality": "paediatrics",
+        "internet_access": "wlan",
+        "name": "Praxis für Kinder Sana MVZ Mühlengrund",
+        "operator": "Sana Kliniken",
+        "operator:type": "private",
+        "operator:wikidata": "Q2220152",
+        "source": "Geoportal Berlin / Hauskoordinaten",
+        "website": "https://www.sana.de/gesundheitszentren-berlin/standorte-fachbereiche/lichtenberg/hohenschoenhausen-1/kinderheilkunde"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5093311,
+          52.5613956
+        ]
+      },
+      "id": "node/3052717234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3310721906",
+        "addr:city": "Berlin",
+        "addr:housenumber": "59",
+        "addr:postcode": "13187",
+        "addr:street": "Galenusstraße",
+        "addr:suburb": "Pankow",
+        "amenity": "clinic",
+        "check_date": "2025-05-11",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Galenusstraße"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4238384,
+          52.580674
+        ]
+      },
+      "id": "node/3310721906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374664253",
+        "amenity": "clinic",
+        "check_date": "2024-06-09",
+        "healthcare": "clinic",
+        "healthcare:speciality": "gynaecology",
+        "name": "Frauenheilkunde und Geburtsmedizin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.343078,
+          52.5425166
+        ]
+      },
+      "id": "node/3374664253"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374664287",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "anaesthetics",
+        "name": "Klinik für Anästhesiologie und operative Intensivmedizin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3441244,
+          52.5414754
+        ]
+      },
+      "id": "node/3374664287"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374664288",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "ophthalmology",
+        "name": "Klinik für Augenheilkunde",
+        "opening_hours": "Mo-Th 07:30-16:00; Fr 07:30-15:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3425037,
+          52.5414126
+        ]
+      },
+      "id": "node/3374664288"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374664289",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "neurology",
+        "level": "4",
+        "name": "Klinik für Neurologie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3455055,
+          52.5415252
+        ]
+      },
+      "id": "node/3374664289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374664291",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Klinik für Psychiatrie, Psychosomatik und Psychotherapie des Kindes- und Jugendalters",
+        "opening_hours": "Mo-We 08:00-18:00; Th 08:00-15:30; Fr 08:00-15:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3412877,
+          52.5411876
+        ]
+      },
+      "id": "node/3374664291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374665793",
+        "amenity": "clinic",
+        "check_date": "2024-06-09",
+        "healthcare": "clinic",
+        "healthcare:speciality": "paediatrics",
+        "name": "Kliniken für Kinderheilkunde und Kinderchirurgie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3418703,
+          52.5424245
+        ]
+      },
+      "id": "node/3374665793"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3374665794",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Institut für Tropenmedizin und Internationale Gesundheit"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3452252,
+          52.5398016
+        ]
+      },
+      "id": "node/3374665794"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3442710834",
+        "addr:city": "Berlin",
+        "addr:housenumber": "17",
+        "addr:postcode": "13125",
+        "addr:street": "Bahnhofstraße",
+        "amenity": "clinic",
+        "fax": "+49 30 94795591",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general",
+        "name": "Ärztehaus Karow",
+        "name:de": "Ludmila Hild",
+        "phone": "+49 30 9430725",
+        "toilets:wheelchair": "no",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4739664,
+          52.6116633
+        ]
+      },
+      "id": "node/3442710834"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3566078016",
+        "addr:city": "Berlin",
+        "addr:housenumber": "47",
+        "addr:postcode": "10318",
+        "addr:street": "Ehrenfelsstraße",
+        "amenity": "clinic",
+        "check_date": "2025-10-26",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Karlshorst",
+        "opening_hours": "\"je nach Praxis\"",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5263205,
+          52.4825509
+        ]
+      },
+      "id": "node/3566078016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3656692668",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "64",
+        "addr:postcode": "12109",
+        "addr:street": "Mariendorfer Damm",
+        "addr:suburb": "Mariendorf",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "MVZ Mariendorf",
+        "opening_hours": "\"nach Vereinbarung\""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3851994,
+          52.4469472
+        ]
+      },
+      "id": "node/3656692668"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772788958",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "otolaryngology",
+        "name": "Hals-, Nasen-, Ohrenheilkunde"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3455488,
+          52.5416433
+        ]
+      },
+      "id": "node/3772788958"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772788960",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "radiotherapy",
+        "name": "Strahlentherapie Ambulantes Gesundheitszentrum"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3443105,
+          52.5401501
+        ]
+      },
+      "id": "node/3772788960"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772788961",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "nuclear",
+        "name": "Nuklearmedizin Funktionsdiagnostik"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3444199,
+          52.5402208
+        ]
+      },
+      "id": "node/3772788961"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772788962",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Pharmakovigilanz- und Beratungszentrum für Embryonaltoxikologie",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3452304,
+          52.5397442
+        ]
+      },
+      "id": "node/3772788962"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772789057",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "nuclear",
+        "name": "Klinik für Nuklearmedizin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3442093,
+          52.5407789
+        ]
+      },
+      "id": "node/3772789057"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772789058",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Medizinische Klinik m.S. Infektiologie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3452272,
+          52.5402731
+        ]
+      },
+      "id": "node/3772789058"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772789059",
+        "amenity": "clinic",
+        "check_date": "2024-06-09",
+        "healthcare": "clinic",
+        "name": "Medizinische Kliniken"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3451095,
+          52.5426569
+        ]
+      },
+      "id": "node/3772789059"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772789060",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "dental_oral_maxillo_facial_surgery",
+        "name": "Mund, Kiefer, Gesichtschirurgie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.345522,
+          52.5417485
+        ]
+      },
+      "id": "node/3772789060"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772789061",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Unfall- und Wiederherstellungschirurgie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3440723,
+          52.541304
+        ]
+      },
+      "id": "node/3772789061"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772804457",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "radiotherapy",
+        "name": "Klinik für Strahlenheilkunde",
+        "operator": "Charite Campus Virchow Klinik"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3444675,
+          52.5407931
+        ]
+      },
+      "id": "node/3772804457"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3869328066",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "95,96",
+        "addr:postcode": "10625",
+        "addr:street": "Bismarckstraße",
+        "addr:suburb": "Charlottenburg",
+        "amenity": "clinic",
+        "check_date": "2024-01-18",
+        "healthcare": "clinic",
+        "healthcare:speciality": "surgery;general;orthopaedics",
+        "level": "4",
+        "name": "MVZ Dr. Kaleth & Kollegen",
+        "opening_hours": "Mo-Th 07:30-19:30; Fr 07:30-18:00",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.kalethundkollegen.de/",
+        "wheelchair": "yes",
+        "wheelchair:description": "barrierefrei wenn Zufahrt über den Hinterhof"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3109098,
+          52.5115837
+        ]
+      },
+      "id": "node/3869328066"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3887646745",
+        "addr:city": "Berlin",
+        "addr:housenumber": "75",
+        "addr:postcode": "10719",
+        "addr:street": "Lietzenburger Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Hormon- und Kimderwunsch"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3251674,
+          52.4998115
+        ]
+      },
+      "id": "node/3887646745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3923385926",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "2",
+        "addr:postcode": "10709",
+        "addr:street": "Paulsborner Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "contact:phone": "+49 30 2360830",
+        "contact:website": "https://avicenna-klinik.com",
+        "emergency": "no",
+        "healthcare": "clinic",
+        "healthcare:speciality": "neurosurgery;orthopaedics",
+        "name": "Avicenna Klinik"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.306612,
+          52.4986743
+        ]
+      },
+      "id": "node/3923385926"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4136419292",
+        "addr:city": "Berlin",
+        "addr:housenumber": "1",
+        "addr:postcode": "10117",
+        "addr:street": "In den Ministergärten",
+        "amenity": "clinic",
+        "check_date": "2025-06-15",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;dermatology;immunology",
+        "name": "Ärztehaus Mitte Medizinisches Versorgungszentrum",
+        "opening_hours": "Mo,We,Th 09:00-12:00,13:15-16:00; Tu 10:00-12:00,13:15-17:00; Fr 09:00-12:00, Fr 12:00+ \"nach Vereinbarung\"; PH off",
+        "operator": "MikroMy med. Versorgung Gesellschaft für mikrobiologische und mykologische Diagnostik mbH",
+        "operator:type": "private",
+        "phone": "+49 30 2123436400",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.aerztehaus-mitte.de/",
+        "wheelchair": "limited",
+        "wheelchair:description": "Allgemeinmedizin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3802666,
+          52.5121683
+        ]
+      },
+      "id": "node/4136419292"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4317329217",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "100",
+        "addr:postcode": "13585",
+        "addr:street": "Neuendorfer Straße",
+        "addr:suburb": "Spandau",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general",
+        "name": "MVZ Spandau Neukölln",
+        "operator": "Dekra Al-Saidi",
+        "website": "https://mvzspandauneukoelln.de"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2059274,
+          52.5426915
+        ]
+      },
+      "id": "node/4317329217"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4317979052",
+        "access": "yes",
+        "addr:city": "Berlin",
+        "addr:housenumber": "23",
+        "addr:postcode": "14169",
+        "addr:street": "Am Waldfriedhof",
+        "amenity": "clinic",
+        "contact:website": "http://www.mvz-zehlendorf.de/",
+        "healthcare": "clinic",
+        "name": "MVZ Zehlendorf",
+        "operator": "üBAG AnthroMed BB",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2630571,
+          52.4517261
+        ]
+      },
+      "id": "node/4317979052"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4436482371",
+        "addr:city": "Berlin",
+        "addr:housenumber": "32",
+        "addr:postcode": "13357",
+        "addr:street": "Badstraße",
+        "alt_name": "Ärztehaus",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;paediatrics;physiotherapy",
+        "name": "MVZ Gesundbrunnen",
+        "opening_hours": "Mo-Fr 08:00-18:00",
+        "operator": "MVZ Adiuvare Berlin GmbH",
+        "operator:type": "private",
+        "phone": "+49 30 81037810",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3802138,
+          52.5529651
+        ]
+      },
+      "id": "node/4436482371"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4448386321",
+        "addr:city": "Berlin",
+        "addr:housenumber": "1",
+        "addr:postcode": "13403",
+        "addr:street": "General-Woyna-Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Gesundheitszentrum",
+        "opening_hours": "Mo,Tu,Th 08:00-14:00,15:00-18:00; We,Fr 08:00-14:00",
+        "phone": "+4930 4122243"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3149552,
+          52.5674668
+        ]
+      },
+      "id": "node/4448386321"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4450678325",
+        "addr:city": "Berlin",
+        "addr:housenumber": "24-26",
+        "addr:postcode": "12247",
+        "addr:street": "Kaiser-Wilhelm-Straße",
+        "amenity": "clinic",
+        "email": "info@copv.berlin",
+        "fax": "+4930768866329",
+        "healthcare": "clinic",
+        "healthcare:speciality": "orthopaedics;surgery",
+        "level": "0",
+        "name": "copv.berlin",
+        "opening_hours": "Mo,Tu,Th 08:00-12:00,13:00-16:00; We 09:00-15:00; Fr 08:00-14:00; Sa,Su,PH off",
+        "phone": "+493076886633",
+        "website": "https://www.copv.berlin",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3365873,
+          52.431273
+        ]
+      },
+      "id": "node/4450678325"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4553683090",
+        "addr:city": "Berlin",
+        "addr:housenumber": "3",
+        "addr:postcode": "13347",
+        "addr:street": "Fennstraße",
+        "amenity": "clinic",
+        "check_date": "2024-12-07",
+        "check_date:opening_hours": "2024-12-07",
+        "healthcare": "clinic",
+        "name": "Medio Berlin Ärztehaus Mitte",
+        "opening_hours": "\"verschiedene Öffnungszeiten je Praxis\"",
+        "operator": "Medio Berlin Ärztehaus",
+        "operator:type": "private",
+        "website": "http://www.medio.berlin/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3688768,
+          52.5415844
+        ]
+      },
+      "id": "node/4553683090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4834609482",
+        "addr:city": "Berlin",
+        "addr:housenumber": "33",
+        "addr:postcode": "13187",
+        "addr:street": "Breite Straße",
+        "addr:suburb": "Pankow",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;cardiology;gastroenterology;internal",
+        "name": "MVZ Pankow Innere Medizin",
+        "opening_hours": "Mo-Fr 08:00-12:00, Mo-Th 15:00-18:00",
+        "website": "https://www.mvz-innere-medizin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4062108,
+          52.569687
+        ]
+      },
+      "id": "node/4834609482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5030326571",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "13597",
+        "addr:street": "Galenstraße",
+        "addr:suburb": "Spandau",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "MVZ am Bahnhof Spandau",
+        "opening_hours": "Mo,Tu,Th 08:00-12:00,15:00-18:00; We,Fr 08:00-12:00",
+        "website": "https://www.pg-spandau.de/index.html",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1952319,
+          52.5358521
+        ]
+      },
+      "id": "node/5030326571"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5037228530",
+        "addr:city": "Berlin",
+        "addr:housenumber": "113",
+        "addr:postcode": "12587",
+        "addr:street": "Bölschestraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärzte Zentrum am Markt"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6238856,
+          52.450855
+        ]
+      },
+      "id": "node/5037228530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5049915761",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "18",
+        "addr:postcode": "10715",
+        "addr:street": "Badensche Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "check_date": "2025-09-20",
+        "contact:website": "http://www.b18-gesundheitszentrum.de/",
+        "healthcare": "clinic",
+        "name": "B18 Gesundheitszentrum",
+        "operator": "B18 Gesundheitszentrum Wilmersdorf",
+        "operator:type": "private",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3324816,
+          52.4862047
+        ]
+      },
+      "id": "node/5049915761"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5186166876",
+        "addr:city": "Berlin",
+        "addr:housenumber": "18",
+        "addr:postcode": "10627",
+        "addr:street": "Windscheidstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;urology",
+        "name": "MVZ Windscheidstraße",
+        "opening_hours": "Mo 12:00-17:00; Tu, Th 08:30-17:00; We, Fr 08:00-14:00",
+        "operator": "Dr. med. Roman M. Skoblo",
+        "operator:type": "private",
+        "phone": "+49 30 327 903 796",
+        "website": "https://www.mvz-windscheidstrasse.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2993132,
+          52.5056935
+        ]
+      },
+      "id": "node/5186166876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5223291551",
+        "amenity": "clinic",
+        "check_date": "2025-10-12",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Danziger Tor",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.413617,
+          52.5410308
+        ]
+      },
+      "id": "node/5223291551"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5318240550",
+        "addr:city": "Berlin",
+        "addr:housenumber": "2",
+        "addr:postcode": "12209",
+        "addr:street": "Oberhofer Weg",
+        "amenity": "clinic",
+        "check_date": "2023-06-12",
+        "healthcare": "clinic",
+        "name": "Ärztehaus am Kranoldplatz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3262841,
+          52.427323
+        ]
+      },
+      "id": "node/5318240550"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5325121987",
+        "addr:housenumber": "73",
+        "addr:street": "Treskowstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Mahlsdorf",
+        "opening_hours:signed": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6121077,
+          52.511099
+        ]
+      },
+      "id": "node/5325121987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5337915341",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "11",
+        "addr:postcode": "10777",
+        "addr:street": "Spichernstraße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "check_date": "2024-08-01",
+        "contact:phone": "+49 30 2129900",
+        "contact:website": "https://www.opz-berlin.de/",
+        "healthcare": "clinic",
+        "healthcare:speciality": "surgery",
+        "name": "OP-Zentrum Spichernstraße"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3316596,
+          52.4969763
+        ]
+      },
+      "id": "node/5337915341"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5418942204",
+        "addr:city": "Berlin",
+        "addr:housenumber": "45",
+        "addr:postcode": "10367",
+        "addr:street": "Möllendorffstraße",
+        "amenity": "clinic",
+        "check_date": "2026-06-22",
+        "description": "Nieren-, Hochdruck- und Dialysezentrum.",
+        "email": "dialyseotto@gmx.de",
+        "fax": "+493055490862",
+        "healthcare": "dialysis",
+        "healthcare:speciality": "nephrology;internal",
+        "level": "3",
+        "name": "Nierenzentrum Lichtenberg",
+        "opening_hours": "Tu 08:00-12:00; Th 08:00-13:00",
+        "operator": "Dr. med. Franz Otto",
+        "phone": "+493055490860",
+        "website": "https://www.nierenzentrum-lichtenberg.berlin/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4800578,
+          52.5238219
+        ]
+      },
+      "id": "node/5418942204"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5451412274",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "118",
+        "addr:postcode": "10437",
+        "addr:street": "Schönhauser Allee",
+        "addr:suburb": "Prenzlauer Berg",
+        "amenity": "clinic",
+        "contact:website": "https://aerzte-schoenhauser-berlin.de/",
+        "healthcare": "clinic",
+        "name": "Ärzte Schönhauser",
+        "opening_hours:signed": "no",
+        "operator": "Ärzte Schönhauser Berlin e.V.",
+        "operator:type": "private",
+        "start_date": "2003-09-03",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4128467,
+          52.5492046
+        ]
+      },
+      "id": "node/5451412274"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5779019383",
+        "addr:housenumber": "241",
+        "addr:street": "Gatower Straße",
+        "amenity": "clinic",
+        "description": "Willkommen in der orthopädischen und unfallchirurgischen Gemeinschaftspraxis Biberburg",
+        "healthcare": "clinic",
+        "name": "Biberburg Med-Service GmbH",
+        "opening_hours": "Fr 08:30-14:00; Th 09:00-18:30; Mo-We 08:30-18:30",
+        "phone": "+49 30 362030",
+        "website": "https://www.biberburg.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1806609,
+          52.4978999
+        ]
+      },
+      "id": "node/5779019383"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5890341827",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "1",
+        "addr:postcode": "13405",
+        "addr:street": "Scharnweberstraße",
+        "addr:suburb": "Reinickendorf",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;internal",
+        "name": "Hausärztlich-Internistisches Versorgungszentrum",
+        "opening_hours:signed": "no",
+        "operator": "MVZ - GbR",
+        "operator:type": "private",
+        "website": "https://www.mvz-gotthardstrasse.de/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3321631,
+          52.5619433
+        ]
+      },
+      "id": "node/5890341827"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5903202921",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "105",
+        "addr:postcode": "13088",
+        "addr:street": "Berliner Allee",
+        "addr:suburb": "Weißensee",
+        "amenity": "clinic",
+        "blind:description": "Anamnese-Bögen können nicht mit einem Screenreader ausgefüllt werden.",
+        "healthcare": "clinic",
+        "healthcare:speciality": "urology;orthopaedics",
+        "name": "HELIOS Medical Center Berlin-Weißensee",
+        "opening_hours": "Mo,Th 08:00-12:30, Tu,Fr 08:00-13:00, We 08:00-15:00, Mo,Th 13:00-17:00, Tu 14:00-18:00",
+        "operator": "Helios Kliniken",
+        "operator:type": "private",
+        "operator:wikidata": "Q1254151",
+        "operator:wikipedia": "de:Helios Kliniken",
+        "phone": "+49 30 49857840",
+        "website": "https://helios-gesundheit.de/",
+        "wheelchair": "yes",
+        "wheelchair:description": "Der Eingang ist ebenerdig. Die Klingel ist im Rollstuhl sitzend erreichbar. Die Tür muss dann selbstständig geöddnet werden - das kann alleine etwas schwierig sein. Innen befindet sich ein Fahrtuhl. Der Behandlungssitz ist höhenverstellbar, die Behandlung"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4591399,
+          52.5503338
+        ]
+      },
+      "id": "node/5903202921"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6171061086",
+        "addr:city": "Berlin",
+        "addr:housenumber": "128",
+        "addr:postcode": "10318",
+        "addr:street": "Treskowallee",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "internal;gynaecology;general",
+        "name": "Arztpraxen",
+        "operator": "Irina Hort, Svetlana Hude, Elsa Schaubert"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5242876,
+          52.4788507
+        ]
+      },
+      "id": "node/6171061086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6347320701",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "111",
+        "addr:postcode": "10369",
+        "addr:street": "Weißenseer Weg",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2026-03-22",
+        "description": "City Point Centrum für psychische Gesundheit (CPC)",
+        "healthcare": "clinic",
+        "name": "CPC",
+        "opening_hours:signed": "no",
+        "operator": "Evangelisches Krankenhaus Königin Elisabeth Herzberge gemeinnützige GmbH (KEH gGmbH)",
+        "website": "https://www.keh-berlin.de/de/city-point-centrum-fuer-psychische-gesundheit"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4788073,
+          52.5270402
+        ]
+      },
+      "id": "node/6347320701"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6441944584",
+        "addr:city": "Berlin",
+        "addr:housenumber": "62",
+        "addr:postcode": "10627",
+        "addr:street": "Wilmersdorfer Straße",
+        "amenity": "clinic",
+        "check_date": "2023-04-10",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;gynaecology;urology",
+        "name": "Ärztehaus",
+        "operator:type": "private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3062719,
+          52.507043
+        ]
+      },
+      "id": "node/6441944584"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6513517778",
+        "addr:housenumber": "3",
+        "addr:street": "Bonhoefferweg",
+        "alt_name": "PIA",
+        "amenity": "clinic",
+        "check_date": "2025-04-29",
+        "healthcare": "clinic",
+        "healthcare:speciality": "psychiatry",
+        "name": "Psychiatrische Institutsambulanz",
+        "operator": "Charité",
+        "operator:wikidata": "Q162684"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3757999,
+          52.5263283
+        ]
+      },
+      "id": "node/6513517778"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6710135969",
+        "addr:city": "Berlin",
+        "addr:housenumber": "158",
+        "addr:postcode": "13088",
+        "addr:street": "Berliner Allee",
+        "amenity": "clinic",
+        "contact:website": "https://www.alexianer-berlin-weissensee.de/leistungen/ambulante-behandlung/medizinisches-versorgungszentrum-mvz/",
+        "healthcare": "centre",
+        "healthcare:speciality": "general;neurology;psychiatry",
+        "name": "Medizinisches Versorgungszentrum am Alexianer St. Joseph-​Krankenhaus Berlin-​Weißensee",
+        "opening_hours:signed": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4662422,
+          52.5520135
+        ]
+      },
+      "id": "node/6710135969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7232410182",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "level": "0",
+        "name": "Hochschulambulanz Charité Buch",
+        "operator": "Charité"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5070876,
+          52.6267287
+        ]
+      },
+      "id": "node/7232410182"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7613394448",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "47a",
+        "addr:postcode": "10713",
+        "addr:street": "Hohenzollerndamm",
+        "addr:suburb": "Halensee",
+        "amenity": "clinic",
+        "check_date": "2024-11-06",
+        "healthcare": "clinic",
+        "name": "Ärztehaus Hohenzollerndamm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3012964,
+          52.488605
+        ]
+      },
+      "id": "node/7613394448"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7640755741",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "93",
+        "addr:postcode": "12159",
+        "addr:street": "Hauptstraße",
+        "addr:suburb": "Schöneberg",
+        "amenity": "clinic",
+        "beauty": "cosmetics;spa",
+        "check_date:opening_hours": "2024-06-24",
+        "healthcare": "clinic",
+        "healthcare:speciality": "plastic_surgery",
+        "name": "Ästhetikwelt-Berlin",
+        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-14:00",
+        "website": "https://www.die-schoenheitsspezialisten.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3422716,
+          52.4767301
+        ]
+      },
+      "id": "node/7640755741"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7680987922",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "4",
+        "addr:postcode": "10715",
+        "addr:street": "Bundesplatz",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "psychiatry;psychotherapy",
+        "name": "MVZ psychische Gesundheit",
+        "opening_hours": "\"nach Vereinbarung\"",
+        "operator": "Dr. Panitz & Kolleginnen und Kollegen",
+        "operator:type": "private",
+        "phone": "+49 30 8540 14 81",
+        "website": "https://www.mvz-psychische-gesundheit.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3276218,
+          52.4793847
+        ]
+      },
+      "id": "node/7680987922"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7831880615",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "5",
+        "addr:postcode": "10115",
+        "addr:street": "Gartenstraße",
+        "addr:suburb": "Mitte",
+        "alt_name": "Zentrum für ambulante Rehabilitation Berlin",
+        "amenity": "clinic",
+        "check_date": "2024-12-01",
+        "contact:email": "info@zar-berlin.de",
+        "contact:website": "https://www.zar-berlin.de/",
+        "emergency": "no",
+        "healthcare": "rehabilitation",
+        "name": "ZAR Berlin",
+        "operator": "Nanz medico GmbH & Co. KG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3930716,
+          52.5292555
+        ]
+      },
+      "id": "node/7831880615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7994883600",
+        "amenity": "clinic",
+        "check_date": "2026-01-06",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "opening_hours": "\"verschieden Ärzte\""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2958406,
+          52.497613
+        ]
+      },
+      "id": "node/7994883600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8000598805",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "37",
+        "addr:postcode": "10715",
+        "addr:street": "Berliner Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3215078,
+          52.4867077
+        ]
+      },
+      "id": "node/8000598805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8245997146",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "18",
+        "addr:postcode": "10715",
+        "addr:street": "Badensche Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "check_date": "2025-09-20",
+        "healthcare": "clinic",
+        "healthcare:speciality": "psychiatry",
+        "name": "Panomarana Klinik",
+        "website": "https://www.panoramaklinikberlin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3323975,
+          52.4862355
+        ]
+      },
+      "id": "node/8245997146"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8358306416",
+        "addr:city": "Berlin",
+        "addr:housenumber": "67",
+        "addr:postcode": "10787",
+        "addr:street": "Nürnberger Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus am Europacenter",
+        "website": "http://www.fv-aerztehaus.de/index.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3410049,
+          52.5043567
+        ]
+      },
+      "id": "node/8358306416"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8378417924",
+        "addr:city": "Berlin",
+        "addr:housename": "Nebenhaus",
+        "addr:housenumber": "20",
+        "addr:postcode": "10319",
+        "addr:street": "Balatonstraße",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2023-04-09",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "opening_hours:signed": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.50974,
+          52.4977918
+        ]
+      },
+      "id": "node/8378417924"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8435708025",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "2/2A",
+        "addr:postcode": "10709",
+        "addr:street": "Paderborner Straße",
+        "addr:suburb": "Wilmersdorf",
+        "amenity": "clinic",
+        "capacity": "18",
+        "contact:website": "https://www.schlaflaborberlin.de/",
+        "healthcare": "clinic",
+        "healthcare:speciality": "somnology",
+        "name": "Zentrales Schlaflabor",
+        "operator": "ZSL – Zentrales Schlaflabor – Dienstleistungs GmbH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3066377,
+          52.4971645
+        ]
+      },
+      "id": "node/8435708025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8491450219",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "201",
+        "addr:postcode": "13055",
+        "addr:street": "Landsberger Allee",
+        "addr:suburb": "Alt-Hohenschönhausen",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2023-02-24",
+        "healthcare": "clinic",
+        "name": "Ärztehaus",
+        "opening_hours": "Mo-Fr 08:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4768042,
+          52.533436
+        ]
+      },
+      "id": "node/8491450219"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8662563074",
+        "addr:city": "Berlin",
+        "addr:housenumber": "44",
+        "addr:postcode": "10243",
+        "addr:street": "Gubener Straße",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2024-09-16",
+        "description": "Intensivpflegedienst für Kinder und Jugendliche",
+        "healthcare": "clinic",
+        "healthcare:speciality": "paediatrics",
+        "name": "Perspektive Daheim",
+        "opening_hours:signed": "no",
+        "website": "https://www.perspektive-daheim.de"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.448904,
+          52.5116602
+        ]
+      },
+      "id": "node/8662563074"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8850856433",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "5",
+        "addr:postcode": "12107",
+        "addr:street": "Birnhornweg",
+        "addr:suburb": "Mariendorf",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;internal",
+        "name": "Ärztehaus am Birnhornweg",
+        "opening_hours": "Mo-Th 08:00-18:00,Fr 08:00-13:00,Sa 09:00-12:00",
+        "operator": "Dr. med. Christian Wettich;Beate-Maria Wernitzki;Dr. med. Thomas Hucklenbroich",
+        "website": "https://www.aerztehaus-am-birnhornweg.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3945755,
+          52.4240216
+        ]
+      },
+      "id": "node/8850856433"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9178079418",
+        "amenity": "clinic",
+        "check_date": "2025-11-28",
+        "description": "Diverse Praxen u.a. Psychiatrische Privatpraxis Prof. Reischies",
+        "healthcare": "clinic",
+        "name": "Ärztehaus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2863591,
+          52.5105869
+        ]
+      },
+      "id": "node/9178079418"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9257846271",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "139",
+        "addr:postcode": "13353",
+        "addr:street": "Müllerstraße",
+        "alt_name": "Ärztehaus Müllerstraße 139",
+        "amenity": "clinic",
+        "health_facility:type": "clinic",
+        "healthcare": "clinic",
+        "medical_system:western": "yes",
+        "name": "MVZ Wedding",
+        "opening_hours:signed": "no",
+        "operator": "Vivantes",
+        "operator:type": "public",
+        "operator:wikidata": "Q878059",
+        "operator:wikipedia": "de:Vivantes",
+        "phone": "+49 30 4537767",
+        "website": "https://mvz.vivantes.de/arztpraxis-finden/mvz-wedding",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3534183,
+          52.5493363
+        ]
+      },
+      "id": "node/9257846271"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9292210614",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "cardiology",
+        "level": "4",
+        "name": "MVZ Adlershof Vivantes Kardiologie",
+        "operator": "Vivantes",
+        "operator:type": "public",
+        "operator:wikidata": "Q878059",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5379663,
+          52.4282314
+        ]
+      },
+      "id": "node/9292210614"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9523939998",
+        "addr:housenumber": "9",
+        "addr:street": "Turmstraße",
+        "amenity": "clinic",
+        "description": "Das Medizinische Versorgungszentrum MVZ Medizin der Mitte bietet eine haus- und fachärztliche Behandlung sowie ambulante Versorgung mit drei Hausärztinnen und drei fachärztlichen Internisten mit Schwerpunkt Gefäßmedizin.",
+        "healthcare": "clinic",
+        "name": "MVZ Medizin der Mitte",
+        "opening_hours": "Mo-Fr 08:00-18:00",
+        "phone": "+49 30 3966980",
+        "website": "https://www.mvz-mdm.de/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3520293,
+          52.526665
+        ]
+      },
+      "id": "node/9523939998"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9971870799",
+        "addr:city": "Berlin",
+        "addr:housenumber": "71",
+        "addr:postcode": "10117",
+        "addr:street": "Friedrichstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "level": "5",
+        "name": "Meoclinic",
+        "opening_hours": "Mo - Th 08:00-19:00, Fr 08:00-18:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.389756,
+          52.513277
+        ]
+      },
+      "id": "node/9971870799"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10116298591",
+        "addr:city": "Berlin",
+        "addr:housenumber": "131",
+        "addr:postcode": "12249",
+        "addr:street": "Gallwitzallee",
+        "alt_name": "MVZ am St. Marien-Krankenhaus Berlin",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Hausärztlich-internistische Praxis Lankwitz",
+        "operator": "VitaMed GmbH - Medizinisches Versorgungszentrum Cochem-Zell",
+        "website": "https://www.mvz-lankwitz.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3506944,
+          52.4243716
+        ]
+      },
+      "id": "node/10116298591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10231199971",
+        "addr:city": "Berlin",
+        "addr:housenumber": "80",
+        "addr:postcode": "10115",
+        "addr:street": "Invalidenstraße",
+        "amenity": "clinic",
+        "check_date:opening_hours": "2024-05-22",
+        "healthcare": "clinic",
+        "name": "Charité Comprehensive Cancer Center",
+        "opening_hours:signed": "no",
+        "short_name": "CCCC",
+        "website": "https://cccc.charite.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3747037,
+          52.5278444
+        ]
+      },
+      "id": "node/10231199971"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10292325696",
+        "addr:city": "Berlin",
+        "addr:housenumber": "85",
+        "addr:postcode": "10623",
+        "addr:street": "Fasanenstraße",
+        "amenity": "clinic",
+        "description": "In der MRT-Akademie erhalten privat Krankenversicherte und Selbstzahler in angenehmer Atmosphäre kompetente Beratung, umfassende Vorsorgeangebote, weitgehende Diagnostik und, falls erforderlich, eine individuelle Therapie.",
+        "email": "info@mrt-akademie.de",
+        "fax": "+49 30 814511888",
+        "healthcare": "clinic",
+        "healthcare:speciality": "mrt;ct;schmerztherapie;beratung;tumorsuche;verlaufskontrolle;zweitmeinung;privatpraxis",
+        "image": "https://mrt-akademie.de/wp-content/uploads/2015/09/mrt-logo01a.png",
+        "name": "MRT-Akademie",
+        "opening_hours": "Mo-Th 08:00-19:00; Fr 08:00-18:00",
+        "operator": "MRT-Akademie",
+        "operator:type": "private",
+        "payment:privat": "yes",
+        "phone": "+49 30 814511880",
+        "website": "https://mrt-akademie.de/de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3285989,
+          52.5067455
+        ]
+      },
+      "id": "node/10292325696"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10680229526",
+        "addr:city": "Berlin",
+        "addr:housenumber": "115",
+        "addr:postcode": "10961",
+        "addr:street": "Gneisenaustraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "ophthalmology",
+        "level": "1",
+        "name": "Lasermed Augenarzt Kreuzberg",
+        "operator": "Lasermed",
+        "phone": "+49 30 555753111",
+        "website": "https://augenarzt.lasermed.de/berlin/kreuzberg-mehringdamm/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3884974,
+          52.4930758
+        ]
+      },
+      "id": "node/10680229526"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10829070905",
+        "addr:housenumber": "2",
+        "addr:postcode": "10409",
+        "addr:street": "Storkower Straße",
+        "amenity": "clinic",
+        "check_date": "2026-08-23",
+        "healthcare": "clinic",
+        "name": "Spreemedizin Berlin MVZ",
+        "name:de": "Spreemedizin MVZ Berlin",
+        "name:en": "Spreemedizin MVZ Berlin",
+        "opening_hours": "Mo-Tu, Th 09:00-13:00, 14:00-17:00; We 09:00-13:00, 14:00-18:00; Fr 09:00-13:00",
+        "website": "https://spreemedizin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4391681,
+          52.540939
+        ]
+      },
+      "id": "node/10829070905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10975186174",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;ophthalmology;orthopaedics;otolaryngology",
+        "name": "Ärztezentrum Axel-Springer-Passage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3948073,
+          52.5076578
+        ]
+      },
+      "id": "node/10975186174"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11021391904",
+        "addr:housenumber": "20",
+        "addr:postcode": "10317",
+        "addr:street": "Irenenstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "level": "2",
+        "name": "open.med Berlin-Lichtenberg",
+        "opening_hours": "Mo 11:00-15:00; We 14:00-18:00",
+        "operator": "Ärzte der Welt e.V.",
+        "phone": "+49 30 20 60 696 00",
+        "social_facility:for": "homeless;refugee;underprivileged",
+        "website": "https://www.aerztederwelt.org/wem-wir-beistehen/hilfe-fuer-patientinnen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5006735,
+          52.5093177
+        ]
+      },
+      "id": "node/11021391904"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11034214308",
+        "addr:housenumber": "76",
+        "addr:postcode": "10117",
+        "addr:street": "Friedrichstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "endocrinology",
+        "name": "Endokrinologie Berlin",
+        "name:en": "Endocrinology Berlin",
+        "opening_hours": "Mo-Tu,Th 08:00-13:00,14:00-18:00; We,Fr 08:00-13:00",
+        "phone": "+49 30 2091562290",
+        "website": "https://www.endokrinologikum-berlin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3894666,
+          52.514121
+        ]
+      },
+      "id": "node/11034214308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11148267382",
+        "amenity": "clinic",
+        "health_facility:type": "health_centre",
+        "healthcare": "clinic",
+        "medical_system:western": "yes",
+        "name": "Ärztezentrum Haus B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6021753,
+          52.537904
+        ]
+      },
+      "id": "node/11148267382"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11160773805",
+        "addr:housenumber": "19-23",
+        "addr:postcode": "13125",
+        "addr:street": "Wiltbergstraße",
+        "amenity": "clinic",
+        "email": "berlin@loewensteinmedical.com",
+        "healthcare": "clinic",
+        "level": "1",
+        "name": "Schlaf-Atem-Zentrum",
+        "opening_hours": "Mo-Th 08:00-15:00",
+        "operator": "Löwenstein Medical",
+        "operator:type": "private",
+        "phone": "+493085620570",
+        "website": "https://hul.de/standorte/schlaf-atem-zentrum-berlin-buch/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4939833,
+          52.6356366
+        ]
+      },
+      "id": "node/11160773805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11601418469",
+        "addr:housenumber": "100",
+        "addr:postcode": "10243",
+        "addr:street": "Revaler Straße",
+        "amenity": "clinic",
+        "check_date": "2025-09-02",
+        "check_date:opening_hours": "2025-09-02",
+        "healthcare": "clinic",
+        "name": "Orthomed Berlin",
+        "name:de": "Orthomed Berlin – Bartholomäus Gabrys - Orthopädie Friedrichshain",
+        "name:en": "Orthomed Berlin - Bartholomäus Gabrys",
+        "opening_hours": "Mo-Tu 08:00-09:00,10:00-13:00,14:00-17:00; We-Fr 08:00-09:00,10:00-13:00",
+        "phone": "+49 30 700758900",
+        "website": "https://orthomed.berlin/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4500858,
+          52.5084415
+        ]
+      },
+      "id": "node/11601418469"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11734285956",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "6",
+        "addr:postcode": "13507",
+        "addr:street": "Berliner Straße",
+        "addr:suburb": "Tegel",
+        "amenity": "clinic",
+        "health_facility:type": "office",
+        "healthcare": "clinic",
+        "name": "HIT Hausärzte in Tegel",
+        "website": "https://hausarztzentrum-tegel.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2843348,
+          52.5886156
+        ]
+      },
+      "id": "node/11734285956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12026565069",
+        "amenity": "clinic",
+        "contact:website": "https://mvz.vivantes.de/arztpraxis-finden/mvz-neukoelln/kinder-und-jugendlichenpsychotherapie",
+        "healthcare": "clinic",
+        "healthcare:speciality": "child_psychiatry",
+        "name": "Praxis für Kinder- und Jugendlichenpsychotherapie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.461085,
+          52.4366171
+        ]
+      },
+      "id": "node/12026565069"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12056138475",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "10",
+        "addr:postcode": "12489",
+        "addr:street": "Pfingstberggasse",
+        "addr:suburb": "Adlershof",
+        "amenity": "clinic",
+        "healthcare": "centre",
+        "name": "Ärztehaus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5441193,
+          52.4396355
+        ]
+      },
+      "id": "node/12056138475"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12160553755",
+        "addr:housenumber": "64",
+        "addr:street": "Seestraße",
+        "amenity": "clinic",
+        "email": "praxis@infektiologie-seestrasse.de",
+        "fax": "+49 30 45509522",
+        "healthcare": "clinic",
+        "healthcare:speciality": "infectious_diseases;internal;general;gastroenterology",
+        "name": "Infektiologie Ärzteforum Seestraße",
+        "opening_hours": "Mo 08:00-18:00; Tu 08:00-20:00; We 09:00-14:00; Th 08:00-18:00; Fr 08:00-14:00",
+        "operator": "Infektiologie Ärzteforum Seestraße MVZ GmbH",
+        "operator:type": "private",
+        "phone": "+49 30 4550950",
+        "website": "https://www.infektiologie-seestrasse.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3595578,
+          52.5537098
+        ]
+      },
+      "id": "node/12160553755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12208720830",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "80",
+        "addr:postcode": "14129",
+        "addr:street": "Potsdamer Chaussee",
+        "addr:suburb": "Nikolassee",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;ophthalmology;surgery;dermatology;gynaecology;otolaryngology;paediatrics;naturopathy;orthopaedics;psychiatry",
+        "name": "Ärztehaus in Zehlendorf",
+        "website": "http://www.aerztehaus-in-zehlendorf.de",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2166051,
+          52.4269396
+        ]
+      },
+      "id": "node/12208720830"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12218907397",
+        "addr:housenumber": "130",
+        "addr:street": "Spandauer Damm",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "fertility",
+        "name": "Fertility Center Berlin",
+        "opening_hours": "Mo-Th 07:00-19:00; Fr 07:00-18:00",
+        "phone": "+4930233208110",
+        "website": "https://fertilitycenterberlin.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2759727,
+          52.5206715
+        ]
+      },
+      "id": "node/12218907397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12280025745",
+        "addr:city": "Berlin",
+        "addr:housenumber": "7B/C",
+        "addr:postcode": "10789",
+        "addr:street": "Tauentzienstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Coagumed Gerinnungszentrum GmbH",
+        "opening_hours": "Mo,Tu,Th 08:00-16:00; We,Fr 08:00-13:00",
+        "operator": "Dr. med. Christoph Sucker",
+        "phone": "+49 30 2128088-0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3391673,
+          52.5035605
+        ]
+      },
+      "id": "node/12280025745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12362949029",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärzte-Zentrum Lichtenrade"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4027541,
+          52.3865226
+        ]
+      },
+      "id": "node/12362949029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12364583086",
+        "air_conditioning": "yes",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "plastic_surgery",
+        "internet_access": "wlan",
+        "level": "0;1",
+        "name": "M1 Med Beauty",
+        "website": "https://m1-beauty.de"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5694936,
+          52.4429626
+        ]
+      },
+      "id": "node/12364583086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12492076306",
+        "addr:city": "Berlin",
+        "addr:housenumber": "129",
+        "addr:postcode": "13187",
+        "addr:street": "Berliner Straße",
+        "addr:suburb": "Pankow",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "general;cardiology;gastroenterology;internal",
+        "level": "5",
+        "name": "MVZ Pankow Innere Medizin",
+        "opening_hours": "Mo-Th 08:00-12:00,15:00-18:00; Fr 08:00-12:00",
+        "website": "https://www.mvz-innere-medizin.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4110031,
+          52.5701535
+        ]
+      },
+      "id": "node/12492076306"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12734713116",
+        "amenity": "clinic",
+        "healthcare": "centre",
+        "name": "Ärztehaus",
+        "opening_hours:signed": "no",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3977102,
+          52.5346893
+        ]
+      },
+      "id": "node/12734713116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12876405101",
+        "addr:housenumber": "13a",
+        "addr:postcode": "10117",
+        "addr:street": "Luisenstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Medical Clinic for Endocrinology and Metabolic Medicine (incl. Department of Lipid Metabolism)",
+        "website": "https://endokrinologie.charite.de/metas/lageplan/plan/map/ccm_luisenstrasse_13a"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3790757,
+          52.5244649
+        ]
+      },
+      "id": "node/12876405101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12896993603",
+        "addr:housenumber": "186",
+        "addr:postcode": "12557",
+        "addr:street": "Oberspreestraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name:en": "PT Physiotherapie Köpenick",
+        "opening_hours": "Mo-Th 07:30-19:30; Fr 07:30-14:30",
+        "phone": "+493064905264"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5683912,
+          52.444549
+        ]
+      },
+      "id": "node/12896993603"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13108440442",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Notaufnahme Park-Klinik Weißensee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4505788,
+          52.5550113
+        ]
+      },
+      "id": "node/13108440442"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13238686401",
+        "addr:housenumber": "2",
+        "addr:postcode": "13627",
+        "addr:street": "Buchholzweg",
+        "amenity": "clinic",
+        "description": "Campusadresse. Saatwinkler Damm 42-43 13627 Berlin. Wegbeschreibung. Eingang vom Buchholzweg, Haus 2, 7. OG.",
+        "healthcare": "clinic",
+        "name": "Charite"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3182872,
+          52.5461524
+        ]
+      },
+      "id": "node/13238686401"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13340684279",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "90c",
+        "addr:postcode": "10559",
+        "addr:street": "Alt-Moabit",
+        "amenity": "clinic",
+        "check_date": "2025-11-29",
+        "contact:email": "ambulanz@ipu-berlin.de",
+        "contact:phone": "+49 30 300117800",
+        "contact:website": "https://www.ipu-berlin.de/ambulanz/die-ambulanz",
+        "contact:website:en": "https://www.ipu-berlin.de/en/outpatient-service/the-outpatient-service",
+        "healthcare": "psychotherapist",
+        "healthcare:speciality": "behavior;depth;systemic;child_psychiatry",
+        "level": "1",
+        "name": "Psychotherapeutische Hochschulambulanz der IPU Berlin",
+        "name:en": "Psychotherapeutic University Outpatient Clinic of the IPU Berlin",
+        "operator": "International Psychoanalytic University Berlin gGmbH",
+        "wikidata": "Q137161466"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3435613,
+          52.5236565
+        ]
+      },
+      "id": "node/13340684279"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13434315405",
+        "addr:city": "Berlin",
+        "addr:housenumber": "49",
+        "addr:postcode": "10249",
+        "addr:street": "Landsberger Allee",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "paediatrics",
+        "name": "Vivantes Kinder-MVZ",
+        "opening_hours": "Mo-Fr 08:00-09:00 \"mit Termin\"",
+        "operator": "Vivantes",
+        "operator:type": "public",
+        "operator:wikidata": "Q878059",
+        "phone": "+49 30 130232800",
+        "website": "https://mvz.vivantes.de/mvz-landsberger-allee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.438654,
+          52.524997
+        ]
+      },
+      "id": "node/13434315405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13463730286",
+        "addr:city": "Berlin",
+        "addr:housenumber": "31",
+        "addr:place": "Berlin",
+        "addr:postcode": "10249",
+        "addr:street": "Petersburger Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "MVZ Allgeneinmedizin im Friedrichshain",
+        "website": "https://www.mvz-friedrichshain.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4499984,
+          52.5236661
+        ]
+      },
+      "id": "node/13463730286"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13526904501",
+        "amenity": "clinic",
+        "name": "Via Physio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3941289,
+          52.540243
+        ]
+      },
+      "id": "node/13526904501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13612550977",
+        "addr:city": "Berlin",
+        "addr:housenumber": "101b",
+        "addr:postcode": "10557",
+        "addr:street": "Alt-Moabit",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "internal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3467647,
+          52.5234803
+        ]
+      },
+      "id": "node/13612550977"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13640779025",
+        "addr:city": "Berlin",
+        "addr:housenumber": "14",
+        "addr:postcode": "10787",
+        "addr:street": "Landgrafenstrasse",
+        "amenity": "clinic",
+        "email": "info@kinderwunschzentrum.de",
+        "healthcare": "clinic",
+        "healthcare:speciality": "fertility",
+        "language:de": "main",
+        "language:en": "yes",
+        "level": "4",
+        "name": "Ceres Kinderwunschzentrum Berlin",
+        "opening_hours": "Mo,We,Fr 07:30-18:00; Tu,Th 08:00-18:00",
+        "phone": "+49 30 2639830",
+        "toilets:access": "customers",
+        "website": "https://www.kinderwunschzentrum.de/en/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3494096,
+          52.5057638
+        ]
+      },
+      "id": "node/13640779025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13801564185",
+        "addr:city": "Berlin",
+        "addr:housenumber": "5-7",
+        "addr:postcode": "10179",
+        "addr:street": "Schicklerstraße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "gynaecology;otolaryngology;psychotherapist;orthopaedics;plastic_surgery",
+        "name": "Eterno",
+        "operator": "Eterno Health GmbH",
+        "operator:type": "private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4154373,
+          52.5160907
+        ]
+      },
+      "id": "node/13801564185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13871371240",
+        "amenity": "clinic",
+        "check_date": "2026-05-24",
+        "healthcare": "clinic",
+        "name": "Chirurgische Kliniken"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.342541,
+          52.5416031
+        ]
+      },
+      "id": "node/13871371240"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13871371241",
+        "amenity": "clinic",
+        "check_date": "2026-05-24",
+        "healthcare": "clinic",
+        "name": "Spezialchirurgische Kliniken"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3451892,
+          52.5417357
+        ]
+      },
+      "id": "node/13871371241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13894818201",
+        "addr:housenumber": "56",
+        "addr:postcode": "10247",
+        "addr:street": "Frankfurter Allee",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "name": "Ärztehaus 56"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4654635,
+          52.5144205
+        ]
+      },
+      "id": "node/13894818201"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13958254683",
+        "addr:city": "Berlin",
+        "addr:country": "DE",
+        "addr:housenumber": "4",
+        "addr:postcode": "13357",
+        "addr:street": "Badstraße",
+        "amenity": "hospital",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "healthcare:speciality": "botox",
+        "name": "My Health & Beauty",
+        "operator": "Schön Klinik",
+        "operator:type": "public",
+        "operator:wikidata": "Q2258661",
+        "phone": "+49 30 98607380",
+        "website": "https://www.myhealthandbeauty.com/standorte/berlin/gesundbrunnencenter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3896658,
+          52.5497342
+        ]
+      },
+      "id": "node/13958254683"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14006277840",
+        "addr:city": "Berlin",
+        "addr:housenumber": "1",
+        "addr:postcode": "13125",
+        "addr:street": "Viereckweg",
+        "amenity": "clinic",
+        "healthcare": "dialysis",
+        "healthcare:speciality": "nephrology",
+        "name": "Nephrologie und Dialyse im Alwall-Haus",
+        "operator": "Dr. med. Novender und PD Dr. med. Peter Nickel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4980096,
+          52.6411945
+        ]
+      },
+      "id": "node/14006277840"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14008212661",
+        "addr:city": "Berlin",
+        "addr:housenumber": "45-47",
+        "addr:postcode": "10627",
+        "addr:street": "Bismarckstraße",
+        "amenity": "clinic",
+        "email": "info@praxisklinik-charlottenburg.de",
+        "healthcare": "clinic",
+        "name": "Praxisklink Charlottenburg",
+        "opening_hours": "Mo-Th 07:00-17:00",
+        "operator": "PkC-Praxisklinik Charlottenburg GmbH",
+        "operator:type": "private",
+        "phone": "+49 3038377050",
+        "website": "https://www.praxisklinik-charlottenburg.de"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3047455,
+          52.5117448
+        ]
+      },
+      "id": "node/14008212661"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14016979278",
+        "addr:city": "Berlin",
+        "addr:housenumber": "32",
+        "addr:postcode": "10707",
+        "addr:street": "Bleibtreustraße",
+        "amenity": "clinic",
+        "email": "hnopraxis32@gmail.com",
+        "healthcare": "doctor",
+        "name": "Herr Dr. med. Stefan Henning",
+        "opening_hours": "We off; Th 13:00-18:00; Fr 09:00-12:30; Sa off; Su off; Mo-Tu 09:00-14:30",
+        "phone": "+49 30 88 77 48 28",
+        "website": "https://stefan-henning.de/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3195055,
+          52.5003757
+        ]
+      },
+      "id": "node/14016979278"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14099255997",
+        "addr:city": "Berlin",
+        "addr:housenumber": "20",
+        "addr:postcode": "13051",
+        "addr:street": "Wustrower Straße",
+        "amenity": "clinic",
+        "healthcare": "clinic",
+        "healthcare:speciality": "diabetology;angiology;internal;adipositas",
+        "name": "Diabetes & Gefäßzentrum Ost - DGZO I Dr. Fiedler & Dr. Stützer",
+        "opening_hours": "Mo-Fr 08:00-13:00, Mo-Tu 14:00-18:00",
+        "operator": "Dr. Fiedler & Dr. Stützer GbR",
+        "operator:type": "public"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5087482,
+          52.5664868
+        ]
+      },
+      "id": "node/14099255997"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14104810802",
+        "addr:city": "Berlin",
+        "addr:housenumber": "3",
+        "addr:postcode": "10711",
+        "addr:street": "Bornstedter Straße",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "healthcare:speciality": "physiotherapy",
+        "name": "Physiotherapie SanoMondo UG",
+        "operator": "Yulia Gutoeva",
+        "operator:type": "business"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2861723,
+          52.4976162
+        ]
+      },
+      "id": "node/14104810802"
+    }
+  ]
+}

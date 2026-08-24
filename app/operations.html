@@ -341,15 +341,23 @@
         function loadStaticData() {
             status.style.color = '';
             status.textContent = 'Loading static data...';
-            Promise.all([
-                fetch('data/london_hydrants.geojson').then(response => response.json()),
-                fetch('data/london_water.geojson').then(response => response.json()),
-                fetch('data/london_hospitals.geojson').then(response => response.json())
-            ]).then(([hydrantData, waterData, hospitalData]) => {
-                hydrants = hydrantData.features;
-                waterBodies = waterData.features;
-                hospitals = hospitalData.features;
-                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals (static)`;
+            const cities = ['london', 'berlin'];
+            const datasets = ['hydrants', 'water', 'hospitals'];
+            Promise.all(
+                cities.flatMap(city => datasets.map(dataset =>
+                    fetch(`data/${city}_${dataset}.geojson`).then(response => response.json())
+                ))
+            ).then(results => {
+                hydrants = [];
+                waterBodies = [];
+                hospitals = [];
+                cities.forEach((city, cityIdx) => {
+                    const [hydrantData, waterData, hospitalData] = results.slice(cityIdx * datasets.length, cityIdx * datasets.length + datasets.length);
+                    hydrants.push(...hydrantData.features);
+                    waterBodies.push(...waterData.features);
+                    hospitals.push(...hospitalData.features);
+                });
+                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals (static, London + Berlin)`;
             }).catch(() => {
                 status.textContent = 'Error loading static files - open via Live Server';
                 status.style.color = '#ff6b6b';
