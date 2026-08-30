@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
-    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP
+    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM
 } = require('../app/geo-utils.js');
 
 const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
@@ -119,6 +119,33 @@ test('computeCoverage: an empty demand mask never excludes any cell', () => {
     const hexGrid = { features: [{ id: 'a', centroid: [LONDON_LON, LONDON_LAT] }] };
     const result = computeCoverage(oneHydrant, [], HYDRANT_RADIUS_KM, hexGrid, fakeTurf);
     assert.equal(result.totalCells, 1);
+});
+
+test('clampRadiusM: leaves a value already inside the range unchanged', () => {
+    assert.equal(clampRadiusM(120), 120);
+});
+
+test('clampRadiusM: pulls a value below the minimum up to it', () => {
+    assert.equal(clampRadiusM(-50), 1);
+    assert.equal(clampRadiusM(0), 1);
+});
+
+test('clampRadiusM: pulls a value above the maximum down to it', () => {
+    assert.equal(clampRadiusM(99999), 1000);
+});
+
+test('clampRadiusM: falls back to the default for a non-number', () => {
+    assert.equal(clampRadiusM(NaN), 120);
+});
+
+test('clampRadiusM: exact min and max boundaries pass through unchanged', () => {
+    assert.equal(clampRadiusM(1), 1);
+    assert.equal(clampRadiusM(1000), 1000);
+});
+
+test('clampRadiusM: custom range and fallback override the defaults', () => {
+    assert.equal(clampRadiusM(9999, 10, 200, 50), 200);
+    assert.equal(clampRadiusM(NaN, 10, 200, 50), 50);
 });
 
 test('greedyMCLP: picks the point that covers the most demand first', () => {

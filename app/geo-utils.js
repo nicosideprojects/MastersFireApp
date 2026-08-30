@@ -137,8 +137,14 @@ function greedyMCLP(uncoveredCentroids, radiusKm, numCandidates = 5) {
     return candidates;
 }
 
+// keeps a coverage radius within a safe range
+function clampRadiusM(radiusM, minM = 1, maxM = 1000, fallbackM = 120) {
+    const value = Number.isFinite(radiusM) ? radiusM : fallbackM;
+    return Math.min(maxM, Math.max(minM, value));
+}
+
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM };
 }

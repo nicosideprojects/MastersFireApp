@@ -333,6 +333,23 @@
         </div>
 
         <div>
+            <div class="section-label">Analysis Settings</div>
+            <div class="radius-row">
+                <span>Coverage radius</span>
+                <input type="number" id="radius-input" value="120" min="1" max="1000" />
+                <span>m</span>
+            </div>
+            <div class="mask-row" style="margin-top:8px;">
+                <input type="checkbox" id="mask-checkbox" checked />
+                <label for="mask-checkbox">Apply demand mask (exclude parks &amp; water)</label>
+            </div>
+            <div class="mask-row">
+                <input type="checkbox" id="snap-checkbox" checked />
+                <label for="snap-checkbox">Snap candidates to roads</label>
+            </div>
+        </div>
+
+        <div>
             <div class="section-label">Layers</div>
             <div style="display:flex;flex-direction:column;gap:5px;">
                 <div class="toggle-row active" id="toggle-hydrants">
@@ -343,8 +360,9 @@
                 </div>
                 <div class="toggle-row" id="toggle-coverage">
                     <div class="toggle-row-left">
-                        <span class="layer-dot" style="background:#4caf5066;border:1.5px solid #4caf50;"></span>Coverage
-                        circles (120m)
+                        <span class="layer-dot"
+                            style="background:#4caf5066;border:1.5px solid #4caf50;"></span><span>Coverage
+                            circles (<span id="toggle-coverage-radius">120</span>m)</span>
                     </div>
                     <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
                 </div>
@@ -368,23 +386,6 @@
                     </div>
                     <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
                 </div>
-            </div>
-        </div>
-
-        <div>
-            <div class="section-label">Analysis Settings</div>
-            <div class="radius-row">
-                <span>Coverage radius</span>
-                <input type="number" id="radius-input" value="120" min="50" max="500" />
-                <span>m</span>
-            </div>
-            <div class="mask-row" style="margin-top:8px;">
-                <input type="checkbox" id="mask-checkbox" checked />
-                <label for="mask-checkbox">Apply demand mask (exclude parks &amp; water)</label>
-            </div>
-            <div class="mask-row">
-                <input type="checkbox" id="snap-checkbox" checked />
-                <label for="snap-checkbox">Snap candidates to roads</label>
             </div>
         </div>
 
@@ -425,6 +426,11 @@
         const LONDON_LAT_LON = [51.5, -0.1];
         const BERLIN_LAT_LON = [52.52, 13.405];
 
+        // reads the coverage radius the user typed in
+        function getRadiusM() {
+            return clampRadiusM(parseInt(document.getElementById('radius-input').value));
+        }
+
         const map = L.map('map').setView(LONDON_LAT_LON, 13);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -438,7 +444,7 @@
             legendDiv.innerHTML = `
             <b style="color:#4fc3f7;font-size:12px;">Analysis Mode</b><br>
             <span class="legend-dot" style="background:#4caf50"></span>Hydrant<br>
-            <span class="legend-dot" style="background:#4caf5055;border:1px solid #4caf50"></span>120m coverage<br>
+            <span class="legend-dot" style="background:#4caf5055;border:1px solid #4caf50"></span><span id="legend-coverage-radius">120</span>m coverage<br>
             <span class="legend-dot" style="background:#ff6b6b66;border:1px solid #ff6b6b"></span>Gap (uncovered)<br>
             <span class="legend-dot" style="background:#4fc3f7"></span>Hydrant candidate
         `;
@@ -698,7 +704,7 @@
             candidateLayer.clearLayers();
 
             // user's coverage radius, metres and km (isCovered/haversine want km)
-            const radiusM = parseInt(document.getElementById('radius-input').value) || 120;
+            const radiusM = getRadiusM();
             const radiusKm = radiusM / 1000;
             // whether to exclude parks/water from the gap count
             const useMask = document.getElementById('mask-checkbox').checked;
@@ -737,8 +743,9 @@
             const { uncoveredHexes } = coverageResult;
             renderCoverageResult(coverageResult, hydrants.length);
 
+            // always redraw with the current radius otherwise the circles keep showing the old radius
+            renderCoverageCircles(radiusM);
             if (!document.getElementById('toggle-coverage').classList.contains('active')) {
-                renderCoverageCircles(radiusM);
                 setLayerVisible('toggle-coverage', true);
             }
             setLayerVisible('toggle-gaps', true);
@@ -803,8 +810,7 @@
             document.getElementById(toggleId).addEventListener('click', () => {
                 const visible = !document.getElementById(toggleId).classList.contains('active');
                 if (toggleId === 'toggle-coverage' && visible && coverageLayer.getLayers().length === 0) {
-                    const radiusM = parseInt(document.getElementById('radius-input').value) || 120;
-                    renderCoverageCircles(radiusM);
+                    renderCoverageCircles(getRadiusM());
                 }
                 setLayerVisible(toggleId, visible);
             });
@@ -817,6 +823,38 @@
         });
 
         document.getElementById('run-btn').addEventListener('click', runAnalysis);
+
+        // updates the layer toggle label and legend text to match the current radius
+        const radiusInputEl = document.getElementById('radius-input');
+        function syncRadiusLabels() {
+            const radiusM = getRadiusM();
+            document.getElementById('toggle-coverage-radius').textContent = radiusM;
+            const legendLabel = document.getElementById('legend-coverage-radius');
+            if (legendLabel) legendLabel.textContent = radiusM;
+        }
+        // redraws the coverage circles with the new radius
+        let radiusRedrawTimer = null;
+        function redrawCoverageCirclesIfVisible() {
+            if (!document.getElementById('toggle-coverage').classList.contains('active')) return;
+            // waits a moment before redrawing, so typing doesn't rebuild every circle on every keystroke
+            clearTimeout(radiusRedrawTimer);
+            radiusRedrawTimer = setTimeout(() => renderCoverageCircles(getRadiusM()), 200);
+        }
+
+        radiusInputEl.addEventListener('input', () => {
+            syncRadiusLabels();
+            redrawCoverageCirclesIfVisible();
+        });
+        // once the user finishes editing, snap the field to a clean number and make sure the circles are fully caught up
+        radiusInputEl.addEventListener('change', () => {
+            radiusInputEl.value = getRadiusM();
+            syncRadiusLabels();
+            clearTimeout(radiusRedrawTimer);
+            if (document.getElementById('toggle-coverage').classList.contains('active')) {
+                renderCoverageCircles(getRadiusM());
+            }
+        });
+        syncRadiusLabels();
 
         const searchResultsEl = document.getElementById('search-results');
 
