@@ -137,6 +137,30 @@ function greedyMCLP(uncoveredCentroids, radiusKm, numCandidates = 5) {
     return candidates;
 }
 
+// closes a polygon ring if it doesn't already end where it started
+function closeRing(coords) {
+    const first = coords[0], last = coords[coords.length - 1];
+    if (first[0] !== last[0] || first[1] !== last[1]) coords.push(first);
+    return coords;
+}
+
+// builds the polygon shapes used to exclude parks and water from the demand mask
+function buildMaskPolygonRings(elements) {
+    const rings = [];
+    elements.forEach(element => {
+        if (element.type === 'relation') {
+            (element.members || []).forEach(member => {
+                if (member.role !== 'outer' || !member.geometry || member.geometry.length < 3) return;
+                rings.push(closeRing(member.geometry.map(point => [point.lon, point.lat])));
+            });
+            return;
+        }
+        if (!element.geometry || element.geometry.length < 3) return;
+        rings.push(closeRing(element.geometry.map(point => [point.lon, point.lat])));
+    });
+    return rings;
+}
+
 // keeps a coverage radius within a safe range
 function clampRadiusM(radiusM, minM = 1, maxM = 1000, fallbackM = 120) {
     const value = Number.isFinite(radiusM) ? radiusM : fallbackM;
@@ -169,5 +193,5 @@ function windDescription(speedKmh) {
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription, buildMaskPolygonRings };
 }
