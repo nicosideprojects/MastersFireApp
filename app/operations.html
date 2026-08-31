@@ -312,6 +312,8 @@
         tileMinimal.addTo(map);
 
         let hydrants = [], waterBodies = [], hospitals = [];
+        // true once any fetch has finished separated from nothing found
+        let areaDataLoaded = false;
         let pins = [];
         let pinIdCounter = 0;
         let currentMode = 'fire';
@@ -357,6 +359,7 @@
                     waterBodies.push(...waterData.features);
                     hospitals.push(...hospitalData.features);
                 });
+                areaDataLoaded = true;
                 status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals (static, London + Berlin)`;
             }).catch(() => {
                 status.textContent = 'Error loading static files - open via Live Server';
@@ -392,6 +395,7 @@
                 } else {
                     apiControls.style.display = 'block';
                     hydrants = []; waterBodies = []; hospitals = [];
+                    areaDataLoaded = false;
                     status.style.color = '';
                     status.textContent = 'Navigate to an area then click "Fetch data for this area"';
                 }
@@ -498,23 +502,27 @@
                 const cacheKeySuffix = boundingBoxStr.replace(/,/g, '_');
 
                 status.textContent = `Finding Overpass mirror... (~${Math.round(areaKm2)} km2)`;
-                const hydrantResult = await loadLayer(`osm_hydrants_${cacheKeySuffix}`,
-                    `[out:json][timeout:25];node["emergency"="fire_hydrant"](${boundingBoxStr});out body;`);
+                // had to combine the reqests due to the repeated 429 responses from the api
+                const query = `[out:json][timeout:25];(
+                    node["emergency"="fire_hydrant"](${boundingBoxStr});
+                    node["natural"="water"](${boundingBoxStr});
+                    node["landuse"="reservoir"](${boundingBoxStr});
+                    node["leisure"="swimming_pool"](${boundingBoxStr});
+                    node["amenity"="hospital"](${boundingBoxStr});
+                    node["amenity"="clinic"](${boundingBoxStr});
+                );out body;`;
+                const result = await loadLayer(`osm_area_${cacheKeySuffix}`, query);
 
-                status.textContent = `Fetching water sources and hospitals...`;
-                const [waterResult, hospitalResult] = await Promise.all([
-                    loadLayer(`osm_water_${cacheKeySuffix}`,
-                        `[out:json][timeout:25];(node["natural"="water"](${boundingBoxStr});node["landuse"="reservoir"](${boundingBoxStr});node["leisure"="swimming_pool"](${boundingBoxStr}););out body;`),
-                    loadLayer(`osm_hospitals_${cacheKeySuffix}`,
-                        `[out:json][timeout:25];(node["amenity"="hospital"](${boundingBoxStr});node["amenity"="clinic"](${boundingBoxStr}););out body;`)
-                ]);
+                hydrants = []; waterBodies = []; hospitals = [];
+                result.features.forEach(feature => {
+                    const kind = classifyLiveFeature(feature.properties);
+                    if (kind === 'hydrant') hydrants.push(feature);
+                    else if (kind === 'water') waterBodies.push(feature);
+                    else if (kind === 'hospital') hospitals.push(feature);
+                });
 
-                hydrants = hydrantResult.features;
-                waterBodies = waterResult.features;
-                hospitals = hospitalResult.features;
-
-                const allCached = hydrantResult.fromCache && waterResult.fromCache && hospitalResult.fromCache;
-                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals${allCached ? ' (cached)' : ''}`;
+                areaDataLoaded = true;
+                status.textContent = `${hydrants.length} hydrants, ${waterBodies.length} water sources, ${hospitals.length} hospitals${result.fromCache ? ' (cached)' : ''}`;
             } catch (err) {
                 if (err.message.includes('429')) {
                     status.textContent = 'Rate limited by Overpass - wait a moment and try again';
@@ -701,20 +709,24 @@
 
             const hydrantSummary = nearestHydrants.length
                 ? nearestHydrants.map(hydrantMatch => `<div class="info-sub">Hydrant - ${(hydrantMatch.dist * 1000).toFixed(0)}m</div>`).join('')
-                : `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+                : nearestHydrantFallback
+                    ? `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`
+                    : `<div class="info-sub">No hydrants found in the loaded area</div>`;
 
             const waterSummary = nearestWaters.length
                 ? nearestWaters.map(waterMatch => `<div class="info-sub">${waterType(waterMatch.feature.properties)} - ${(waterMatch.dist * 1000).toFixed(0)}m</div>`).join('')
-                : `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`;
+                : nearestWaterFallback
+                    ? `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`
+                    : `<div class="info-sub">No water sources found in the loaded area</div>`;
 
             pin.lastInfo = `
             <div class="info-row">
                 <div class="info-label">Hydrants within 500m</div>
-                ${nearestHydrants.length ? hydrantSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + hydrantSummary}
+                ${!nearestHydrants.length && nearestHydrantFallback ? '<div class="info-sub" style="color:#888">None - showing nearest</div>' : ''}${hydrantSummary}
             </div>
             <div class="info-row">
                 <div class="info-label">Water sources within 500m</div>
-                ${nearestWaters.length ? waterSummary : '<div class="info-sub" style="color:#888">None - showing nearest</div>' + waterSummary}
+                ${!nearestWaters.length && nearestWaterFallback ? '<div class="info-sub" style="color:#888">None - showing nearest</div>' : ''}${waterSummary}
             </div>
             ${windHtml}`;
         }
@@ -787,13 +799,18 @@
             const { type, lat, lng } = pin;
 
             const dataMissing = {
-                fire: !hydrants.length || !waterBodies.length,
+                // fire pin renders whatever it has, even if only one of the two loaded
+                fire: !areaDataLoaded,
                 truck: false,
                 person: !hospitals.length,
                 plane: !waterBodies.length
             };
+            // what each pin type needs, shown only once we know data was actually fetched
+            const neededDataLabel = { person: 'hospitals', plane: 'water sources' };
             if (dataMissing[type]) {
-                pin.lastInfo = '<span class="info-muted">No area data loaded - use "Fetch data for this area" first.</span>';
+                pin.lastInfo = areaDataLoaded
+                    ? `<span class="info-muted">No ${neededDataLabel[type]} found in the loaded area.</span>`
+                    : '<span class="info-muted">No area data loaded - use "Fetch data for this area" first.</span>';
                 info.innerHTML = pin.lastInfo;
                 updatePinList();
                 return;

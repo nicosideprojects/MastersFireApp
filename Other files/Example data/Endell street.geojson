@@ -1,0 +1,145 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-31T19:02:40Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 3227939099,
+  "lat": 51.5149240,
+  "lon": -0.0969288,
+  "tags": {
+    "addr:city": "London",
+    "addr:housename": "150 Cheapside",
+    "addr:housenumber": "150",
+    "addr:postcode": "EC2V 6ET",
+    "addr:street": "Cheapside",
+    "amenity": "clinic",
+    "healthcare": "clinic",
+    "healthcare:speciality": "fertility",
+    "name": "CREATE Fertility",
+    "source": "www.createhealth.org"
+  }
+},
+{
+  "type": "node",
+  "id": 4241081100,
+  "lat": 51.5135273,
+  "lon": -0.0914607,
+  "tags": {
+    "addr:city": "London",
+    "addr:housenumber": "80",
+    "addr:postcode": "EC2V 6EE",
+    "addr:street": "Cheapside",
+    "amenity": "clinic",
+    "check_date:opening_hours": "2025-11-01",
+    "healthcare": "clinic",
+    "name": "One Heart Clinic City",
+    "opening_hours:signed": "no",
+    "ref:GB:cqc_location": "1-18281338465",
+    "was:name": "Medi Centre"
+  }
+},
+{
+  "type": "node",
+  "id": 5042032183,
+  "lat": 51.5158569,
+  "lon": -0.0910563,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:type": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 5046313917,
+  "lat": 51.5146133,
+  "lon": -0.0945801,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:type": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 5090420608,
+  "lat": 51.5131474,
+  "lon": -0.0916665,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:position": "sidewalk",
+    "fire_hydrant:type": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 7553479206,
+  "lat": 51.5176553,
+  "lon": -0.0962605,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:type": "underground",
+    "level": "0"
+  }
+},
+{
+  "type": "node",
+  "id": 7797133147,
+  "lat": 51.5181178,
+  "lon": -0.0931649,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:type": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 10311362208,
+  "lat": 51.5119841,
+  "lon": -0.0978560,
+  "tags": {
+    "emergency": "fire_hydrant",
+    "fire_hydrant:position": "sidewalk",
+    "fire_hydrant:type": "underground",
+    "water_source": "main"
+  }
+},
+{
+  "type": "node",
+  "id": 12866448583,
+  "lat": 51.5109809,
+  "lon": -0.0927245,
+  "tags": {
+    "addr:city": "London",
+    "addr:country": "GB",
+    "addr:housenumber": "61",
+    "addr:postcode": "EC4R 1EB",
+    "addr:street": "Queen Street",
+    "amenity": "clinic",
+    "healthcare": "clinic",
+    "healthcare:speciality": "general",
+    "level": "4",
+    "name": "Health Now",
+    "operator": "Health Now Limited"
+  }
+},
+{
+  "type": "node",
+  "id": 12867023552,
+  "lat": 51.5172114,
+  "lon": -0.0994560,
+  "tags": {
+    "amenity": "clinic",
+    "healthcare": "clinic",
+    "healthcare:speciality": "ophthalmology",
+    "name": "Moorfields @ Barts",
+    "ref:GB:cqc_location": "RP633"
+  }
+}
+
+  ]
+}

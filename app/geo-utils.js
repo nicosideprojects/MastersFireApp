@@ -64,6 +64,15 @@ function waterType(props) {
     return 'Water Body';
 }
 
+// sorts a live OSM elements tags into which map layer it belongs to
+function classifyLiveFeature(tags) {
+    if (!tags) return null;
+    if (tags.emergency === 'fire_hydrant') return 'hydrant';
+    if (tags.natural === 'water' || tags.landuse === 'reservoir' || tags.leisure === 'swimming_pool') return 'water';
+    if (tags.amenity === 'hospital' || tags.amenity === 'clinic') return 'hospital';
+    return null;
+}
+
 // standard geodetic approximation: how many km one degree of latitude covers
 // TODO: remember to add the reference for this
 const KM_PER_DEGREE_LATITUDE = 111.0;
@@ -169,5 +178,5 @@ function windDescription(speedKmh) {
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
 }

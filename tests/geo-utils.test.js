@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
-    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP,
+    bearingToCompass, waterType, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP,
     clampRadiusM, windDescription
 } = require('../app/geo-utils.js');
 
@@ -44,6 +44,33 @@ test('waterType: reads OSM tags in priority order', () => {
     assert.equal(waterType({ water: 'lake' }), 'Lake');
     assert.equal(waterType({ water: 'canal' }), 'Canal');
     assert.equal(waterType({}), 'Water Body');
+});
+
+test('classifyLiveFeature: sorts tags into the right layer', () => {
+    assert.equal(classifyLiveFeature({ emergency: 'fire_hydrant' }), 'hydrant');
+    assert.equal(classifyLiveFeature({ natural: 'water' }), 'water');
+    assert.equal(classifyLiveFeature({ landuse: 'reservoir' }), 'water');
+    assert.equal(classifyLiveFeature({ leisure: 'swimming_pool' }), 'water');
+    assert.equal(classifyLiveFeature({ amenity: 'hospital' }), 'hospital');
+    assert.equal(classifyLiveFeature({ amenity: 'clinic' }), 'hospital');
+    assert.equal(classifyLiveFeature({ shop: 'bakery' }), null);
+    assert.equal(classifyLiveFeature(null), null);
+});
+
+test('classifyLiveFeature: ignores unrelated tags on a real data example', () => {
+    const clinicTags = {
+        'addr:city': 'London',
+        'addr:housename': '150 Cheapside',
+        'addr:housenumber': '150',
+        'addr:postcode': 'EC2V 6ET',
+        'addr:street': 'Cheapside',
+        amenity: 'clinic',
+        healthcare: 'clinic',
+        'healthcare:speciality': 'fertility',
+        name: 'CREATE Fertility',
+        source: 'www.createhealth.org'
+    };
+    assert.equal(classifyLiveFeature(clinicTags), 'hospital');
 });
 
 function featureAt(lon, lat) {
