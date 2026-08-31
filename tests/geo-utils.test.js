@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
     bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP,
-    clampRadiusM, windDescription, buildMaskPolygonRings
+    clampRadiusM, windDescription
 } = require('../app/geo-utils.js');
 
 const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
@@ -160,42 +160,6 @@ test('windDescription: labels speeds with the corresponding Beaufort description
     assert.equal(windDescription(117), 'violent storm');
     assert.equal(windDescription(118), 'hurricane force');
     assert.equal(windDescription(200), 'hurricane force');
-});
-
-// a three point triangle and a smaller triangle sitting inside it
-const OUTER_TRIANGLE = [{ lon: 0, lat: 0 }, { lon: 1, lat: 0 }, { lon: 1, lat: 1 }];
-const INNER_TRIANGLE = [{ lon: 0.4, lat: 0.4 }, { lon: 0.6, lat: 0.4 }, { lon: 0.6, lat: 0.6 }];
-
-function wayShape(points) {
-    return { type: 'way', geometry: points };
-}
-
-function relationShape(members) {
-    return { type: 'relation', members };
-}
-
-function boundaryMember(role, points) {
-    return { role, geometry: points };
-}
-
-test('buildMaskPolygonRings: closes a shape that does not end where it started', () => {
-    const rings = buildMaskPolygonRings([wayShape(OUTER_TRIANGLE)]);
-    assert.equal(rings.length, 1);
-    assert.deepEqual(rings[0][0], rings[0][rings[0].length - 1]);
-});
-
-// a big feature like the Thames is mapped as several ways grouped into one relation
-test('buildMaskPolygonRings: uses a relations outer boundary and ignores its holes', () => {
-    const river = relationShape([
-        boundaryMember('outer', OUTER_TRIANGLE),
-        boundaryMember('inner', INNER_TRIANGLE)
-    ]);
-    assert.equal(buildMaskPolygonRings([river]).length, 1);
-});
-
-test('buildMaskPolygonRings: ignores a shape with fewer than 3 points', () => {
-    const justALine = [{ lon: 0, lat: 0 }, { lon: 1, lat: 0 }];
-    assert.equal(buildMaskPolygonRings([wayShape(justALine)]).length, 0);
 });
 
 test('greedyMCLP: picks the point that covers the most demand first', () => {

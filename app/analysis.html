@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
     <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js"></script>
     <script src="geo-utils.js"></script>
     <script src="api-status.js"></script>
     <script src="config.js"></script>
@@ -647,14 +648,11 @@
                     if (!response.ok) continue;
                     const json = await response.json();
 
-                    // also handles relations like large rivers such as the Thames
-                    const polygons = [];
-                    buildMaskPolygonRings(json.elements).forEach(ring => {
-                        try {
-                            polygons.push(turf.polygon([ring]));
-                        } catch { }
-                    });
-                    return polygons;
+                    // osmtogeojson correctly joins a relations pieces into one shape
+                    const geojson = osmtogeojson(json);
+                    return geojson.features.filter(feature =>
+                        feature.geometry && (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon')
+                    );
                 } catch { }
             }
             throw new Error('all Overpass mirrors failed');
