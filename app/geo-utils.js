@@ -143,8 +143,31 @@ function clampRadiusM(radiusM, minM = 1, maxM = 1000, fallbackM = 120) {
     return Math.min(maxM, Math.max(minM, value));
 }
 
+// Beaufort wind force scale bands with upper km/h bound per term
+const BEAUFORT_SCALE = [
+    { upToKmh: 1, term: 'calm' },
+    { upToKmh: 5, term: 'light air' },
+    { upToKmh: 11, term: 'light breeze' },
+    { upToKmh: 19, term: 'gentle breeze' },
+    { upToKmh: 28, term: 'moderate breeze' },
+    { upToKmh: 38, term: 'fresh breeze' },
+    { upToKmh: 49, term: 'strong breeze' },
+    { upToKmh: 61, term: 'near gale' },
+    { upToKmh: 74, term: 'gale' },
+    { upToKmh: 88, term: 'strong gale' },
+    { upToKmh: 102, term: 'storm' },
+    { upToKmh: 117, term: 'violent storm' },
+];
+const HURRICANE_FORCE_TERM = 'hurricane force';
+
+// labels a wind speed (km/h) with its Beaufort scale term
+function windDescription(speedKmh) {
+    const band = BEAUFORT_SCALE.find(({ upToKmh }) => speedKmh <= upToKmh);
+    return band ? band.term : HURRICANE_FORCE_TERM;
+}
+
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
 }

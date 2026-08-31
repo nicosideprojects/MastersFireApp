@@ -4,7 +4,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
-    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, clampRadiusM
+    bearingToCompass, waterType, isCovered, computeCoverage, greedyMCLP, 
+    clampRadiusM, windDescription
 } = require('../app/geo-utils.js');
 
 const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
@@ -146,6 +147,19 @@ test('clampRadiusM: exact min and max boundaries pass through unchanged', () => 
 test('clampRadiusM: custom range and fallback override the defaults', () => {
     assert.equal(clampRadiusM(9999, 10, 200, 50), 200);
     assert.equal(clampRadiusM(NaN, 10, 200, 50), 50);
+});
+
+// Beaufort scale terms, checked at each band's edges
+test('windDescription: labels speeds with the corresponding Beaufort description', () => {
+    assert.equal(windDescription(0), 'calm');
+    assert.equal(windDescription(1), 'calm');
+    assert.equal(windDescription(1.1), 'light air');
+    assert.equal(windDescription(11), 'light breeze');
+    assert.equal(windDescription(11.1), 'gentle breeze');
+    assert.equal(windDescription(55.8), 'near gale');
+    assert.equal(windDescription(117), 'violent storm');
+    assert.equal(windDescription(118), 'hurricane force');
+    assert.equal(windDescription(200), 'hurricane force');
 });
 
 test('greedyMCLP: picks the point that covers the most demand first', () => {

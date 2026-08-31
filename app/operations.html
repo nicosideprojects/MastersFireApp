@@ -678,6 +678,7 @@
             if (wind) {
                 const spreadBearing = (wind.direction + 180) % 360;
                 const spreadDist = Math.max(0.05, wind.speed * 0.02);
+                const windSpeedKmh = wind.speed * 3.6;
 
                 pin.layers.push(L.polygon(
                     [[lat, lng],
@@ -690,7 +691,7 @@
                 windHtml = `
                 <div class="info-row">
                     <div class="info-label">Wind</div>
-                    <div class="info-value">${(wind.speed * 3.6).toFixed(1)} km/h from ${bearingToCompass(wind.direction)}</div>
+                    <div class="info-value">${windSpeedKmh.toFixed(1)} km/h from ${bearingToCompass(wind.direction)} (${windDescription(windSpeedKmh)})</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">Fire spread direction</div>
