@@ -248,6 +248,19 @@
             flex: 1;
             height: 100vh;
         }
+
+        #pin-fetch-indicator {
+            display: none;
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            background: #1a1a2ee6;
+            color: #ccc;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 2000;
+        }
     </style>
 </head>
 
@@ -310,6 +323,7 @@
     </div>
 
     <div id="map"></div>
+    <div id="pin-fetch-indicator"></div>
 
     <script>
         const map = L.map('map').setView([51.5, -0.1], 13);
@@ -321,6 +335,7 @@
         let hydrants = [], waterBodies = [], hospitals = [];
         // true once any fetch has finished separated from nothing found
         let areaDataLoaded = false;
+        let backgroundFetchInFlight = false;
         let pins = [];
         let pinIdCounter = 0;
         let currentMode = 'fire';
@@ -480,6 +495,19 @@
         const FORCE_STATIC_MODE = false;
         const LIVE_FETCH_TIMEOUT_MS = 20000;
         const LIVE_DEDUP_DISTANCE_KM = 0.015;
+        const PIN_FETCH_RADIUS_KM = 3;
+
+        // the combined hydrant/water/hospital Overpass query for a given bbox string
+        function buildAreaQuery(boundingBoxStr) {
+            return `[out:json][timeout:25];(
+                nwr["emergency"="fire_hydrant"](${boundingBoxStr});
+                nwr["natural"="water"](${boundingBoxStr});
+                nwr["landuse"="reservoir"](${boundingBoxStr});
+                nwr["leisure"="swimming_pool"](${boundingBoxStr});
+                nwr["amenity"="hospital"](${boundingBoxStr});
+                nwr["amenity"="clinic"](${boundingBoxStr});
+            );out center;`;
+        }
 
         // fetches hydrants, water sources, and hospitals for the current map area via Overpass
         async function fetchAreaData(bounds) {
@@ -514,18 +542,9 @@
 
                 status.textContent = `Finding Overpass mirror... (~${Math.round(areaKm2)} km2)`;
                 // had to combine the reqests due to the repeated 429 responses from the api
-                // nwr also matches ways and relations since water bodies are rarely plain nodes
-                const query = `[out:json][timeout:25];(
-                    nwr["emergency"="fire_hydrant"](${boundingBoxStr});
-                    nwr["natural"="water"](${boundingBoxStr});
-                    nwr["landuse"="reservoir"](${boundingBoxStr});
-                    nwr["leisure"="swimming_pool"](${boundingBoxStr});
-                    nwr["amenity"="hospital"](${boundingBoxStr});
-                    nwr["amenity"="clinic"](${boundingBoxStr});
-                );out center;`;
                 // v2 to avoid a stale cache from before this
                 const result = await trackApiCall('Fetch area data',
-                    () => loadLayer(`osm_area_v2_${cacheKeySuffix}`, query, abortController.signal));
+                    () => loadLayer(`osm_area_v2_${cacheKeySuffix}`, buildAreaQuery(boundingBoxStr), abortController.signal));
 
                 const fetchedHydrants = [], fetchedWater = [], fetchedHospitals = [];
                 result.features.forEach(feature => {
@@ -561,6 +580,73 @@
                 useStaticBtn.onclick = null;
                 fetchBtn.disabled = false;
                 fetchBtn.textContent = 'Fetch data for this area';
+            }
+        }
+
+        const pinFetchIndicator = document.getElementById('pin-fetch-indicator');
+
+        // true if this pin type is missing its relevant data within PIN_FETCH_RADIUS_KM
+        function needsAreaFetch(pin) {
+            if (pin.type === 'fire') {
+                return !isCovered(pin.lat, pin.lng, PIN_FETCH_RADIUS_KM, hydrants)
+                    || !isCovered(pin.lat, pin.lng, PIN_FETCH_RADIUS_KM, waterBodies);
+            }
+            if (pin.type === 'plane') return !isCovered(pin.lat, pin.lng, PIN_FETCH_RADIUS_KM, waterBodies);
+            if (pin.type === 'person') return !isCovered(pin.lat, pin.lng, PIN_FETCH_RADIUS_KM, hospitals);
+            return false;
+        }
+
+        // recalculates every non-truck pin so newly merged data shows up on already-placed pins too
+        async function refreshAllPins() {
+            for (const p of pins) {
+                if (p.type === 'truck') continue;
+                p.layers.forEach(layer => map.removeLayer(layer));
+                p.layers = [];
+                await calculatePin(p);
+            }
+            const selectedPin = pins.find(p => p.id === selectedPinId);
+            if (selectedPin) info.innerHTML = selectedPin.lastInfo;
+        }
+
+        // fetches live data around a pin in the background if it has no nearby data yet
+        async function maybeFetchAreaAroundPin(pin) {
+            if (FORCE_STATIC_MODE || backgroundFetchInFlight || !needsAreaFetch(pin)) return;
+
+            backgroundFetchInFlight = true;
+            pinFetchIndicator.textContent = 'Fetching nearby data...';
+            pinFetchIndicator.style.display = 'block';
+
+            const abortController = new AbortController();
+            const timeoutId = setTimeout(() => abortController.abort(), LIVE_FETCH_TIMEOUT_MS);
+
+            try {
+                const bounds = L.latLng(pin.lat, pin.lng).toBounds(PIN_FETCH_RADIUS_KM * 2 * 1000);
+                const boundingBoxStr = boundsToStr(bounds);
+                const cacheKeySuffix = boundingBoxStr.replace(/,/g, '_');
+                const result = await trackApiCall('Fetch data near new pin',
+                    () => loadLayer(`osm_area_v2_${cacheKeySuffix}`, buildAreaQuery(boundingBoxStr), abortController.signal));
+
+                const fetchedHydrants = [], fetchedWater = [], fetchedHospitals = [];
+                result.features.forEach(feature => {
+                    const kind = classifyLiveFeature(feature.properties);
+                    if (kind === 'hydrant') fetchedHydrants.push(feature);
+                    else if (kind === 'water') fetchedWater.push(feature);
+                    else if (kind === 'hospital') fetchedHospitals.push(feature);
+                });
+
+                hydrants = mergeUniqueFeatures(hydrants, fetchedHydrants, LIVE_DEDUP_DISTANCE_KM);
+                waterBodies = mergeUniqueFeatures(waterBodies, fetchedWater, LIVE_DEDUP_DISTANCE_KM);
+                hospitals = mergeUniqueFeatures(hospitals, fetchedHospitals, LIVE_DEDUP_DISTANCE_KM);
+                areaDataLoaded = true;
+
+                pinFetchIndicator.textContent = `Loaded ${fetchedHydrants.length} hydrants, ${fetchedWater.length} water, ${fetchedHospitals.length} hospitals nearby`;
+                await refreshAllPins();
+            } catch {
+                pinFetchIndicator.textContent = 'Live data not available nearby';
+            } finally {
+                clearTimeout(timeoutId);
+                backgroundFetchInFlight = false;
+                setTimeout(() => { pinFetchIndicator.style.display = 'none'; }, 2500);
             }
         }
 
@@ -685,6 +771,7 @@
                 pin.layers = [];
                 info.innerHTML = '<span class="info-muted">Recalculating...</span>';
                 await calculatePin(pin);
+                maybeFetchAreaAroundPin(pin);
             });
 
             pin.marker = marker;
@@ -906,6 +993,7 @@
             info.innerHTML = '<span class="info-muted">Working...</span>';
             const pin = createPin(currentMode, lat, lng);
             await calculatePin(pin);
+            maybeFetchAreaAroundPin(pin);
         });
     </script>
 </body>
