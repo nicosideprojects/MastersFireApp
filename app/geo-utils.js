@@ -64,6 +64,20 @@ function waterType(props) {
     return 'Water Body';
 }
 
+// adds new features to a list without duplicating ones already close by
+function mergeUniqueFeatures(existingFeatures, incomingFeatures, dedupDistanceKm) {
+    const merged = existingFeatures.slice();
+    incomingFeatures.forEach(incoming => {
+        const [incomingLon, incomingLat] = incoming.geometry.coordinates;
+        const isDuplicate = merged.some(existing => {
+            const [existingLon, existingLat] = existing.geometry.coordinates;
+            return haversine(incomingLat, incomingLon, existingLat, existingLon) <= dedupDistanceKm;
+        });
+        if (!isDuplicate) merged.push(incoming);
+    });
+    return merged;
+}
+
 // sorts a live OSM elements tags into which map layer it belongs to
 function classifyLiveFeature(tags) {
     if (!tags) return null;
@@ -178,5 +192,5 @@ function windDescription(speedKmh) {
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, mergeUniqueFeatures, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
 }

@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
-    bearingToCompass, waterType, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP,
+    bearingToCompass, waterType, mergeUniqueFeatures, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP,
     clampRadiusM, windDescription
 } = require('../app/geo-utils.js');
 
@@ -12,6 +12,7 @@ const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
 const PARIS_LAT = 48.8566, PARIS_LON = 2.3522;
 // 120m is the default hydrant coverage radius
 const HYDRANT_RADIUS_KM = 0.12;
+const ROUGHLY_10M_LON = 0.0001;
 
 test('haversine: same point is zero distance', () => {
     assert.equal(haversine(LONDON_LAT, LONDON_LON, LONDON_LAT, LONDON_LON), 0);
@@ -91,6 +92,34 @@ test('findNearestN: sorts ascending and slices to n', () => {
     assert.equal(result.length, 2);
     assert.equal(result[0].feature, features[1]);
     assert.ok(result[0].dist <= result[1].dist);
+});
+
+test('mergeUniqueFeatures: keeps all of an existing list and adds a distinct incoming feature', () => {
+    const existing = [featureAt(-0.1, 51.5)];
+    const incoming = [featureAt(-0.5, 51.6)];
+    const merged = mergeUniqueFeatures(existing, incoming, 0.015);
+    assert.equal(merged.length, 2);
+    assert.equal(merged[0], existing[0]);
+    assert.equal(merged[1], incoming[0]);
+});
+
+test('mergeUniqueFeatures: drops an incoming feature within the dedup distance of an existing one', () => {
+    const existing = [featureAt(-0.1, 51.5)];
+    const incoming = [featureAt(-0.1 - ROUGHLY_10M_LON, 51.5)];
+    const merged = mergeUniqueFeatures(existing, incoming, 0.015);
+    assert.equal(merged.length, 1);
+});
+
+test('mergeUniqueFeatures: never changes the existing list passed in', () => {
+    const existing = [featureAt(-0.1, 51.5)];
+    mergeUniqueFeatures(existing, [featureAt(-0.5, 51.6)], 0.015);
+    assert.equal(existing.length, 1);
+});
+
+test('mergeUniqueFeatures: an empty incoming list returns a copy of the existing one unchanged', () => {
+    const existing = [featureAt(-0.1, 51.5), featureAt(-0.2, 51.6)];
+    const merged = mergeUniqueFeatures(existing, [], 0.015);
+    assert.deepEqual(merged, existing);
 });
 
 // the second point is 10+km away, well outside the radius
