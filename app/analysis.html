@@ -794,7 +794,10 @@
                     mirrorSucceeded = true;
                     json.elements?.forEach(way => {
                         if (!way.geometry || way.geometry.length < 2) return;
-                        try { roadLines.push(turf.lineString(way.geometry.map(point => [point.lon, point.lat]))); } catch { }
+                        try {
+                            const line = turf.lineString(way.geometry.map(point => [point.lon, point.lat]));
+                            roadLines.push({ line, name: way.tags?.name || null });
+                        } catch { }
                     });
                     break;
                 } catch { }
@@ -810,15 +813,15 @@
             // move each candidate to the nearest point on the nearest road
             return candidates.map(candidate => {
                 let nearest = null, nearestDistanceKm = Infinity;
-                roadLines.forEach(line => {
+                roadLines.forEach(({ line, name }) => {
                     try {
                         const snapped = turf.nearestPointOnLine(line, turf.point([candidate.lon, candidate.lat]), { units: 'kilometers' });
                         const [snappedLon, snappedLat] = snapped.geometry.coordinates;
                         const distanceKm = haversine(candidate.lat, candidate.lon, snappedLat, snappedLon);
-                        if (distanceKm < nearestDistanceKm) { nearestDistanceKm = distanceKm; nearest = { lat: snappedLat, lon: snappedLon, snapped: true }; }
+                        if (distanceKm < nearestDistanceKm) { nearestDistanceKm = distanceKm; nearest = { lat: snappedLat, lon: snappedLon, snapped: true, roadName: name }; }
                     } catch { }
                 });
-                return nearest ? { ...candidate, ...nearest } : { ...candidate, snapped: false };
+                return nearest ? { ...candidate, ...nearest } : { ...candidate, snapped: false, roadName: null };
             });
         }
 
@@ -845,9 +848,11 @@
 
         // draws the numbered candidate markers and the candidate list panel from the finished candidate list
         function renderCandidatesResult(finalCandidates, doSnap, radiusM) {
+            const markerByNum = {};
             finalCandidates.forEach(candidate => {
                 const borderColor = (doSnap && candidate.snapped === false) ? '#ff8c00' : '#fff';
                 const failedSnapNote = (doSnap && candidate.snapped === false) ? ' (road snap failed - raw centroid)' : '';
+                const roadNote = candidate.roadName ? `<br>Near: ${candidate.roadName}` : '';
                 const icon = L.divIcon({
                     className: '',
                     html: `<div style="
@@ -859,19 +864,32 @@
                 ">${candidate.num}</div>`,
                     iconSize: [24, 24], iconAnchor: [12, 12]
                 });
-                L.marker([candidate.lat, candidate.lon], { icon })
-                    .bindPopup(`<b>Candidate ${candidate.num}</b>${failedSnapNote}<br>Would cover ~${candidate.covering} gap cells within ${radiusM}m`)
+                const marker = L.marker([candidate.lat, candidate.lon], { icon })
+                    .bindPopup(`<b>Candidate ${candidate.num}</b>${failedSnapNote}<br>Would cover ~${candidate.covering} gap cells within ${radiusM}m${roadNote}`)
                     .addTo(candidateLayer);
+                markerByNum[candidate.num] = marker;
             });
             setLayerVisible('toggle-candidates', true);
 
             const candidateListEl = document.getElementById('candidate-list');
-            candidateListEl.innerHTML = finalCandidates.map(candidate => `
-            <div class="candidate-item">
+            candidateListEl.innerHTML = finalCandidates.map(candidate => {
+                const roadLabel = doSnap ? (candidate.roadName || 'unnamed road') : '';
+                return `
+            <div class="candidate-item" data-num="${candidate.num}" style="cursor:pointer;">
                 <div class="candidate-num">${candidate.num}</div>
-                <span>${candidate.lat.toFixed(4)}, ${candidate.lon.toFixed(4)}</span>
+                <span>${candidate.lat.toFixed(4)}, ${candidate.lon.toFixed(4)}${roadLabel ? ' - ' + roadLabel : ''}</span>
             </div>
-        `).join('');
+        `;
+            }).join('');
+
+            candidateListEl.querySelectorAll('.candidate-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const marker = markerByNum[item.dataset.num];
+                    if (!marker) return;
+                    map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 17));
+                    marker.openPopup();
+                });
+            });
         }
 
         async function runAnalysis() {
