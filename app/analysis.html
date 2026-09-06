@@ -67,29 +67,6 @@
             margin-bottom: 6px;
         }
 
-        .source-toggle {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-
-        .source-btn {
-            flex: 1;
-            padding: 7px 6px;
-            border-radius: 6px;
-            border: 2px solid #2d2d44;
-            background: #2d2d44;
-            color: #888;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .source-btn.active {
-            border-color: #ff6b6b;
-            color: #fff;
-            background: #3d2232;
-        }
-
         .toggle-row {
             display: flex;
             align-items: center;
@@ -344,16 +321,8 @@
         <p style="font-size:12px;color:#666;margin-top:-6px;">Hydrant coverage gap analysis &amp; hydrant candidate
             placement</p>
 
-        <div>
-            <div class="section-label">Hydrant dataset</div>
-            <div class="source-toggle">
-                <button class="source-btn active" data-city="london">London</button>
-                <button class="source-btn" data-city="berlin">Berlin</button>
-            </div>
-        </div>
-
         <div style="position:relative;">
-            <div class="section-label">Search location</div>
+            <div class="section-label">Live data</div>
             <div style="display:flex;gap:6px;">
                 <input id="search-input" type="text" placeholder="Search a place..."
                     style="flex:1;padding:7px 10px;border-radius:6px;border:1px solid #444;background:#2d2d44;color:#eee;font-size:13px;outline:none;" />
@@ -372,6 +341,12 @@
             z-index:2000;
             overflow:hidden;
         "></div>
+            <button id="fetch-btn"
+                style="width:100%;margin-top:8px;padding:9px;border-radius:6px;border:1px solid #444;background:#2d2d44;color:#aaa;font-size:13px;cursor:pointer;">Fetch
+                data for this area</button>
+            <button id="use-static-btn"
+                style="display:none;width:100%;margin-top:6px;padding:9px;border-radius:6px;border:1px solid #444;background:transparent;color:#aaa;font-size:13px;cursor:pointer;">Use
+                static instead</button>
         </div>
 
         <div>
@@ -478,7 +453,6 @@
 
     <script>
         const LONDON_LAT_LON = [51.5, -0.1];
-        const BERLIN_LAT_LON = [52.52, 13.405];
 
         // reads the coverage radius the user typed in
         function getRadiusM() {
@@ -546,41 +520,26 @@
             'toggle-mask': maskLayer
         };
 
-        // load the hydrant dataset the coverage and gap layers are built from
-        async function loadHydrantDataset(city) {
+        // loads and merges the bundled static hydrant datasets for both cities
+        function loadStaticHydrants() {
             status.style.color = '';
-            status.textContent = `Loading ${city} hydrant data...`;
-            try {
-                const data = await trackApiCall(`Load ${city} hydrants`, async () => {
+            status.textContent = 'Loading static hydrant data...';
+            Promise.all(['london', 'berlin'].map(city =>
+                trackApiCall(`Load ${city} hydrants`, async () => {
                     const response = await fetch(`data/${city}_hydrants.geojson`);
                     return response.json();
-                });
-                hydrants = data.features;
+                })
+            )).then(results => {
+                hydrants = results.flatMap(data => data.features);
                 renderHydrantDots();
-                status.textContent = `${hydrants.length} hydrants loaded (${city}) - ready to run analysis`;
-            } catch {
-                status.textContent = 'Error loading hydrant data - open via Live Server';
+                status.textContent = `${hydrants.length} hydrants loaded (static, London + Berlin) - ready to run analysis`;
+            }).catch(() => {
+                status.textContent = 'Error loading static hydrant data - open via Live Server';
                 status.style.color = '#ff6b6b';
-            }
+            });
         }
 
-        // default map view for each dataset, so switching city also brings its hydrants into view
-        const cityView = {
-            london: { center: LONDON_LAT_LON, zoom: 13 },
-            berlin: { center: BERLIN_LAT_LON, zoom: 13 }
-        };
-
-        document.querySelectorAll('.source-btn[data-city]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.source-btn[data-city]').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const view = cityView[btn.dataset.city];
-                map.setView(view.center, view.zoom);
-                loadHydrantDataset(btn.dataset.city);
-            });
-        });
-
-        loadHydrantDataset('london');
+        loadStaticHydrants();
 
         // draws a small dot for every hydrant
         function renderHydrantDots() {
@@ -621,12 +580,164 @@
         }
 
 
-        // List of Overpass mirrors given they often fail
+        // several public Overpass mirrors, in case one is down or rate-limiting
         const OVERPASS_MIRRORS = [
             'https://overpass-api.de/api/interpreter',
             'https://lz4.overpass-api.de/api/interpreter',
             'https://overpass.kumi.systems/api/interpreter'
         ];
+
+        const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+        let stickyMirror = null;
+
+        // reads a cached Overpass response from localStorage if it hasn't expired
+        function cacheGet(key) {
+            try {
+                const rawCached = localStorage.getItem(key);
+                if (!rawCached) return null;
+                const { ts, data } = JSON.parse(rawCached);
+                if (Date.now() - ts > CACHE_TTL_MS) { localStorage.removeItem(key); return null; }
+                return data;
+            } catch { return null; }
+        }
+
+        // writes an Overpass response to localStorage with a timestamp
+        function cacheSet(key, data) {
+            try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data })); } catch { }
+        }
+
+        // sends a query to the first working Overpass mirror, remembering which one worked
+        async function overpassFetch(query, abortSignal) {
+            const orderedMirrors = stickyMirror
+                ? [stickyMirror, ...OVERPASS_MIRRORS.filter(mirror => mirror !== stickyMirror)]
+                : OVERPASS_MIRRORS;
+            for (const mirrorUrl of orderedMirrors) {
+                try {
+                    const response = await fetch(mirrorUrl, { method: 'POST', body: 'data=' + encodeURIComponent(query), signal: abortSignal });
+                    if (!response.ok) continue;
+                    const json = await response.json();
+                    stickyMirror = mirrorUrl;
+                    return json;
+                } catch (err) {
+                    if (err.name === 'AbortError') throw err;
+                }
+            }
+            throw new Error('All Overpass mirrors failed');
+        }
+
+        // converts raw Overpass elements into the same feature shape as the static geojson files
+        function overpassToFeatures(elements) {
+            return elements.flatMap(element => {
+                let lat, lon;
+                if (element.type === 'node') { lat = element.lat; lon = element.lon; }
+                else if (element.center) { lat = element.center.lat; lon = element.center.lon; }
+                else return [];
+                return [{ geometry: { coordinates: [lon, lat] }, properties: element.tags || {} }];
+            });
+        }
+
+        // formats map bounds as a south,west,north,east string for an Overpass bbox filter
+        function boundsToStr(bounds) {
+            const round = value => value.toFixed(2);
+            return `${round(bounds.getSouth())},${round(bounds.getWest())},${round(bounds.getNorth())},${round(bounds.getEast())}`;
+        }
+
+        // fetches one Overpass layer, using the cache first if available
+        async function loadLayer(cacheKey, query, abortSignal) {
+            const cached = cacheGet(cacheKey);
+            if (cached) return { features: cached, fromCache: true };
+            const json = await overpassFetch(query, abortSignal);
+            const features = overpassToFeatures(json.elements);
+            cacheSet(cacheKey, features);
+            return { features, fromCache: false };
+        }
+
+        // estimates the area of a bounding box in square kilometres
+        function bboxAreaKm2(bounds) {
+            const deltaLat = bounds.getNorth() - bounds.getSouth();
+            const deltaLon = bounds.getEast() - bounds.getWest();
+            return deltaLat * 111 * deltaLon * 111 * Math.cos(bounds.getCenter().lat * Math.PI / 180);
+        }
+
+        const FORCE_STATIC_MODE = false;
+        const LIVE_FETCH_TIMEOUT_MS = 20000;
+        const LIVE_DEDUP_DISTANCE_KM = 0.015;
+
+        // the hydrant-only Overpass query for a given bbox string
+        function buildHydrantAreaQuery(boundingBoxStr) {
+            return `[out:json][timeout:25];nwr["emergency"="fire_hydrant"](${boundingBoxStr});out center;`;
+        }
+
+        // fetches hydrants for the current map area via Overpass
+        async function fetchHydrantAreaData(bounds) {
+            const fetchBtn = document.getElementById('fetch-btn');
+            const useStaticBtn = document.getElementById('use-static-btn');
+            status.style.color = '';
+
+            if (FORCE_STATIC_MODE) {
+                status.textContent = 'Live fetch disabled (testing mode) - using static data';
+                return;
+            }
+
+            const areaKm2 = bboxAreaKm2(bounds);
+            if (areaKm2 > 150) {
+                status.textContent = `Area too large (~${Math.round(areaKm2)} km2) - zoom in and try again`;
+                status.style.color = '#ffb347';
+                return;
+            }
+
+            fetchBtn.disabled = true;
+            fetchBtn.textContent = 'Fetching...';
+            useStaticBtn.style.display = 'block';
+
+            const abortController = new AbortController();
+            let userCancelled = false;
+            useStaticBtn.onclick = () => { userCancelled = true; abortController.abort(); };
+            const timeoutId = setTimeout(() => abortController.abort(), LIVE_FETCH_TIMEOUT_MS);
+
+            try {
+                const boundingBoxStr = boundsToStr(bounds);
+                const cacheKeySuffix = boundingBoxStr.replace(/,/g, '_');
+
+                status.textContent = `Finding Overpass mirror... (~${Math.round(areaKm2)} km2)`;
+                const result = await trackApiCall('Fetch hydrant data',
+                    () => loadLayer(`osm_hydrants_v1_${cacheKeySuffix}`, buildHydrantAreaQuery(boundingBoxStr), abortController.signal));
+
+                hydrants = mergeUniqueFeatures(hydrants, result.features, LIVE_DEDUP_DISTANCE_KM);
+                renderHydrantDots();
+
+                status.textContent = `Fetched ${result.features.length} hydrants for this area (${hydrants.length} total loaded)${result.fromCache ? ' (cached)' : ''}`;
+            } catch (err) {
+                status.style.color = err.name === 'AbortError' ? '#ffb347' : '#ff6b6b';
+                if (err.name === 'AbortError') {
+                    status.textContent = userCancelled
+                        ? 'Cancelled - using static data'
+                        : `Live fetch timed out after ${LIVE_FETCH_TIMEOUT_MS / 1000}s - using static data`;
+                } else if (err.message.includes('429')) {
+                    status.textContent = 'Rate limited by Overpass - wait a moment and try again';
+                } else if (err.message.includes('504') || err.message.includes('502')) {
+                    status.textContent = 'Overpass timeout - zoom in further and try again';
+                } else {
+                    status.textContent = 'Fetch failed - check connection';
+                }
+            } finally {
+                clearTimeout(timeoutId);
+                useStaticBtn.style.display = 'none';
+                useStaticBtn.onclick = null;
+                fetchBtn.disabled = false;
+                fetchBtn.textContent = 'Fetch data for this area';
+            }
+        }
+
+        // true if any already-loaded hydrant falls within the given map bounds
+        function hasHydrantDataInView(bounds) {
+            return hydrants.some(hydrant => {
+                const [lon, lat] = hydrant.geometry.coordinates;
+                return bounds.contains(L.latLng(lat, lon));
+            });
+        }
+
+        document.getElementById('fetch-btn').addEventListener('click', () => fetchHydrantAreaData(map.getBounds()));
 
         // fetches park/wood/water polygons from Overpass to exclude from demand
         async function fetchDemandMask(bounds) {
