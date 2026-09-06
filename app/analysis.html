@@ -212,6 +212,8 @@
             flex-direction: column;
             gap: 5px;
             margin-top: 4px;
+            max-height: 220px;
+            overflow-y: auto;
         }
 
         .candidate-item {
@@ -410,6 +412,14 @@
                     </div>
                     <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
                 </div>
+                <div class="toggle-row" id="toggle-candidate-coverage">
+                    <div class="toggle-row-left">
+                        <span class="layer-dot"
+                            style="background:#4caf5066;border:1.5px solid #4caf50;"></span>Candidate coverage
+                        circles
+                    </div>
+                    <i class="ph ph-bold ph-eye-slash toggle-icon"></i>
+                </div>
             </div>
         </div>
 
@@ -435,8 +445,12 @@
                 <span class="stat-label">Gap cells</span>
                 <span class="stat-value" id="stat-gaps">-</span>
             </div>
+            <div class="stat-row">
+                <span class="stat-label">Coverage with candidates added</span>
+                <span class="stat-value" id="stat-projected-coverage">-</span>
+            </div>
             <div style="margin-top:10px;">
-                <div class="section-label" style="margin-bottom:8px;">Top candidate sites</div>
+                <div class="section-label" style="margin-bottom:8px;">Candidate sites (click to zoom)</div>
                 <div class="candidate-list" id="candidate-list"></div>
             </div>
         </div>
@@ -458,6 +472,9 @@
         function getRadiusM() {
             return clampRadiusM(parseInt(document.getElementById('radius-input').value));
         }
+
+        // safety cap on how many candidates the algorithm can suggest in one run
+        const MAX_MCLP_CANDIDATES = 50;
 
         const map = L.map('map').setView(LONDON_LAT_LON, 13);
         L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
@@ -495,7 +512,8 @@
             <span class="legend-dot" style="background:#4caf5055;border:1px solid #4caf50"></span><span id="legend-coverage-radius">120</span>m coverage<br>
             <span class="legend-dot" style="background:#ff6b6b66;border:1px solid #ff6b6b"></span>Gap (uncovered)<br>
             <span class="legend-dot" style="background:#9c27b066;border:1px solid #9c27b0"></span>Demand mask (parks/water)<br>
-            <span class="legend-dot" style="background:#4fc3f7"></span>Hydrant candidate
+            <span class="legend-dot" style="background:#4fc3f7"></span>Hydrant candidate<br>
+            <span class="legend-dot" style="background:#4caf5055;border:1px solid #4caf50"></span><span id="legend-coverage-radius-2">120</span>m candidate coverage
         `;
             return legendDiv;
         };
@@ -511,12 +529,15 @@
         let candidateLayer = L.layerGroup();
         // holds the raw park and water exclusion polygons so the mask stays visible
         let maskLayer = L.layerGroup();
+        // service-radius circles around each suggested candidate
+        let candidateCoverageLayer = L.layerGroup();
 
         const layerByToggleId = {
             'toggle-hydrants': hydrantLayer,
             'toggle-coverage': coverageLayer,
             'toggle-gaps': gapLayer,
             'toggle-candidates': candidateLayer,
+            'toggle-candidate-coverage': candidateCoverageLayer,
             'toggle-mask': maskLayer
         };
 
@@ -563,6 +584,18 @@
                     color: '#4caf50', fillColor: '#4caf50',
                     fillOpacity: 0.06, weight: 0.5, opacity: 0.4
                 }).addTo(coverageLayer);
+            });
+        }
+
+        // draws a service-radius circle around every suggested candidate site
+        function renderCandidateCoverageCircles(finalCandidates, radiusM) {
+            candidateCoverageLayer.clearLayers();
+            finalCandidates.forEach(candidate => {
+                L.circle([candidate.lat, candidate.lon], {
+                    radius: radiusM,
+                    color: '#4caf50', fillColor: '#4caf50',
+                    fillOpacity: 0.06, weight: 0.5, opacity: 0.4
+                }).addTo(candidateCoverageLayer);
             });
         }
 
@@ -846,6 +879,14 @@
             gapsEl.className = 'stat-value ' + (uncoveredHexes.length < 100 ? 'good' : uncoveredHexes.length < 500 ? 'warn' : 'bad');
         }
 
+        // renders projected coverage result after candidate hydrants are added
+        function renderProjectedCoverageResult({ coveredHexes, totalCells }) {
+            const pct = totalCells > 0 ? ((coveredHexes.length / totalCells) * 100).toFixed(1) : '0';
+            const el = document.getElementById('stat-projected-coverage');
+            el.textContent = `${pct}%`;
+            el.className = 'stat-value ' + (pct >= 70 ? 'good' : pct >= 40 ? 'warn' : 'bad');
+        }
+
         // draws the numbered candidate markers and the candidate list panel from the finished candidate list
         function renderCandidatesResult(finalCandidates, doSnap, radiusM) {
             const markerByNum = {};
@@ -901,6 +942,7 @@
 
             gapLayer.clearLayers();
             candidateLayer.clearLayers();
+            candidateCoverageLayer.clearLayers();
             maskLayer.clearLayers();
 
             // user's coverage radius, metres and km (isCovered/haversine want km)
@@ -915,10 +957,17 @@
             const bounds = map.getBounds();
             const bbox = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
 
+            // if nothing loaded so far falls inside the current view, fetch live data for it first
+            if (!hasHydrantDataInView(bounds)) {
+                status.textContent = 'No hydrant data in view - fetching live data for this area...';
+                await pauseForRepaint();
+                await fetchHydrantAreaData(bounds);
+            }
+
             // width of the visible map, used to size the grid cells below
             const viewWidthKm = haversine(bounds.getSouth(), bounds.getWest(), bounds.getSouth(), bounds.getEast());
             // hex cell size in km - bigger cells when zoomed out, smaller when zoomed in
-            const cellSide = Math.max(0.12, Math.min(0.5, viewWidthKm / 50));
+            const cellSide = Math.max(0.03, Math.min(0.5, viewWidthKm / 50));
 
             status.textContent = 'Building hex grid...';
             await pauseForRepaint();
@@ -972,7 +1021,7 @@
                 mclpInput = mclpInput.filter((_, i) => i % step === 0);
             }
 
-            const rawCandidates = greedyMCLP(mclpInput, radiusKm);
+            const rawCandidates = greedyMCLP(mclpInput, radiusKm, MAX_MCLP_CANDIDATES);
 
             status.textContent = doSnap ? 'Snapping candidates to roads...' : 'Placing candidates...';
             await pauseForRepaint();
@@ -981,10 +1030,18 @@
                 ? await trackApiCall('Snap candidates to roads', () => snapCandidatesToRoads(rawCandidates))
                     .catch(() => rawCandidates.map(c => ({ ...c, snapped: false })))
                 : rawCandidates.map(c => ({ ...c, snapped: false }));
-            // numbered 1-5 to match the markers/list shown in the panel
+            // numbered 1..N to match the markers/list shown in the panel
             const finalCandidates = snappedCandidates.map((c, i) => ({ ...c, num: i + 1 }));
 
             renderCandidatesResult(finalCandidates, doSnap, radiusM);
+            renderCandidateCoverageCircles(finalCandidates, radiusM);
+
+            // recalcs coverage as if every suggested candidate were a real hydrant
+            status.textContent = 'Checking projected coverage...';
+            await pauseForRepaint();
+            const candidateFeatures = finalCandidates.map(c => ({ geometry: { coordinates: [c.lon, c.lat] }, properties: {} }));
+            const projectedResult = computeCoverage(hydrants.concat(candidateFeatures), demandMask, radiusKm, hexGrid, turf);
+            renderProjectedCoverageResult(projectedResult);
 
             document.getElementById('stats').style.display = 'block';
             status.textContent = `Analysis complete - ${uncoveredHexes.length} gap cells, ${finalCandidates.length} candidates`;
@@ -1043,6 +1100,8 @@
             document.getElementById('toggle-coverage-radius').textContent = radiusM;
             const legendLabel = document.getElementById('legend-coverage-radius');
             if (legendLabel) legendLabel.textContent = radiusM;
+            const legendLabel2 = document.getElementById('legend-coverage-radius-2');
+            if (legendLabel2) legendLabel2.textContent = radiusM;
         }
         // redraws the coverage circles with the new radius
         let radiusRedrawTimer = null;
