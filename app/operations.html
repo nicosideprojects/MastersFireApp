@@ -279,7 +279,7 @@
             <div class="pin-grid">
                 <button class="pin-btn active" data-mode="fire"><span class="emoji">🔥</span>Fire</button>
                 <button class="pin-btn" data-mode="truck"><span class="emoji">🚒</span>Fire Truck</button>
-                <button class="pin-btn" data-mode="person"><span class="emoji">🧑</span>Person</button>
+                <button class="pin-btn" data-mode="person"><span class="emoji">🤕</span>Injured Person</button>
                 <button class="pin-btn" data-mode="plane"><span class="emoji">✈️</span>Aerial</button>
             </div>
         </div>
@@ -345,8 +345,8 @@
         const status = document.getElementById('status');
         const pinListContainer = document.getElementById('pin-list-container');
 
-        const PIN_EMOJIS = { fire: '🔥', truck: '🚒', person: '🧑', plane: '✈️' };
-        const PIN_LABELS = { fire: 'Fire', truck: 'Truck', person: 'Person', plane: 'Aerial' };
+        const PIN_EMOJIS = { fire: '🔥', truck: '🚒', person: '🤕', plane: '✈️' };
+        const PIN_LABELS = { fire: 'Fire', truck: 'Truck', person: 'Injured Person', plane: 'Aerial' };
 
         document.querySelectorAll('.pin-btn').forEach(btn => {
             btn.addEventListener('click', () => {
