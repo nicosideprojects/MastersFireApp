@@ -697,6 +697,33 @@
             return response.json();
         }
 
+        const TOMTOM_TRAFFIC_TIMEOUT_MS = 5000;
+
+        // requests a live travel time between two points via TomTom
+        async function tomtomTrafficDuration(fromLat, fromLon, toLat, toLon) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), TOMTOM_TRAFFIC_TIMEOUT_MS);
+            try {
+                const url = `https://api.tomtom.com/routing/1/calculateRoute/${fromLat},${fromLon}:${toLat},${toLon}/json?key=${TOMTOM_KEY}&traffic=true`;
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error(`TomTom ${response.status}`);
+                const data = await response.json();
+                const summary = data.routes[0].summary;
+                return { liveSeconds: summary.travelTimeInSeconds, delaySeconds: summary.trafficDelayInSeconds || 0 };
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
+
+        // logs a TomTom traffic query and returns null on failure
+        async function tryTomtomTraffic(fromLat, fromLon, toLat, toLon) {
+            try {
+                return await trackApiCall('Live traffic estimate', () => tomtomTrafficDuration(fromLat, fromLon, toLat, toLon));
+            } catch {
+                return null;
+            }
+        }
+
         // removes a pin's marker and layers from the map and the pins array
         function removePin(id) {
             const pin = pins.find(existingPin => existingPin.id === id);
@@ -844,8 +871,23 @@
             ${windHtml}`;
         }
 
+        // creates the travel time row HTML preferring TomTom over ORS
+        function travelTimeRow(routeSummary, traffic) {
+            const seconds = traffic ? traffic.liveSeconds : routeSummary.duration;
+            const minutes = Math.round(seconds / 60);
+            const secs = Math.round(seconds % 60);
+            const delayNote = traffic && traffic.delaySeconds >= 60 ? ` (+${Math.round(traffic.delaySeconds / 60)} min delay)` : '';
+            const sourceNote = traffic ? 'Live traffic (TomTom)' : 'Road-speed estimate - live traffic unavailable';
+            return `
+            <div class="info-row">
+                <div class="info-label">Estimated travel time</div>
+                <div class="info-value">${minutes}m ${secs}s${delayNote}</div>
+                <div class="info-sub" style="color:#888">${sourceNote}</div>
+            </div>`;
+        }
+
         // draws the person pin hospital marker + route line, builds info HTML, from calculatePin data
-        function renderPersonPinResult(pin, nearestHospital, route) {
+        function renderPersonPinResult(pin, nearestHospital, route, traffic) {
             const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
             const hospitalName = nearestHospital.feature.properties.name || 'Unnamed hospital';
             pin.layers.push(L.marker([hospitalLat, hospitalLon], { icon: makeIcon('🏥') }).addTo(map));
@@ -861,27 +903,19 @@
                 <div class="info-label">Route distance</div>
                 <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km</div>
             </div>
-            <div class="info-row">
-                <div class="info-label">Estimated travel time</div>
-                <div class="info-value">${Math.round(routeSummary.duration / 60)} min</div>
-            </div>`;
+            ${travelTimeRow(routeSummary, traffic)}`;
         }
 
         // draws the truck pin route line and builds the info HTML
-        function renderTruckPinResult(pin, route) {
+        function renderTruckPinResult(pin, route, traffic) {
             const routeSummary = route.features[0].properties.summary;
-            const routeMinutes = Math.round(routeSummary.duration / 60);
-            const routeSeconds = Math.round(routeSummary.duration % 60);
             pin.layers.push(L.geoJSON(route, { style: { color: 'orange', weight: 5, opacity: 0.85 } }).addTo(map));
             pin.lastInfo = `
             <div class="info-row">
                 <div class="info-label">Routing to nearest fire</div>
                 <div class="info-value">${(routeSummary.distance / 1000).toFixed(2)} km via road</div>
             </div>
-            <div class="info-row">
-                <div class="info-label">Estimated travel time</div>
-                <div class="info-value">${routeMinutes}m ${routeSeconds}s</div>
-            </div>`;
+            ${travelTimeRow(routeSummary, traffic)}`;
         }
 
         // draws the plane pins nearest water source marker + line, builds info HTML
@@ -962,8 +996,9 @@
                 });
 
                 try {
-                    const route = await orsRoute(lat, lng, nearestFire.lat, nearestFire.lng);
-                    renderTruckPinResult(pin, route);
+                    const route = await trackApiCall('Route to nearest fire', () => orsRoute(lat, lng, nearestFire.lat, nearestFire.lng));
+                    const traffic = await tryTomtomTraffic(lat, lng, nearestFire.lat, nearestFire.lng);
+                    renderTruckPinResult(pin, route, traffic);
                 } catch {
                     pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
                 }
@@ -973,8 +1008,9 @@
                 const [hospitalLon, hospitalLat] = nearestHospital.feature.geometry.coordinates;
 
                 try {
-                    const route = await orsRoute(lat, lng, hospitalLat, hospitalLon);
-                    renderPersonPinResult(pin, nearestHospital, route);
+                    const route = await trackApiCall('Route to nearest hospital', () => orsRoute(lat, lng, hospitalLat, hospitalLon));
+                    const traffic = await tryTomtomTraffic(lat, lng, hospitalLat, hospitalLon);
+                    renderPersonPinResult(pin, nearestHospital, route, traffic);
                 } catch {
                     pin.lastInfo = '<span class="info-muted">Routing failed - check ORS key.</span>';
                 }
