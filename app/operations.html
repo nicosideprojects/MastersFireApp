@@ -708,9 +708,7 @@
                 const response = await fetch(url, { signal: controller.signal });
                 if (!response.ok) throw new Error(`TomTom ${response.status}`);
                 const data = await response.json();
-                const route = data.routes[0];
-                const coords = route.legs.flatMap(leg => leg.points.map(point => [point.latitude, point.longitude]));
-                return { coords, distanceMeters: route.summary.lengthInMeters, durationSeconds: route.summary.travelTimeInSeconds, delaySeconds: route.summary.trafficDelayInSeconds || 0, source: 'tomtom' };
+                return parseTomTomRoute(data);
             } finally {
                 clearTimeout(timeoutId);
             }

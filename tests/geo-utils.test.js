@@ -2,11 +2,17 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const {
     haversine, findNearest, findNearestN, destinationPoint,
     bearingToCompass, waterType, mergeUniqueFeatures, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP,
-    clampRadiusM, windDescription
+    clampRadiusM, windDescription, parseTomTomRoute
 } = require('../app/geo-utils.js');
+
+function readExample(name) {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'Example data', name), 'utf8'));
+}
 
 const LONDON_LAT = 51.5074, LONDON_LON = -0.1278;
 const PARIS_LAT = 48.8566, PARIS_LON = 2.3522;
@@ -58,20 +64,36 @@ test('classifyLiveFeature: sorts tags into the right layer', () => {
     assert.equal(classifyLiveFeature(null), null);
 });
 
-test('classifyLiveFeature: ignores unrelated tags on a real data example', () => {
-    const clinicTags = {
-        'addr:city': 'London',
-        'addr:housename': '150 Cheapside',
-        'addr:housenumber': '150',
-        'addr:postcode': 'EC2V 6ET',
-        'addr:street': 'Cheapside',
-        amenity: 'clinic',
-        healthcare: 'clinic',
-        'healthcare:speciality': 'fertility',
-        name: 'CREATE Fertility',
-        source: 'www.createhealth.org'
-    };
-    assert.equal(classifyLiveFeature(clinicTags), 'hospital');
+test('classifyLiveFeature: sorts an Overpass response into the right layers', () => {
+    // Real data behind Section 4.1's clinic-vs-hospital tagging mismatch.
+    const { elements } = readExample('Endell street.geojson');
+    const classified = elements.map(el => classifyLiveFeature(el.tags));
+
+    const hydrantCount = classified.filter(kind => kind === 'hydrant').length;
+    const hospitalCount = classified.filter(kind => kind === 'hospital').length;
+    assert.equal(hydrantCount, 6);
+    assert.equal(hospitalCount, 4);
+
+    const createFertility = elements.find(el => el.tags.name === 'CREATE Fertility');
+    assert.equal(classifyLiveFeature(createFertility.tags), 'hospital');
+});
+
+test('parseTomTomRoute: reads path and traffic timing from a TomTom response', () => {
+    const data = readExample('TomTom api example.json');
+    const route = parseTomTomRoute(data);
+
+    assert.equal(route.source, 'tomtom');
+    assert.equal(route.distanceMeters, 1490);
+    assert.equal(route.durationSeconds, 695);
+    assert.equal(route.delaySeconds, 83);
+    assert.equal(route.coords.length, 104);
+    assert.deepEqual(route.coords[0], [51.51481, -0.11693]);
+});
+
+test('windDescription + bearingToCompass: label an Open-Meteo response', () => {
+    const { current } = readExample('Weather example.json');
+    assert.equal(windDescription(current.wind_speed_10m), 'gentle breeze');
+    assert.equal(bearingToCompass(current.wind_direction_10m), 'NW');
 });
 
 function featureAt(lon, lat) {

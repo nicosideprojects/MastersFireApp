@@ -189,8 +189,21 @@ function windDescription(speedKmh) {
     return band ? band.term : HURRICANE_FORCE_TERM;
 }
 
+// returns the path and traffic timing out of a TomTom calculateRoute response
+function parseTomTomRoute(data) {
+    const route = data.routes[0];
+    const coords = route.legs.flatMap(leg => leg.points.map(point => [point.latitude, point.longitude]));
+    return {
+        coords,
+        distanceMeters: route.summary.lengthInMeters,
+        durationSeconds: route.summary.travelTimeInSeconds,
+        delaySeconds: route.summary.trafficDelayInSeconds || 0,
+        source: 'tomtom'
+    };
+}
+
 // Node's CommonJS require() sees this and grabs the exports; browsers loading
 // this as a plain <script> never define `module`, so they just get the globals above.
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, mergeUniqueFeatures, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription };
+    module.exports = { haversine, findNearest, findNearestN, destinationPoint, bearingToCompass, waterType, mergeUniqueFeatures, classifyLiveFeature, isCovered, computeCoverage, greedyMCLP, clampRadiusM, windDescription, parseTomTomRoute };
 }
