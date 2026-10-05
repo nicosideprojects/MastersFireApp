@@ -681,10 +681,11 @@
             const orderedMirrors = stickyMirror
                 ? [stickyMirror, ...OVERPASS_MIRRORS.filter(mirror => mirror !== stickyMirror)]
                 : OVERPASS_MIRRORS;
+            const failedStatuses = [];
             for (const mirrorUrl of orderedMirrors) {
                 try {
                     const response = await fetch(mirrorUrl, { method: 'POST', body: 'data=' + encodeURIComponent(query), signal: abortSignal });
-                    if (!response.ok) continue;
+                    if (!response.ok) { failedStatuses.push(response.status); continue; }
                     const json = await response.json();
                     stickyMirror = mirrorUrl;
                     return json;
@@ -692,7 +693,7 @@
                     if (err.name === 'AbortError') throw err;
                 }
             }
-            throw new Error('All Overpass mirrors failed');
+            throw new Error(`All Overpass mirrors failed (${failedStatuses.join(', ') || 'no response'})`);
         }
 
         // converts raw Overpass elements into the same feature shape as the static geojson files
