@@ -778,6 +778,7 @@
 
                 hydrants = mergeUniqueFeatures(hydrants, result.features, LIVE_DEDUP_DISTANCE_KM);
                 renderHydrantDots();
+                if (heatLayer) renderHeatmap();
 
                 status.textContent = `Fetched ${result.features.length} hydrants for this area (${hydrants.length} total loaded)${result.fromCache ? ' (cached)' : ''}`;
             } catch (err) {
