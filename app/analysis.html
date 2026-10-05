@@ -1061,14 +1061,11 @@
             // gap cell centers - the raw demand points MCLP tries to cover
             const uncoveredCentroids = uncoveredHexes.map(({ lat, lon }) => [lat, lon]);
 
-            // downsample first if there are too many centroids
-            let mclpInput = uncoveredCentroids;
-            if (mclpInput.length > MAX_MCLP_INPUT_POINTS) {
-                const step = Math.ceil(mclpInput.length / MAX_MCLP_INPUT_POINTS);
-                mclpInput = mclpInput.filter((_, i) => i % step === 0);
-            }
-
-            const rawCandidates = greedyMCLP(mclpInput, radiusKm, MAX_MCLP_CANDIDATES);
+            // Too many gap cells are cut down for speed so each count is scaled back up to match the full set
+            const sampleStep = Math.max(1, Math.ceil(uncoveredCentroids.length / MAX_MCLP_INPUT_POINTS));
+            const mclpInput = uncoveredCentroids.filter((_, i) => i % sampleStep === 0);
+            const rawCandidates = greedyMCLP(mclpInput, radiusKm, MAX_MCLP_CANDIDATES)
+                .map(candidate => ({ ...candidate, covering: candidate.covering * sampleStep }));
 
             status.textContent = doSnap ? 'Snapping candidates to roads...' : 'Placing candidates...';
             await pauseForRepaint();
