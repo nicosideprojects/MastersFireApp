@@ -699,6 +699,7 @@
                 headers: { 'Authorization': ORS_KEY, 'Content-Type': 'application/json' },
                 body: JSON.stringify({ coordinates: [[fromLon, fromLat], [toLon, toLat]] })
             });
+            if (!response.ok) throw new Error(`ORS ${response.status}`);
             return response.json();
         }
 
@@ -825,7 +826,7 @@
         const FIRE_SEARCH_RADIUS_KM = 0.5;
         const FIRE_SEARCH_RADIUS_LABEL = `${FIRE_SEARCH_RADIUS_KM * 1000}m`;
         const MAX_NEAREST_RESULTS = 3;
-        // spread cone shape was tuned by eye and is not a physical fire model
+        // spread cone shape was adjusted till it had reasonable looking results
         const SPREAD_KM_PER_KMH_WIND = 0.02;
         const MIN_SPREAD_DIST_KM = 0.05;
         const SPREAD_CONE_HALF_ANGLE_DEG = 30;
