@@ -496,6 +496,22 @@
 
         // safety cap on how many candidates the algorithm can suggest in one run
         const MAX_MCLP_CANDIDATES = 50;
+        // max cells for algorithm to avoid long process time
+        const MAX_MCLP_INPUT_POINTS = 2000;
+
+        // hex cells scale with the view width within these bounds
+        const MIN_CELL_SIDE_KM = 0.03;
+        const MAX_CELL_SIDE_KM = 0.5;
+        const CELLS_ACROSS_VIEW = 50;
+
+        // colour bands for the results
+        const GOOD_COVERAGE_PCT = 70;
+        const WARN_COVERAGE_PCT = 40;
+        const GOOD_GAP_CELLS = 100;
+        const WARN_GAP_CELLS = 500;
+
+        const CANDIDATE_FOCUS_ZOOM = 17;
+        const RADIUS_REDRAW_DELAY_MS = 200;
 
         const map = L.map('map').setView(LONDON_LAT_LON, 13);
         L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
@@ -710,12 +726,14 @@
         function bboxAreaKm2(bounds) {
             const deltaLat = bounds.getNorth() - bounds.getSouth();
             const deltaLon = bounds.getEast() - bounds.getWest();
-            return deltaLat * 111 * deltaLon * 111 * Math.cos(bounds.getCenter().lat * Math.PI / 180);
+            return deltaLat * KM_PER_DEGREE_LATITUDE * deltaLon * KM_PER_DEGREE_LATITUDE * Math.cos(bounds.getCenter().lat * Math.PI / 180);
         }
 
         const FORCE_STATIC_MODE = false;
         const LIVE_FETCH_TIMEOUT_MS = 20000;
         const LIVE_DEDUP_DISTANCE_KM = 0.015;
+        // larger areas tend to time out on the public Overpass servers
+        const MAX_FETCH_AREA_KM2 = 150;
 
         // the hydrant-only Overpass query for a given bbox string
         function buildHydrantAreaQuery(boundingBoxStr) {
@@ -734,7 +752,7 @@
             }
 
             const areaKm2 = bboxAreaKm2(bounds);
-            if (areaKm2 > 150) {
+            if (areaKm2 > MAX_FETCH_AREA_KM2) {
                 status.textContent = `Area too large (~${Math.round(areaKm2)} km2) - zoom in and try again`;
                 status.style.color = '#ffb347';
                 return;
@@ -893,11 +911,11 @@
             const coveragePct = totalCells > 0 ? ((coveredHexes.length / totalCells) * 100).toFixed(1) : '0';
             const coverageEl = document.getElementById('stat-coverage');
             coverageEl.textContent = `${coveragePct}%`;
-            coverageEl.className = 'stat-value ' + (coveragePct >= 70 ? 'good' : coveragePct >= 40 ? 'warn' : 'bad');
+            coverageEl.className = 'stat-value ' + (coveragePct >= GOOD_COVERAGE_PCT ? 'good' : coveragePct >= WARN_COVERAGE_PCT ? 'warn' : 'bad');
 
             const gapsEl = document.getElementById('stat-gaps');
             gapsEl.textContent = uncoveredHexes.length.toLocaleString();
-            gapsEl.className = 'stat-value ' + (uncoveredHexes.length < 100 ? 'good' : uncoveredHexes.length < 500 ? 'warn' : 'bad');
+            gapsEl.className = 'stat-value ' + (uncoveredHexes.length < GOOD_GAP_CELLS ? 'good' : uncoveredHexes.length < WARN_GAP_CELLS ? 'warn' : 'bad');
         }
 
         // renders projected coverage result after candidate hydrants are added
@@ -905,7 +923,7 @@
             const pct = totalCells > 0 ? ((coveredHexes.length / totalCells) * 100).toFixed(1) : '0';
             const el = document.getElementById('stat-projected-coverage');
             el.textContent = `${pct}%`;
-            el.className = 'stat-value ' + (pct >= 70 ? 'good' : pct >= 40 ? 'warn' : 'bad');
+            el.className = 'stat-value ' + (pct >= GOOD_COVERAGE_PCT ? 'good' : pct >= WARN_COVERAGE_PCT ? 'warn' : 'bad');
         }
 
         // draws the numbered candidate markers and the candidate list panel from the finished candidate list
@@ -948,7 +966,7 @@
                 item.addEventListener('click', () => {
                     const marker = markerByNum[item.dataset.num];
                     if (!marker) return;
-                    map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 17));
+                    map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), CANDIDATE_FOCUS_ZOOM));
                     marker.openPopup();
                 });
             });
@@ -988,7 +1006,7 @@
             // width of the visible map, used to size the grid cells below
             const viewWidthKm = haversine(bounds.getSouth(), bounds.getWest(), bounds.getSouth(), bounds.getEast());
             // hex cell size in km - bigger cells when zoomed out, smaller when zoomed in
-            const cellSide = Math.max(0.03, Math.min(0.5, viewWidthKm / 50));
+            const cellSide = Math.max(MIN_CELL_SIDE_KM, Math.min(MAX_CELL_SIDE_KM, viewWidthKm / CELLS_ACROSS_VIEW));
 
             status.textContent = 'Building hex grid...';
             await pauseForRepaint();
@@ -1037,8 +1055,8 @@
 
             // downsample first if there are too many centroids
             let mclpInput = uncoveredCentroids;
-            if (mclpInput.length > 2000) {
-                const step = Math.ceil(mclpInput.length / 2000);
+            if (mclpInput.length > MAX_MCLP_INPUT_POINTS) {
+                const step = Math.ceil(mclpInput.length / MAX_MCLP_INPUT_POINTS);
                 mclpInput = mclpInput.filter((_, i) => i % step === 0);
             }
 
@@ -1155,7 +1173,7 @@
             if (!document.getElementById('toggle-coverage').classList.contains('active')) return;
             // waits a moment before redrawing, so typing doesn't rebuild every circle on every keystroke
             clearTimeout(radiusRedrawTimer);
-            radiusRedrawTimer = setTimeout(() => renderCoverageCircles(getRadiusM()), 200);
+            radiusRedrawTimer = setTimeout(() => renderCoverageCircles(getRadiusM()), RADIUS_REDRAW_DELAY_MS);
         }
 
         radiusInputEl.addEventListener('input', () => {

@@ -326,7 +326,9 @@
     <div id="pin-fetch-indicator"></div>
 
     <script>
-        const map = L.map('map').setView([51.5, -0.1], 13);
+        const LONDON_LAT_LON = [51.5, -0.1];
+
+        const map = L.map('map').setView(LONDON_LAT_LON, 13);
 
         L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -489,13 +491,16 @@
         function bboxAreaKm2(bounds) {
             const deltaLat = bounds.getNorth() - bounds.getSouth();
             const deltaLon = bounds.getEast() - bounds.getWest();
-            return deltaLat * 111 * deltaLon * 111 * Math.cos(bounds.getCenter().lat * Math.PI / 180);
+            return deltaLat * KM_PER_DEGREE_LATITUDE * deltaLon * KM_PER_DEGREE_LATITUDE * Math.cos(bounds.getCenter().lat * Math.PI / 180);
         }
 
         const FORCE_STATIC_MODE = false;
         const LIVE_FETCH_TIMEOUT_MS = 20000;
         const LIVE_DEDUP_DISTANCE_KM = 0.015;
         const PIN_FETCH_RADIUS_KM = 3;
+        // larger areas tend to time out on the public Overpass servers
+        const MAX_FETCH_AREA_KM2 = 150;
+        const FETCH_INDICATOR_HIDE_MS = 2500;
 
         // the combined hydrant/water/hospital Overpass query for a given bbox string
         function buildAreaQuery(boundingBoxStr) {
@@ -521,7 +526,7 @@
             }
 
             const areaKm2 = bboxAreaKm2(bounds);
-            if (areaKm2 > 150) {
+            if (areaKm2 > MAX_FETCH_AREA_KM2) {
                 status.textContent = `Area too large (~${Math.round(areaKm2)} km2) - zoom in and try again`;
                 status.style.color = '#ffb347';
                 return;
@@ -646,7 +651,7 @@
             } finally {
                 clearTimeout(timeoutId);
                 backgroundFetchInFlight = false;
-                setTimeout(() => { pinFetchIndicator.style.display = 'none'; }, 2500);
+                setTimeout(() => { pinFetchIndicator.style.display = 'none'; }, FETCH_INDICATOR_HIDE_MS);
             }
         }
 
@@ -817,6 +822,14 @@
             return pin;
         }
 
+        const FIRE_SEARCH_RADIUS_KM = 0.5;
+        const FIRE_SEARCH_RADIUS_LABEL = `${FIRE_SEARCH_RADIUS_KM * 1000}m`;
+        const MAX_NEAREST_RESULTS = 3;
+        // spread cone shape was tuned by eye and is not a physical fire model
+        const SPREAD_KM_PER_KMH_WIND = 0.02;
+        const MIN_SPREAD_DIST_KM = 0.05;
+        const SPREAD_CONE_HALF_ANGLE_DEG = 30;
+
         // draws the fire pins hydrant/water markers and spread cone, builds info HTML, from calculatePin data
         function renderFirePinResult(pin, lat, lng, { nearestHydrants, nearestHydrantFallback, nearestWaters, nearestWaterFallback, wind }) {
             nearestHydrants.forEach(hydrantMatch => {
@@ -835,14 +848,14 @@
             let windHtml = '<div class="info-row"><span class="info-muted">Wind data unavailable</span></div>';
             if (wind) {
                 const spreadBearing = (wind.direction + 180) % 360;
-                const spreadDist = Math.max(0.05, wind.speed * 0.02);
-                const windSpeedKmh = wind.speed * 3.6;
+                const windSpeedKmh = wind.speed;
+                const spreadDist = Math.max(MIN_SPREAD_DIST_KM, windSpeedKmh * SPREAD_KM_PER_KMH_WIND);
 
                 pin.layers.push(L.polygon(
                     [[lat, lng],
-                    destinationPoint(lat, lng, (spreadBearing - 30 + 360) % 360, spreadDist),
+                    destinationPoint(lat, lng, (spreadBearing - SPREAD_CONE_HALF_ANGLE_DEG + 360) % 360, spreadDist),
                     destinationPoint(lat, lng, spreadBearing, spreadDist),
-                    destinationPoint(lat, lng, (spreadBearing + 30) % 360, spreadDist)],
+                    destinationPoint(lat, lng, (spreadBearing + SPREAD_CONE_HALF_ANGLE_DEG) % 360, spreadDist)],
                     { color: 'orange', fillColor: 'orange', fillOpacity: 0.25, weight: 2, dashArray: '5,4' }
                 ).addTo(map));
 
@@ -860,22 +873,22 @@
             const hydrantSummary = nearestHydrants.length
                 ? nearestHydrants.map(hydrantMatch => `<div class="info-sub">Hydrant - ${(hydrantMatch.dist * 1000).toFixed(0)}m</div>`).join('')
                 : nearestHydrantFallback
-                    ? `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`
+                    ? `<div class="info-sub">Hydrant - ${(nearestHydrantFallback.dist * 1000).toFixed(0)}m (nearest, outside ${FIRE_SEARCH_RADIUS_LABEL})</div>`
                     : `<div class="info-sub">No hydrants found in the loaded area</div>`;
 
             const waterSummary = nearestWaters.length
                 ? nearestWaters.map(waterMatch => `<div class="info-sub">${waterType(waterMatch.feature.properties)} - ${(waterMatch.dist * 1000).toFixed(0)}m</div>`).join('')
                 : nearestWaterFallback
-                    ? `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside 500m)</div>`
+                    ? `<div class="info-sub">${waterType(nearestWaterFallback.feature.properties)} - ${(nearestWaterFallback.dist * 1000).toFixed(0)}m (nearest, outside ${FIRE_SEARCH_RADIUS_LABEL})</div>`
                     : `<div class="info-sub">No water sources found in the loaded area</div>`;
 
             pin.lastInfo = `
             <div class="info-row">
-                <div class="info-label">Hydrants within 500m</div>
+                <div class="info-label">Hydrants within ${FIRE_SEARCH_RADIUS_LABEL}</div>
                 ${!nearestHydrants.length && nearestHydrantFallback ? '<div class="info-sub" style="color:#888">None - showing nearest</div>' : ''}${hydrantSummary}
             </div>
             <div class="info-row">
-                <div class="info-label">Water sources within 500m</div>
+                <div class="info-label">Water sources within ${FIRE_SEARCH_RADIUS_LABEL}</div>
                 ${!nearestWaters.length && nearestWaterFallback ? '<div class="info-sub" style="color:#888">None - showing nearest</div>' : ''}${waterSummary}
             </div>
             ${windHtml}`;
@@ -883,8 +896,9 @@
 
         // creates the travel time row HTML, labelled with whichever source the route came from
         function travelTimeRow(route) {
-            const minutes = Math.round(route.durationSeconds / 60);
-            const secs = Math.round(route.durationSeconds % 60);
+            const totalSeconds = Math.round(route.durationSeconds);
+            const minutes = Math.floor(totalSeconds / 60);
+            const secs = totalSeconds % 60;
             const delayNote = route.delaySeconds >= 60 ? ` (+${Math.round(route.delaySeconds / 60)} min delay)` : '';
             const sourceNote = route.source === 'tomtom' ? 'Live traffic (TomTom)' : 'Road-speed estimate - live traffic unavailable';
             return `
@@ -971,9 +985,9 @@
             }
 
             if (type === 'fire') {
-                const nearestHydrants = findNearestN(lat, lng, hydrants, 3).filter(hydrantMatch => hydrantMatch.dist <= 0.5);
+                const nearestHydrants = findNearestN(lat, lng, hydrants, MAX_NEAREST_RESULTS).filter(hydrantMatch => hydrantMatch.dist <= FIRE_SEARCH_RADIUS_KM);
                 const nearestHydrantFallback = nearestHydrants[0] || findNearest(lat, lng, hydrants);
-                const nearestWaters = findNearestN(lat, lng, waterBodies, 3).filter(waterMatch => waterMatch.dist <= 0.5);
+                const nearestWaters = findNearestN(lat, lng, waterBodies, MAX_NEAREST_RESULTS).filter(waterMatch => waterMatch.dist <= FIRE_SEARCH_RADIUS_KM);
                 const nearestWaterFallback = nearestWaters[0] || findNearest(lat, lng, waterBodies);
 
                 let wind = null;
