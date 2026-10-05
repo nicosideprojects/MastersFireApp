@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
-    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js"></script>
     <script src="geo-utils.js"></script>
     <script src="api-status.js"></script>
     <script src="config.js"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -815,6 +815,20 @@
 
         document.getElementById('fetch-btn').addEventListener('click', () => fetchHydrantAreaData(map.getBounds()));
 
+        // gives up on a slow mirror so the next one is tried instead of waiting minutes
+        const OVERPASS_MIRROR_TIMEOUT_MS = 25000;
+        async function overpassPostWithTimeout(mirror, query) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), OVERPASS_MIRROR_TIMEOUT_MS);
+            try {
+                const response = await fetch(mirror, { method: 'POST', body: 'data=' + encodeURIComponent(query), signal: controller.signal });
+                if (!response.ok) throw new Error(`Overpass ${response.status}`);
+                return await response.json();
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
+
         // fetches park/wood/water polygons from Overpass to exclude from demand
         async function fetchDemandMask(bounds) {
             const { _southWest: southWest, _northEast: northEast } = bounds;
@@ -831,9 +845,7 @@
 
             for (const mirror of OVERPASS_MIRRORS) {
                 try {
-                    const response = await fetch(mirror, { method: 'POST', body: 'data=' + encodeURIComponent(query) });
-                    if (!response.ok) continue;
-                    const json = await response.json();
+                    const json = await overpassPostWithTimeout(mirror, query);
 
                     // osmtogeojson correctly joins a relations pieces into one shape
                     const geojson = osmtogeojson(json);
@@ -864,9 +876,7 @@
             let mirrorSucceeded = false;
             for (const mirror of OVERPASS_MIRRORS) {
                 try {
-                    const response = await fetch(mirror, { method: 'POST', body: 'data=' + encodeURIComponent(query) });
-                    if (!response.ok) continue;
-                    const json = await response.json();
+                    const json = await overpassPostWithTimeout(mirror, query);
                     mirrorSucceeded = true;
                     json.elements?.forEach(way => {
                         if (!way.geometry || way.geometry.length < 2) return;
@@ -979,7 +989,7 @@
         async function runAnalysis() {
             if (!hydrants.length) { status.textContent = 'Hydrant data not loaded yet.'; return; }
 
-            // the grid size is checked before anything runs so a zoomed out view cannot freeze the page
+            // the grid size is checked before anything runs so analysis doesnt freeze
             const bounds = map.getBounds();
             const bbox = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
             const viewWidthKm = haversine(bounds.getSouth(), bounds.getWest(), bounds.getSouth(), bounds.getEast());
